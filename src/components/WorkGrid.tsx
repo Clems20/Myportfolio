@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { DecorativeBackground } from "./DecorativeBackground";
 
-const projects = [
+export const projects = [
   {
     id: 1,
     title: "Finance Dashboard Redesign",
@@ -14,7 +14,48 @@ const projects = [
       "https://images.unsplash.com/photo-1748609339084-ea43ec1b8fbb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaW5hbmNlJTIwZGFzaGJvYXJkJTIwYW5hbHl0aWNzfGVufDF8fHx8MTc2Njg1MDIwOHww&ixlib=rb-4.1.0&q=80&w=1080",
       "https://images.unsplash.com/photo-1762279389020-eeeb69c25813?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaW5hbmNpYWwlMjBjaGFydHMlMjBncmFwaHN8ZW58MXx8fHwxNzY2ODUwMjA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
     ],
-    description: "Redesigning a complex dashboard to help users understand their finances at a glance"
+    description: "Redesigning a complex dashboard to help users understand their finances at a glance",
+    client: "FinanceFlow",
+    role: "Lead Product Designer",
+    date: "Jan - Mar 2024",
+    tools: ["Figma", "Figjam", "Protopie"],
+    goal: "Create an intuitive dashboard that simplifies complex financial data for everyday users",
+    problem: "Users were overwhelmed by data-heavy interfaces and struggled to find actionable insights",
+    userDescription: "Busy professionals aged 25-45 who want to manage finances without becoming financial experts",
+    challenges: [
+      "Balancing data density with visual clarity without losing important information",
+      "Designing for both novice and power users with different needs and expectations",
+      "Creating a scalable design system that works across web and mobile platforms"
+    ],
+    processSteps: [
+      {
+        title: "Discovery & Research",
+        description: "Conducted user interviews with 15 users and analyzed existing usage patterns to understand pain points and opportunities.",
+        image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      },
+      {
+        title: "Wireframes & Information Architecture",
+        description: "Mapped out user flows and created low-fidelity wireframes to test different layouts and information hierarchies.",
+        image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      },
+      {
+        title: "Visual Design & Prototyping",
+        description: "Developed high-fidelity designs with a focus on scannable data visualization and clear CTAs. Created interactive prototypes for testing.",
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      }
+    ],
+    results: {
+      metrics: [
+        "40% reduction in time to complete key tasks",
+        "85% user satisfaction score in post-launch surveys",
+        "60% increase in daily active users within first month"
+      ],
+      learnings: [
+        "Progressive disclosure is crucial for managing complexity without overwhelming users",
+        "Small animations and micro-interactions significantly improve perceived performance",
+        "Regular user testing throughout the design process prevented major pivots later"
+      ]
+    }
   },
   {
     id: 2,
@@ -26,7 +67,48 @@ const projects = [
       "https://images.unsplash.com/photo-1764123108291-0f48d2c7e563?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b3Jrc3BhY2UlMjBjb2xsYWJvcmF0aW9uJTIwdG9vbHN8ZW58MXx8fHwxNzY2ODUwMjEyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "https://images.unsplash.com/photo-1580983558189-84200466afb8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWFtJTIwd29ya3NwYWNlJTIwZGVzaWdufGVufDF8fHx8MTc2Njg1MDIwOXww&ixlib=rb-4.1.0&q=80&w=1080",
     ],
-    description: "Building a unified workspace that brings teams together without the complexity"
+    description: "Building a unified workspace that brings teams together without the complexity",
+    client: "WorkHub",
+    role: "UX Strategist & Product Designer",
+    date: "Apr - Aug 2024",
+    tools: ["Figma", "Miro", "Notion"],
+    goal: "Design a collaboration platform that reduces tool fragmentation and improves team productivity",
+    problem: "Teams were using 5+ disconnected tools, leading to context switching and lost information",
+    userDescription: "Remote and hybrid teams of 10-50 people across creative and tech industries",
+    challenges: [
+      "Integrating multiple tool functionalities without creating a cluttered experience",
+      "Designing for both synchronous and asynchronous collaboration patterns",
+      "Ensuring the platform remained fast and responsive despite rich features"
+    ],
+    processSteps: [
+      {
+        title: "Competitive Analysis & User Research",
+        description: "Analyzed 12 collaboration tools and interviewed 25 team leads to understand workflow patterns and pain points.",
+        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      },
+      {
+        title: "Journey Mapping & Feature Prioritization",
+        description: "Created detailed journey maps for different user personas and prioritized features based on impact vs effort.",
+        image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      },
+      {
+        title: "Design System & UI Development",
+        description: "Built a comprehensive design system focused on consistency and flexibility. Designed modular components for different workspace views.",
+        image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      }
+    ],
+    results: {
+      metrics: [
+        "Teams reduced tool usage from average 5.3 to 2.1 tools",
+        "73% of users reported improved team communication",
+        "90-day retention rate of 82% after launch"
+      ],
+      learnings: [
+        "Successful adoption requires gradual migration, not abrupt tool replacement",
+        "Customizable workspaces are essential for different team cultures",
+        "Real-time collaboration features need careful performance optimization"
+      ]
+    }
   },
   {
     id: 3,
@@ -38,11 +120,52 @@ const projects = [
       "https://images.unsplash.com/photo-1681826291722-70bd7e9e6fc3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBiYW5raW5nJTIwYXBwfGVufDF8fHx8MTc2Njc0ODg4NHww&ixlib=rb-4.1.0&q=80&w=1080",
       "https://images.unsplash.com/photo-1765226410758-9ae3d34cd791?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYW5raW5nJTIwbW9iaWxlJTIwaW50ZXJmYWNlfGVufDF8fHx8MTc2Njg0NTA4Nnww&ixlib=rb-4.1.0&q=80&w=1080",
     ],
-    description: "Making banking feel less like a chore and more like a helpful companion"
+    description: "Making banking feel less like a chore and more like a helpful companion",
+    client: "NextGen Bank",
+    role: "Senior Mobile Designer",
+    date: "Sep - Dec 2023",
+    tools: ["Figma", "Principle", "Maze"],
+    goal: "Create a mobile banking experience that resonates with Gen Z users and builds healthy financial habits",
+    problem: "Traditional banking apps felt intimidating and disconnected from how young users think about money",
+    userDescription: "Gen Z users (18-25) looking for their first independent banking experience",
+    challenges: [
+      "Building trust and security perception without feeling corporate or stuffy",
+      "Gamifying financial literacy without trivializing serious money matters",
+      "Designing for accessibility while maintaining a fresh, youthful aesthetic"
+    ],
+    processSteps: [
+      {
+        title: "Gen Z User Research",
+        description: "Conducted contextual inquiries and diary studies with 20 Gen Z users to understand their relationship with money and existing banking frustrations.",
+        image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      },
+      {
+        title: "Concept Testing & Iteration",
+        description: "Created multiple design concepts focusing on personality, clarity, and delight. Tested with users to find the right balance.",
+        image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      },
+      {
+        title: "Final Design & Motion",
+        description: "Developed polished UI with thoughtful micro-interactions and a friendly tone of voice. Created detailed motion specs for development.",
+        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      }
+    ],
+    results: {
+      metrics: [
+        "15K+ downloads in first two weeks of launch",
+        "4.7 star rating on App Store",
+        "Users check app 3.2x more than competitor apps"
+      ],
+      learnings: [
+        "Conversational UI and friendly copy dramatically improved user comfort",
+        "Visual feedback for every action built confidence in first-time users",
+        "Educational content works best when integrated naturally into the experience"
+      ]
+    }
   }
 ];
 
-export function WorkGrid() {
+export function WorkGrid({ onProjectClick }: { onProjectClick?: (projectId: number) => void }) {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
   const [currentImageIndexes, setCurrentImageIndexes] = useState<{ [key: number]: number }>({});
 
@@ -96,7 +219,13 @@ export function WorkGrid() {
               onMouseLeave={() => setSelectedProject(null)}
               className="group cursor-pointer"
             >
-              <a href={`#project-${project.id}`} className="block">
+              <div
+                className="block"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onProjectClick?.(project.id);
+                }}
+              >
                 <motion.div 
                   className="relative overflow-hidden rounded-2xl bg-muted mb-6 aspect-[4/3]"
                   whileHover={{ y: -8 }}
@@ -195,7 +324,7 @@ export function WorkGrid() {
                     </motion.div>
                   </h3>
                 </div>
-              </a>
+              </div>
             </motion.article>
           ))}
         </div>
