@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Download } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
@@ -13,6 +13,14 @@ const navItems = [
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+
+  const handleResumeDownload = () => {
+    const resumeUrl = "/resume.pdf";
+    const link = document.createElement("a");
+    link.href = resumeUrl;
+    link.download = "Obinna_Anyanwu_Resume.pdf";
+    link.click();
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -87,6 +95,12 @@ export function Header() {
               )}
             </a>
           ))}
+          <button
+            onClick={handleResumeDownload}
+            className="relative text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Resume
+          </button>
           <a
             href="#contact"
             className="px-6 py-2.5 bg-primary text-primary-foreground rounded-full hover:bg-accent hover:text-accent-foreground transition-colors"
@@ -138,6 +152,18 @@ export function Header() {
                 )}
               </a>
             ))}
+            
+            {/* Mobile Resume Download */}
+            <button
+              onClick={() => {
+                handleResumeDownload();
+                setIsMenuOpen(false);
+              }}
+              className="relative py-2 pl-4 text-muted-foreground hover:text-accent transition-colors flex items-center gap-3"
+            >
+              <Download className="w-4 h-4" />
+              <span>Download Resume</span>
+            </button>
           </div>
         </motion.div>
       )}

@@ -1,7 +1,23 @@
 import { motion } from "motion/react";
 import { DecorativeBackground } from "./DecorativeBackground";
+import { Download } from "lucide-react";
+import { useState } from "react";
 
 export function About() {
+  const [isDownloaded, setIsDownloaded] = useState(false);
+
+  const handleDownload = () => {
+    // Replace with actual resume URL
+    const resumeUrl = "/resume.pdf";
+    const link = document.createElement("a");
+    link.href = resumeUrl;
+    link.download = "Obinna_Anyanwu_Resume.pdf";
+    link.click();
+    
+    setIsDownloaded(true);
+    setTimeout(() => setIsDownloaded(false), 2000);
+  };
+
   return (
     <section id="about" className="py-24 px-6 relative">
       <DecorativeBackground variant="subtle" />
@@ -100,6 +116,41 @@ export function About() {
                   <p>Figma for UI/UX Master Web Design</p>
                   <p>Complete Web & Mobile Design Course</p>
                 </div>
+              </motion.div>
+
+              {/* Resume Download */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.7 }}
+              >
+                <motion.button
+                  onClick={handleDownload}
+                  className="group relative px-6 py-3 bg-accent/10 hover:bg-accent text-muted-foreground hover:text-accent-foreground rounded-xl transition-all duration-300 flex items-center gap-3 overflow-hidden"
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <motion.div
+                    className="absolute inset-0 bg-accent"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: 0 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  <Download className="w-5 h-5 relative z-10" />
+                  <span className="relative z-10">
+                    {isDownloaded ? "Downloaded!" : "Download Resume"}
+                  </span>
+                  {isDownloaded && (
+                    <motion.span
+                      initial={{ scale: 0, rotate: -180 }}
+                      animate={{ scale: 1, rotate: 0 }}
+                      className="relative z-10"
+                    >
+                      ✓
+                    </motion.span>
+                  )}
+                </motion.button>
               </motion.div>
             </div>
           </div>
