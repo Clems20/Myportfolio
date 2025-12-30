@@ -168,27 +168,60 @@ export const projects = [
 export function WorkGrid({ onProjectClick }: { onProjectClick?: (projectId: number) => void }) {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
   const [currentImageIndexes, setCurrentImageIndexes] = useState<{ [key: number]: number }>({});
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Auto-scroll images when hovering over a project
+  // Detect mobile viewport
   useEffect(() => {
-    if (selectedProject === null) {
-      return;
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Auto-scroll images - on mobile: all projects cycle, on desktop: only hovered project
+  useEffect(() => {
+    if (isMobile) {
+      // On mobile, cycle all project images
+      const intervals = projects.map(project => {
+        if (project.images.length <= 1) return null;
+        
+        return setInterval(() => {
+          setCurrentImageIndexes(prev => ({
+            ...prev,
+            [project.id]: ((prev[project.id] || 0) + 1) % project.images.length
+          }));
+        }, 4000); // Change image every 4 seconds on mobile
+      });
+
+      return () => {
+        intervals.forEach(interval => {
+          if (interval) clearInterval(interval);
+        });
+      };
+    } else {
+      // On desktop, only cycle the hovered project
+      if (selectedProject === null) {
+        return;
+      }
+
+      const project = projects.find(p => p.id === selectedProject);
+      if (!project || project.images.length <= 1) {
+        return;
+      }
+
+      const interval = setInterval(() => {
+        setCurrentImageIndexes(prev => ({
+          ...prev,
+          [selectedProject]: ((prev[selectedProject] || 0) + 1) % project.images.length
+        }));
+      }, 2800); // Change image every 2.8 seconds on desktop hover
+
+      return () => clearInterval(interval);
     }
-
-    const project = projects.find(p => p.id === selectedProject);
-    if (!project || project.images.length <= 1) {
-      return;
-    }
-
-    const interval = setInterval(() => {
-      setCurrentImageIndexes(prev => ({
-        ...prev,
-        [selectedProject]: ((prev[selectedProject] || 0) + 1) % project.images.length
-      }));
-    }, 2800); // Change image every 2.8 seconds
-
-    return () => clearInterval(interval);
-  }, [selectedProject]);
+  }, [selectedProject, isMobile]);
 
   return (
     <section id="work" className="py-24 px-6 relative">
@@ -240,18 +273,20 @@ export function WorkGrid({ onProjectClick }: { onProjectClick?: (projectId: numb
                     }}
                     transition={{ duration: 0.6 }}
                   />
+                  
+                  {/* Gradient Overlay - Always visible on mobile, hover on desktop */}
                   <motion.div 
                     className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-foreground/20 to-transparent"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: selectedProject === project.id ? 1 : 0 }}
+                    initial={{ opacity: isMobile ? 1 : 0 }}
+                    animate={{ opacity: (isMobile || selectedProject === project.id) ? 1 : 0 }}
                     transition={{ duration: 0.3 }}
                   />
                   
-                  {/* Adaptive Blur for Text Readability */}
+                  {/* Adaptive Blur for Text Readability - Always visible on mobile */}
                   <motion.div 
                     className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-foreground/40 to-transparent backdrop-blur-md"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: selectedProject === project.id ? 1 : 0 }}
+                    initial={{ opacity: isMobile ? 1 : 0 }}
+                    animate={{ opacity: (isMobile || selectedProject === project.id) ? 1 : 0 }}
                     transition={{ duration: 0.3 }}
                   />
                   
@@ -282,22 +317,27 @@ export function WorkGrid({ onProjectClick }: { onProjectClick?: (projectId: numb
                     </motion.div>
                   )}
                   
-                  {/* Text Overlay on Hover */}
+                  {/* Text Overlay - Always visible on mobile, hover on desktop */}
                   <motion.div
                     className="absolute inset-0 flex items-end p-6"
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: isMobile ? 1 : 0, y: isMobile ? 0 : 20 }}
                     animate={{ 
-                      opacity: selectedProject === project.id ? 1 : 0,
-                      y: selectedProject === project.id ? 0 : 20
+                      opacity: (isMobile || selectedProject === project.id) ? 1 : 0,
+                      y: (isMobile || selectedProject === project.id) ? 0 : 20
                     }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="text-background">
-                      <p className="text-sm mb-2 opacity-90">{project.category} • {project.year}</p>
-                      <h4 className="text-xl mb-2">{project.title}</h4>
-                      <p className="text-sm opacity-90">{project.description}</p>
+                    <div className="text-background relative z-10">
+                      {/* Hide category and year on mobile */}
+                      {!isMobile && (
+                        <p className="text-sm mb-2 opacity-90">{project.category} • {project.year}</p>
+                      )}
+                      <h4 className={`${isMobile ? 'text-lg mb-1.5' : 'text-xl mb-2'}`}>{project.title}</h4>
+                      <p className={`${isMobile ? 'text-xs' : 'text-sm'} opacity-90 line-clamp-2`}>{project.description}</p>
                     </div>
                   </motion.div>
+                  
+                  {/* Shadow */}
                   <motion.div
                     className="absolute inset-0 shadow-2xl"
                     initial={{ opacity: 0 }}
