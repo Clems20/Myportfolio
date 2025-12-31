@@ -99,6 +99,7 @@ export function About() {
                   <p>SaaS</p>
                   <p>Healthcare</p>
                   <p>E-commerce</p>
+                  <p>Web 3</p>
                 </div>
               </motion.div>
 
