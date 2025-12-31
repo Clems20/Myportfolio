@@ -8,44 +8,165 @@ export function Hero() {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center px-6 pt-24 relative overflow-hidden">
-      {/* Animated Background Shapes */}
+      {/* Animated Background Blobs - Theme Aware */}
+      
+      {/* Blob 1 - Top Left - Accent Glow */}
       <motion.div
-        className="absolute top-20 left-10 w-32 h-32 rounded-full bg-accent/10 blur-3xl"
+        className="absolute w-[400px] h-[400px] md:w-[500px] md:h-[500px] rounded-full"
+        style={{
+          background: 'radial-gradient(circle, hsl(24 95% 53% / 0.12) 0%, hsl(24 95% 53% / 0.04) 50%, transparent 100%)',
+          filter: 'blur(60px)',
+          top: '-10%',
+          left: '-5%',
+        }}
         animate={{
-          y: [0, -30, 0],
-          x: [0, 20, 0],
+          x: [0, 50, 0],
+          y: [0, 80, 0],
           scale: [1, 1.1, 1],
         }}
         transition={{
-          duration: 8,
+          duration: 20,
           repeat: Infinity,
           ease: "easeInOut",
         }}
       />
+
+      {/* Blob 2 - Top Right - Secondary Soft */}
       <motion.div
-        className="absolute bottom-32 right-16 w-48 h-48 rounded-full bg-secondary/50 blur-3xl"
+        className="absolute w-[350px] h-[350px] md:w-[450px] md:h-[450px] rounded-full"
+        style={{
+          background: 'var(--color-secondary)',
+          opacity: 0.3,
+          filter: 'blur(70px)',
+          top: '10%',
+          right: '-8%',
+        }}
         animate={{
-          y: [0, 40, 0],
-          x: [0, -30, 0],
+          x: [0, -60, 0],
+          y: [0, 50, 0],
           scale: [1, 1.15, 1],
         }}
         transition={{
-          duration: 10,
+          duration: 18,
           repeat: Infinity,
           ease: "easeInOut",
+          delay: 1,
         }}
       />
+
+      {/* Blob 3 - Middle Left - Muted Organic */}
       <motion.div
-        className="absolute top-1/3 right-1/4 w-24 h-24 bg-accent/5"
-        style={{ borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%" }}
+        className="absolute w-[380px] h-[380px] md:w-[450px] md:h-[450px]"
+        style={{
+          background: 'var(--color-muted)',
+          opacity: 0.25,
+          filter: 'blur(65px)',
+          borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
+          top: '35%',
+          left: '5%',
+        }}
         animate={{
-          rotate: [0, 360],
-          scale: [1, 1.2, 1],
+          x: [0, 40, 0],
+          y: [0, -60, 0],
+          rotate: [0, 90, 0],
+          borderRadius: [
+            '60% 40% 30% 70% / 60% 30% 70% 40%',
+            '40% 60% 70% 30% / 40% 70% 30% 60%',
+            '60% 40% 30% 70% / 60% 30% 70% 40%',
+          ],
         }}
         transition={{
-          duration: 15,
+          duration: 25,
           repeat: Infinity,
-          ease: "linear",
+          ease: "easeInOut",
+          delay: 2,
+        }}
+      />
+
+      {/* Blob 4 - Bottom Right - Accent Mix */}
+      <motion.div
+        className="absolute w-[450px] h-[450px] md:w-[550px] md:h-[550px]"
+        style={{
+          background: 'radial-gradient(circle, hsl(24 95% 53% / 0.08) 0%, var(--color-secondary) 60%, transparent 100%)',
+          opacity: 0.35,
+          filter: 'blur(75px)',
+          borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%',
+          bottom: '-15%',
+          right: '10%',
+        }}
+        animate={{
+          x: [0, -70, 0],
+          y: [0, -50, 0],
+          scale: [1, 1.2, 1],
+          borderRadius: [
+            '30% 70% 70% 30% / 30% 30% 70% 70%',
+            '70% 30% 30% 70% / 70% 70% 30% 30%',
+            '30% 70% 70% 30% / 30% 30% 70% 70%',
+          ],
+        }}
+        transition={{
+          duration: 22,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 3,
+        }}
+      />
+
+      {/* Blob 5 - Center Floating - Subtle Accent */}
+      <motion.div
+        className="absolute w-[300px] h-[300px] md:w-[350px] md:h-[350px]"
+        style={{
+          background: 'radial-gradient(circle, hsl(24 95% 53% / 0.1) 0%, transparent 70%)',
+          filter: 'blur(50px)',
+          borderRadius: '40% 60% 50% 50% / 60% 40% 60% 40%',
+          top: '45%',
+          right: '20%',
+        }}
+        animate={{
+          x: [0, 30, -30, 0],
+          y: [0, -40, 40, 0],
+          rotate: [0, 180, 360],
+          borderRadius: [
+            '40% 60% 50% 50% / 60% 40% 60% 40%',
+            '60% 40% 60% 40% / 40% 60% 40% 60%',
+            '50% 50% 40% 60% / 50% 50% 60% 40%',
+            '40% 60% 50% 50% / 60% 40% 60% 40%',
+          ],
+        }}
+        transition={{
+          duration: 30,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1.5,
+        }}
+      />
+
+      {/* Blob 6 - Bottom Left - Muted Blend */}
+      <motion.div
+        className="absolute w-[280px] h-[280px] md:w-[320px] md:h-[320px]"
+        style={{
+          background: 'var(--color-secondary)',
+          opacity: 0.4,
+          filter: 'blur(55px)',
+          borderRadius: '70% 30% 50% 50% / 30% 70% 30% 70%',
+          bottom: '15%',
+          left: '12%',
+        }}
+        animate={{
+          x: [0, 50, 0],
+          y: [0, -30, 0],
+          scale: [1, 1.08, 1],
+          borderRadius: [
+            '70% 30% 50% 50% / 30% 70% 30% 70%',
+            '30% 70% 30% 70% / 70% 30% 70% 30%',
+            '70% 30% 50% 50% / 30% 70% 30% 70%',
+          ],
+        }}
+        transition={{
+          duration: 17,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 4,
         }}
       />
       
