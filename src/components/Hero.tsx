@@ -12,12 +12,12 @@ export function Hero() {
       
       {/* Blob 1 - Top Left - Accent Glow */}
       <motion.div
-        className="absolute w-[400px] h-[400px] md:w-[500px] md:h-[500px] rounded-full"
+        className="absolute w-[250px] h-[250px] md:w-[450px] md:h-[450px] rounded-full"
         style={{
           background: 'radial-gradient(circle, hsl(24 95% 53% / 0.12) 0%, hsl(24 95% 53% / 0.04) 50%, transparent 100%)',
-          filter: 'blur(60px)',
-          top: '-10%',
-          left: '-5%',
+          filter: 'blur(40px)',
+          top: '-5%',
+          left: '-8%',
         }}
         animate={{
           x: [0, 50, 0],
@@ -33,13 +33,13 @@ export function Hero() {
 
       {/* Blob 2 - Top Right - Secondary Soft */}
       <motion.div
-        className="absolute w-[350px] h-[350px] md:w-[450px] md:h-[450px] rounded-full"
+        className="absolute w-[200px] h-[200px] md:w-[400px] md:h-[400px] rounded-full"
         style={{
           background: 'var(--color-secondary)',
           opacity: 0.3,
-          filter: 'blur(70px)',
-          top: '10%',
-          right: '-8%',
+          filter: 'blur(50px)',
+          top: '8%',
+          right: '-10%',
         }}
         animate={{
           x: [0, -60, 0],
@@ -56,14 +56,14 @@ export function Hero() {
 
       {/* Blob 3 - Middle Left - Muted Organic */}
       <motion.div
-        className="absolute w-[380px] h-[380px] md:w-[450px] md:h-[450px]"
+        className="absolute w-[220px] h-[220px] md:w-[420px] md:h-[420px]"
         style={{
           background: 'var(--color-muted)',
           opacity: 0.25,
-          filter: 'blur(65px)',
+          filter: 'blur(45px)',
           borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
           top: '35%',
-          left: '5%',
+          left: '2%',
         }}
         animate={{
           x: [0, 40, 0],
@@ -85,14 +85,14 @@ export function Hero() {
 
       {/* Blob 4 - Bottom Right - Accent Mix */}
       <motion.div
-        className="absolute w-[450px] h-[450px] md:w-[550px] md:h-[550px]"
+        className="absolute w-[280px] h-[280px] md:w-[500px] md:h-[500px]"
         style={{
           background: 'radial-gradient(circle, hsl(24 95% 53% / 0.08) 0%, var(--color-secondary) 60%, transparent 100%)',
           opacity: 0.35,
-          filter: 'blur(75px)',
+          filter: 'blur(55px)',
           borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%',
-          bottom: '-15%',
-          right: '10%',
+          bottom: '-10%',
+          right: '5%',
         }}
         animate={{
           x: [0, -70, 0],
@@ -114,13 +114,13 @@ export function Hero() {
 
       {/* Blob 5 - Center Floating - Subtle Accent */}
       <motion.div
-        className="absolute w-[300px] h-[300px] md:w-[350px] md:h-[350px]"
+        className="absolute w-[180px] h-[180px] md:w-[320px] md:h-[320px]"
         style={{
           background: 'radial-gradient(circle, hsl(24 95% 53% / 0.1) 0%, transparent 70%)',
-          filter: 'blur(50px)',
+          filter: 'blur(35px)',
           borderRadius: '40% 60% 50% 50% / 60% 40% 60% 40%',
           top: '45%',
-          right: '20%',
+          right: '15%',
         }}
         animate={{
           x: [0, 30, -30, 0],
@@ -143,14 +143,14 @@ export function Hero() {
 
       {/* Blob 6 - Bottom Left - Muted Blend */}
       <motion.div
-        className="absolute w-[280px] h-[280px] md:w-[320px] md:h-[320px]"
+        className="absolute w-[160px] h-[160px] md:w-[280px] md:h-[280px]"
         style={{
           background: 'var(--color-secondary)',
           opacity: 0.4,
-          filter: 'blur(55px)',
+          filter: 'blur(40px)',
           borderRadius: '70% 30% 50% 50% / 30% 70% 30% 70%',
-          bottom: '15%',
-          left: '12%',
+          bottom: '18%',
+          left: '8%',
         }}
         animate={{
           x: [0, 50, 0],
