@@ -28,12 +28,10 @@ export function Header() {
       const scrollPosition = window.scrollY + 100;
 
       for (const sectionId of sections) {
-        const element = sectionId === "home" 
-          ? document.querySelector("body") 
-          : document.getElementById(sectionId);
+        const element = document.getElementById(sectionId);
         
         if (element) {
-          const offsetTop = sectionId === "home" ? 0 : element.offsetTop;
+          const offsetTop = element.offsetTop;
           const offsetBottom = offsetTop + element.offsetHeight;
 
           if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {

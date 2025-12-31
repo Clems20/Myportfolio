@@ -7,7 +7,7 @@ export function Hero() {
   const [isContactHovered, setIsContactHovered] = useState(false);
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 pt-24 relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center px-6 pt-24 relative overflow-hidden">
       {/* Animated Background Shapes */}
       <motion.div
         className="absolute top-20 left-10 w-32 h-32 rounded-full bg-accent/10 blur-3xl"
