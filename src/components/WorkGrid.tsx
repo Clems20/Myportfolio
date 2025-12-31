@@ -18,6 +18,7 @@ export const projects = [
     client: "FinanceFlow",
     role: "Lead Product Designer",
     date: "Jan - Mar 2024",
+    productLink: "https://financeflow.example.com",
     tools: ["Figma", "Figjam", "Protopie"],
     goal: "Create an intuitive dashboard that simplifies complex financial data for everyday users",
     problem: "Users were overwhelmed by data-heavy interfaces and struggled to find actionable insights",
@@ -31,17 +32,28 @@ export const projects = [
       {
         title: "Discovery & Research",
         description: "Conducted user interviews with 15 users and analyzed existing usage patterns to understand pain points and opportunities.",
-        image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        images: [
+          "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1531482615713-2afd69097998?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        ]
       },
       {
         title: "Wireframes & Information Architecture",
         description: "Mapped out user flows and created low-fidelity wireframes to test different layouts and information hierarchies.",
-        image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        images: [
+          "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        ]
       },
       {
         title: "Visual Design & Prototyping",
         description: "Developed high-fidelity designs with a focus on scannable data visualization and clear CTAs. Created interactive prototypes for testing.",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        images: [
+          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        ]
       }
     ],
     results: {
@@ -84,17 +96,27 @@ export const projects = [
       {
         title: "Competitive Analysis & User Research",
         description: "Analyzed 12 collaboration tools and interviewed 25 team leads to understand workflow patterns and pain points.",
-        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        images: [
+          "https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        ]
       },
       {
         title: "Journey Mapping & Feature Prioritization",
         description: "Created detailed journey maps for different user personas and prioritized features based on impact vs effort.",
-        image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        images: [
+          "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1531403009284-440f080d1e12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        ]
       },
       {
         title: "Design System & UI Development",
         description: "Built a comprehensive design system focused on consistency and flexibility. Designed modular components for different workspace views.",
-        image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        images: [
+          "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1559136555-9303baea8ebd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        ]
       }
     ],
     results: {
@@ -137,17 +159,27 @@ export const projects = [
       {
         title: "Gen Z User Research",
         description: "Conducted contextual inquiries and diary studies with 20 Gen Z users to understand their relationship with money and existing banking frustrations.",
-        image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        images: [
+          "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1556761175-4b46a572b786?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        ]
       },
       {
         title: "Concept Testing & Iteration",
         description: "Created multiple design concepts focusing on personality, clarity, and delight. Tested with users to find the right balance.",
-        image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        images: [
+          "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1551650975-87deedd944c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        ]
       },
       {
         title: "Final Design & Motion",
         description: "Developed polished UI with thoughtful micro-interactions and a friendly tone of voice. Created detailed motion specs for development.",
-        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        images: [
+          "https://images.unsplash.com/photo-1563986768609-322da13575f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        ]
       }
     ],
     results: {

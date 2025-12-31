@@ -34,10 +34,9 @@ export function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <h2 className="text-3xl md:text-5xl tracking-tight mb-6">Let's work together</h2>
+          <h2 className="text-3xl md:text-5xl tracking-tight mb-6">Are you ready to create something extraordinary together?</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
-            Ready for the design challenge? Have a project to discuss? Reach out to me via 
-            any of my contacts below.
+            Reach out to me via any of my contacts below
           </p>
 
           <div className="flex flex-col items-center gap-4 mb-12">

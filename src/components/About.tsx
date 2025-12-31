@@ -128,18 +128,45 @@ export function About() {
               >
                 <motion.button
                   onClick={handleDownload}
-                  className="group relative px-6 py-3 bg-accent/10 hover:bg-accent text-muted-foreground hover:text-accent-foreground rounded-xl transition-all duration-300 flex items-center gap-3 overflow-hidden"
+                  className="group relative w-full lg:w-auto px-5 md:px-6 py-3.5 md:py-4 bg-accent md:bg-accent/10 md:hover:bg-accent text-accent-foreground md:text-muted-foreground md:hover:text-accent-foreground rounded-lg md:rounded-xl transition-all duration-300 flex items-center justify-center gap-2.5 md:gap-3 overflow-hidden touch-manipulation text-sm md:text-base shadow-lg shadow-accent/20 md:shadow-none"
                   whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
+                  animate={{
+                    boxShadow: [
+                      "0 10px 25px -5px rgba(249, 115, 22, 0.2)",
+                      "0 10px 30px -5px rgba(249, 115, 22, 0.35)",
+                      "0 10px 25px -5px rgba(249, 115, 22, 0.2)"
+                    ]
+                  }}
+                  transition={{
+                    boxShadow: {
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }
+                  }}
                 >
                   <motion.div
-                    className="absolute inset-0 bg-accent"
+                    className="absolute inset-0 bg-accent hidden md:block"
                     initial={{ x: "-100%" }}
                     whileHover={{ x: 0 }}
                     transition={{ duration: 0.3 }}
                   />
-                  <Download className="w-5 h-5 relative z-10" />
-                  <span className="relative z-10">
+                  <motion.div
+                    animate={{
+                      y: [0, -3, 0]
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      repeatDelay: 0.5
+                    }}
+                    className="md:animate-none"
+                  >
+                    <Download className="w-4 h-4 md:w-5 md:h-5 relative z-10 flex-shrink-0" />
+                  </motion.div>
+                  <span className="relative z-10 whitespace-nowrap">
                     {isDownloaded ? "Downloaded!" : "Download Resume"}
                   </span>
                   {isDownloaded && (
