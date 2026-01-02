@@ -30,7 +30,7 @@ export const projects = [
     ],
     processSteps: [
       {
-        title: "Discovery & Research",
+        title: "User Research",
         description: "Conducted user interviews with 15 users and analyzed existing usage patterns to understand pain points and opportunities.",
         images: [
           "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
@@ -39,7 +39,7 @@ export const projects = [
         ]
       },
       {
-        title: "Wireframes & Information Architecture",
+        title: "Wireframes and Concept Testing",
         description: "Mapped out user flows and created low-fidelity wireframes to test different layouts and information hierarchies.",
         images: [
           "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
@@ -47,7 +47,7 @@ export const projects = [
         ]
       },
       {
-        title: "Visual Design & Prototyping",
+        title: "Final Design",
         description: "Developed high-fidelity designs with a focus on scannable data visualization and clear CTAs. Created interactive prototypes for testing.",
         images: [
           "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
@@ -94,7 +94,7 @@ export const projects = [
     ],
     processSteps: [
       {
-        title: "Competitive Analysis & User Research",
+        title: "User Research",
         description: "Analyzed 12 collaboration tools and interviewed 25 team leads to understand workflow patterns and pain points.",
         images: [
           "https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
@@ -102,7 +102,7 @@ export const projects = [
         ]
       },
       {
-        title: "Journey Mapping & Feature Prioritization",
+        title: "Wireframes and Concept Testing",
         description: "Created detailed journey maps for different user personas and prioritized features based on impact vs effort.",
         images: [
           "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
@@ -111,7 +111,7 @@ export const projects = [
         ]
       },
       {
-        title: "Design System & UI Development",
+        title: "Final Design",
         description: "Built a comprehensive design system focused on consistency and flexibility. Designed modular components for different workspace views.",
         images: [
           "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
@@ -157,7 +157,7 @@ export const projects = [
     ],
     processSteps: [
       {
-        title: "Gen Z User Research",
+        title: "User Research",
         description: "Conducted contextual inquiries and diary studies with 20 Gen Z users to understand their relationship with money and existing banking frustrations.",
         images: [
           "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
@@ -165,7 +165,7 @@ export const projects = [
         ]
       },
       {
-        title: "Concept Testing & Iteration",
+        title: "Wireframes and Concept Testing",
         description: "Created multiple design concepts focusing on personality, clarity, and delight. Tested with users to find the right balance.",
         images: [
           "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
@@ -174,7 +174,7 @@ export const projects = [
         ]
       },
       {
-        title: "Final Design & Motion",
+        title: "Final Design",
         description: "Developed polished UI with thoughtful micro-interactions and a friendly tone of voice. Created detailed motion specs for development.",
         images: [
           "https://images.unsplash.com/photo-1563986768609-322da13575f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",

@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
-import { ArrowLeft, ArrowRight, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, X, Maximize2 } from "lucide-react";
 import { ImageSlider } from "./ImageSlider";
+import { useState } from "react";
 
 interface ProjectDetailProps {
   project: {
@@ -36,6 +37,8 @@ interface ProjectDetailProps {
 }
 
 export function ProjectDetail({ project, onClose, onNavigate, hasPrev, hasNext }: ProjectDetailProps) {
+  const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -43,6 +46,36 @@ export function ProjectDetail({ project, onClose, onNavigate, hasPrev, hasNext }
       exit={{ opacity: 0 }}
       className="fixed inset-0 z-50 overflow-y-auto bg-background"
     >
+      {/* Fullscreen Image Modal */}
+      {fullscreenImage && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setFullscreenImage(null)}
+          className="fixed inset-0 z-[100] bg-background/98 backdrop-blur-sm flex items-center justify-center p-4 cursor-zoom-out"
+        >
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            onClick={() => setFullscreenImage(null)}
+            className="absolute top-4 right-4 md:top-6 md:right-6 p-3 rounded-full bg-foreground/10 hover:bg-foreground/20 text-foreground transition-colors backdrop-blur-sm touch-manipulation z-10"
+            aria-label="Close fullscreen"
+          >
+            <X className="w-6 h-6" />
+          </motion.button>
+          
+          <motion.img
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            src={fullscreenImage}
+            alt="Fullscreen view"
+            className="max-w-full max-h-full object-contain rounded-lg md:rounded-xl"
+          />
+        </motion.div>
+      )}
+
       {/* Close Button */}
       <motion.button
         initial={{ opacity: 0, scale: 0.8 }}
@@ -103,40 +136,24 @@ export function ProjectDetail({ project, onClose, onNavigate, hasPrev, hasNext }
             <p className="text-xs md:text-sm text-muted-foreground mb-2">Role</p>
             <p className="font-medium text-sm md:text-base">{project.role}</p>
           </div>
-          {project.productLink ? (
-            <div className="md:col-span-2">
-              <p className="text-xs md:text-sm text-muted-foreground mb-2">Product Website</p>
-              <p className="text-xs md:text-sm mb-3 break-all text-muted-foreground">{project.productLink}</p>
+          <div>
+            <p className="text-xs md:text-sm text-muted-foreground mb-2">Year</p>
+            <p className="font-medium text-sm md:text-base">{project.year}</p>
+          </div>
+          {project.productLink && (
+            <div className="flex items-end">
               <motion.a 
                 href={project.productLink} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 md:py-2 bg-accent text-background rounded-lg hover:bg-accent/90 active:scale-95 transition-all text-sm touch-manipulation w-full md:w-auto"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
+                className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-accent text-background rounded-lg hover:bg-accent/90 active:scale-95 transition-all text-sm touch-manipulation w-full"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                View Product
+                View Live Site
               </motion.a>
             </div>
-          ) : (
-            <div>
-              <p className="text-xs md:text-sm text-muted-foreground mb-2">Date</p>
-              <p className="font-medium text-sm md:text-base">{project.date}</p>
-            </div>
           )}
-          <div>
-            <p className="text-xs md:text-sm text-muted-foreground mb-2">Tools</p>
-            <div className="flex flex-wrap gap-2">
-              {project.tools.map((tool, index) => (
-                <span key={index} className="text-xs md:text-sm px-2 py-1 rounded bg-foreground/5">
-                  {tool}
-                </span>
-              ))}
-            </div>
-          </div>
         </motion.div>
 
         {/* Project Summary */}
@@ -171,7 +188,7 @@ export function ProjectDetail({ project, onClose, onNavigate, hasPrev, hasNext }
           transition={{ delay: 0.6 }}
           className="mb-12 md:mb-24"
         >
-          <h2 className="text-2xl md:text-3xl lg:text-4xl mb-8 md:mb-12">The Challenge</h2>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl mb-8 md:mb-12">Project Objectives</h2>
           
           <div className="space-y-4 md:space-y-6 max-w-4xl">
             {project.challenges.map((challenge, index) => (
@@ -191,78 +208,92 @@ export function ProjectDetail({ project, onClose, onNavigate, hasPrev, hasNext }
           </div>
         </motion.div>
 
-        {/* Process & Solution Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-          className="mb-12 md:mb-24"
-        >
-          <h2 className="text-2xl md:text-3xl lg:text-4xl mb-8 md:mb-12">Process & Solution</h2>
+        {/* Process Steps */}
+        {project.processSteps.map((step, index) => {
+          const isFinalDesign = step.title.toLowerCase().includes('final design');
           
-          <div className="space-y-12 md:space-y-16">
-            {project.processSteps.map((step, index) => (
+          return (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 + index * 0.1 }}
+              className="mb-12 md:mb-24"
+            >
+              <h2 className="text-2xl md:text-3xl lg:text-4xl mb-4 md:mb-6">{step.title}</h2>
+              <p className="text-base md:text-lg text-muted-foreground mb-8 md:mb-12 max-w-3xl">
+                {step.description}
+              </p>
+              
               <motion.div
-                key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.9 + index * 0.1 }}
-                className="space-y-4 md:space-y-6"
               >
-                <div className="max-w-3xl">
-                  <h3 className="text-xl md:text-2xl mb-2 md:mb-3">{step.title}</h3>
-                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{step.description}</p>
-                </div>
-                
-                <ImageSlider images={step.images} alt={step.title} aspectRatio="aspect-[16/10]" />
+                {isFinalDesign ? (
+                  <div className="space-y-4 md:space-y-6">
+                    {step.images.map((image, imgIndex) => (
+                      <motion.div
+                        key={imgIndex}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.9 + index * 0.1 + imgIndex * 0.1 }}
+                        className="group relative w-full rounded-lg md:rounded-xl overflow-hidden bg-sand/30"
+                      >
+                        <img
+                          src={image}
+                          alt={`${step.title} ${imgIndex + 1}`}
+                          className="w-full h-auto object-contain cursor-pointer"
+                          onClick={() => setFullscreenImage(image)}
+                        />
+                        
+                        {/* Fullscreen Expand Indicator */}
+                        <motion.button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setFullscreenImage(image);
+                          }}
+                          className="absolute top-4 left-4 p-2.5 rounded-full bg-background/80 hover:bg-background text-foreground transition-all backdrop-blur-sm shadow-lg lg:opacity-0 lg:group-hover:opacity-100"
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.95 }}
+                          aria-label="Expand to fullscreen"
+                        >
+                          <Maximize2 className="w-5 h-5" />
+                        </motion.button>
+                      </motion.div>
+                    ))}
+                  </div>
+                ) : (
+                  <ImageSlider images={step.images} alt={step.title} aspectRatio="aspect-[16/10]" />
+                )}
               </motion.div>
-            ))}
-          </div>
-        </motion.div>
+            </motion.div>
+          );
+        })}
 
-        {/* Results & Learnings */}
+        {/* Results & Lessons Learned */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.0 }}
+          transition={{ delay: 1.2 }}
           className="mb-12 md:mb-24"
         >
-          <h2 className="text-2xl md:text-3xl lg:text-4xl mb-8 md:mb-12">Results & Learnings</h2>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl mb-8 md:mb-12">Lessons Learned</h2>
           
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-            <div>
-              <h3 className="text-lg md:text-xl mb-4 md:mb-6 text-accent">Impact & Outcomes</h3>
-              <div className="space-y-3 md:space-y-4">
-                {project.results.metrics.map((metric, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 1.1 + index * 0.1 }}
-                    className="p-3 md:p-4 rounded-xl bg-sand/30"
-                  >
-                    <p className="text-sm md:text-base text-muted-foreground">{metric}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-            
-            <div>
-              <h3 className="text-lg md:text-xl mb-4 md:mb-6 text-accent">Key Learnings</h3>
-              <div className="space-y-3 md:space-y-4">
-                {project.results.learnings.map((learning, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 1.2 + index * 0.1 }}
-                    className="flex gap-2 md:gap-3"
-                  >
-                    <span className="text-accent mt-1">→</span>
-                    <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{learning}</p>
-                  </motion.div>
-                ))}
-              </div>
+          <div className="max-w-4xl">
+            <div className="space-y-4 md:space-y-6">
+              {project.results.learnings.map((learning, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 1.3 + index * 0.1 }}
+                  className="flex gap-3 md:gap-4"
+                >
+                  <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-accent mt-2"></div>
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{learning}</p>
+                </motion.div>
+              ))}
             </div>
           </div>
         </motion.div>
