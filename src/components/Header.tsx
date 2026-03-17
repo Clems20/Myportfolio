@@ -157,14 +157,14 @@ export function Header() {
                   link.href = "https://drive.google.com/file/d/1rJE98giicK83EJ24HOqLES3X7kgV2dcG/view?usp=drive_link";
                   link.setAttribute("download", "Obinna_Anyanwu_Resume.pdf");
                   link.click();
-                  
+
                 })();
                 setIsMenuOpen(false);
               }}
               className="relative py-2 pl-4 text-muted-foreground hover:text-accent transition-colors flex items-center gap-3"
             >
               <Download className="w-4 h-4" />
-              <span>Download Resume</span>
+              <span>View Resume</span>
             </button>
           </div>
         </motion.div>
