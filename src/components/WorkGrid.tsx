@@ -26,7 +26,8 @@ export const projects = [
     challenges: [
       "Balancing data density with visual clarity without losing important information",
       "Designing for both novice and power users with different needs and expectations",
-      "Creating a scalable design system that works across web and mobile platforms"
+      "Creating a scalable design system that works across web and mobile platforms",
+      "To design an immersive,dark mode social feed that effortlessly turns casual scrolling and community interaction into instant fashion purchases."
     ],
     processSteps: [
       {
