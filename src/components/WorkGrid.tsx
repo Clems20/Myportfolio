@@ -6,9 +6,9 @@ import { DecorativeBackground } from "./DecorativeBackground";
 export const projects = [
   {
     id: 1,
-    title: "Finance Dashboard Redesign",
+    title: "Delorand Website Design",
     category: "Product Design",
-    year: "2024",
+    year: "2022-2026",
     images: [
       "https://images.unsplash.com/photo-1766503206606-27de0861e8a4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsJTIwcHJvZHVjdCUyMGRlc2lnbiUyMGludGVyZmFjZXxlbnwxfHx8fDE3NjY3OTc4MTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "https://images.unsplash.com/photo-1748609339084-ea43ec1b8fbb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaW5hbmNlJTIwZGFzaGJvYXJkJTIwYW5hbHl0aWNzfGVufDF8fHx8MTc2Njg1MDIwOHww&ixlib=rb-4.1.0&q=80&w=1080",
@@ -20,9 +20,9 @@ export const projects = [
     date: "Dec 2022 - Mar 2026",
     productLink: "https://delorand.com",
     tools: ["Figma", "Figjam", "Protopie"],
-    goal: "Create an intuitive dashboard that simplifies complex financial data for everyday users",
-    problem: "Users were overwhelmed by data-heavy interfaces and struggled to find actionable insights",
-    userDescription: "Busy professionals aged 25-45 who want to manage finances without becoming financial experts",
+    goal: "To playfully disrupt traditional ecommerce by building a seamlessly connected social shopping experience.",
+    problem: "Online shopping feels completely isolated, so we built a vibrant space where fashion and community seamlessly collide.",
+    userDescription: "I effortlessly led the end to end design of a vibrant social fashion platform, blending smart architecture with gorgeous visuals to boost user engagement by a massive 50 percent.",
     challenges: [
       "Balancing data density with visual clarity without losing important information",
       "Designing for both novice and power users with different needs and expectations",
