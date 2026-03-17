@@ -90,7 +90,7 @@ export function Header() {
             onClick={() => {
               const link = document.createElement("a");
               link.href = "https://drive.google.com/file/d/1rJE98giicK83EJ24HOqLES3X7kgV2dcG/view?usp=drive_link";
-              link.download = "Obinna_Anyanwu_Resume.pdf";
+              link.setAttribute("download", "Obinna_Anyanwu_Resume.pdf");
               link.click();
             }}
             className="relative text-muted-foreground hover:text-foreground transition-colors"
@@ -155,8 +155,9 @@ export function Header() {
                 (() => {
                   const link = document.createElement("a");
                   link.href = "https://drive.google.com/file/d/1rJE98giicK83EJ24HOqLES3X7kgV2dcG/view?usp=drive_link";
-                  link.download = "Obinna_Anyanwu_Resume.pdf";
+                  link.setAttribute("download", "Obinna_Anyanwu_Resume.pdf");
                   link.click();
+                  
                 })();
                 setIsMenuOpen(false);
               }}
