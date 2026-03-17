@@ -14,13 +14,6 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
-  const handleResumeDownload = () => {
-    const resumeUrl = "/resume.pdf";
-    const link = document.createElement("a");
-    link.href = resumeUrl;
-    link.download = "Obinna_Anyanwu_Resume.pdf";
-    link.click();
-  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -94,7 +87,13 @@ export function Header() {
             </a>
           ))}
           <button
-            onClick={handleResumeDownload}
+            onClick={() => {
+              const resumeUrl = "https://drive.google.com/file/d/1rJE98giicK83EJ24HOqLES3X7kgV2dcG/view?usp=drive_link";
+              const link = document.createElement("a");
+              link.href = resumeUrl;
+              link.download = "Obinna_Anyanwu_Resume.pdf";
+              link.click();
+            }}
             className="relative text-muted-foreground hover:text-foreground transition-colors"
           >
             Resume
@@ -154,7 +153,13 @@ export function Header() {
             {/* Mobile Resume Download */}
             <button
               onClick={() => {
-                handleResumeDownload();
+                (() => {
+                  const resumeUrl = "https://drive.google.com/file/d/1rJE98giicK83EJ24HOqLES3X7kgV2dcG/view?usp=drive_link";
+                  const link = document.createElement("a");
+                  link.href = resumeUrl;
+                  link.download = "Obinna_Anyanwu_Resume.pdf";
+                  link.click();
+                })();
                 setIsMenuOpen(false);
               }}
               className="relative py-2 pl-4 text-muted-foreground hover:text-accent transition-colors flex items-center gap-3"
