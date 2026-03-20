@@ -33,12 +33,16 @@ export const projects = [
       {
         title: "User Research",
         description: "Conducted user interviews with 15 users and analyzed existing usage patterns to understand pain points during online shopping and apped the exact psychological triggers that drive social shopping.",
- 
+        images: [
+          
+        ]
       },
       {
         title: "Wireframes and Concept Testing",
         description: "Mapped out user flows and created low-fidelity wireframes to test different layouts and information hierarchies.",
-        
+        images: [
+          
+        ]
       },
       {
         title: "Final Design",
