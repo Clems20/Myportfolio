@@ -6,7 +6,7 @@ import { DecorativeBackground } from "./DecorativeBackground";
 export const projects = [
   {
     id: 1,
-    title: "Delorand Website Design",
+    title: "Delorand E-commerce Website ",
     category: "Product Design",
     year: "2022-2026",
     images: [
@@ -14,10 +14,10 @@ export const projects = [
       "https://images.unsplash.com/photo-1748609339084-ea43ec1b8fbb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaW5hbmNlJTIwZGFzaGJvYXJkJTIwYW5hbHl0aWNzfGVufDF8fHx8MTc2Njg1MDIwOHww&ixlib=rb-4.1.0&q=80&w=1080",
       "https://images.unsplash.com/photo-1762279389020-eeeb69c25813?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaW5hbmNpYWwlMjBjaGFydHMlMjBncmFwaHN8ZW58MXx8fHwxNzY2ODUwMjA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
     ],
-    description: "Redesigning a complex dashboard to help users understand their finances at a glance",
+    description: "Designing the e-commerce experience to seamlessly blend premium fashion shopping with engaging social features.",
     client: "Delorand",
     role: "Lead Product Designer",
-    date: "Dec 2022 - Mar 2026",
+    date: "Dec 2022 - 2026",
     productLink: "https://delorand.com",
     tools: ["Figma", "Figjam", "Protopie"],
     goal: "To playfully disrupt traditional ecommerce by building a seamlessly connected social shopping experience.",
