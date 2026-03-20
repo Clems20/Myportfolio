@@ -32,20 +32,13 @@ export const projects = [
     processSteps: [
       {
         title: "User Research",
-        description: "Conducted user interviews with 15 users and analyzed existing usage patterns to understand pain points and opportunities.",
-        images: [
-          "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "https://images.unsplash.com/photo-1531482615713-2afd69097998?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-        ]
+        description: "Conducted user interviews with 15 users and analyzed existing usage patterns to understand pain points during online shopping and apped the exact psychological triggers that drive social shopping.",
+ 
       },
       {
         title: "Wireframes and Concept Testing",
         description: "Mapped out user flows and created low-fidelity wireframes to test different layouts and information hierarchies.",
-        images: [
-          "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-        ]
+        
       },
       {
         title: "Final Design",
