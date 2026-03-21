@@ -156,7 +156,7 @@ export const projects = [
     tools: ["Figma",  "Notion"],
     goal: "GMC bridges this gap by packaging farm projects into clear investment plans, allowing users to fund them with supported crypto assets and monitor performance in real time.",
     problem: "Users needed to understand quickly that GMC combines agriculture, high‑yield plans, and crypto funding—without being overwhelmed by jargon.",
-    userDescription: "Busy smartphone users who need a fast, reliable way to handle all their utility payments in one place.",
+    userDescription: "Crypto‑curious young professionals who want simple, high‑yield agricultural investments and an easy way to track ROI online.",
     challenges: [
       "Clearly communicate what GMC is and why agricultural investments can be attractive, directly from the homepage hero.",
       "Design a simple account‑creation and login flow with options for social sign‑in and wallet connection.",
@@ -203,7 +203,7 @@ export const projects = [
   },
   {
     id: 4,
-    title: "GMC: Web3 Agricultural NFT & Reward Platform",
+    title: "BJT Wedding Website",
     category: "UI UX / Product Design",
     year: "2025",
     images: [
@@ -211,25 +211,25 @@ export const projects = [
       "https://images.unsplash.com/photo-1764123108291-0f48d2c7e563?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b3Jrc3BhY2UlMjBjb2xsYWJvcmF0aW9uJTIwdG9vbHN8ZW58MXx8fHwxNzY2ODUwMjEyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "https://images.unsplash.com/photo-1580983558189-84200466afb8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWFtJTIwd29ya3NwYWNlJTIwZGVzaWdufGVufDF8fHx8MTc2Njg1MDIwOXww&ixlib=rb-4.1.0&q=80&w=1080",
     ],
-    description: "GMC is a responsive web platform that helps people invest in agriculture using crypto assets, track returns, and support community‑based farm projects. ",
+    description: "This project is a custom wedding website created for a couple who wanted a single, beautiful space to tell their story, host a live stream, and manage RSVPs and gifts online. ",
     client: "Freelance",
     role: "UI/UX & Product Designer",
     date: "May 2024",
     tools: ["Figma",  "Notion"],
-    goal: "GMC bridges this gap by packaging farm projects into clear investment plans, allowing users to fund them with supported crypto assets and monitor performance in real time.",
-    problem: "Users needed to understand quickly that GMC combines agriculture, high‑yield plans, and crypto funding—without being overwhelmed by jargon.",
-    userDescription: "Busy smartphone users who need a fast, reliable way to handle all their utility payments in one place.",
+    goal: "The couple wanted something more intimate than a generic template: a site that felt like an extension of their personalities, with a romantic, purple‑themed visual language, while still being practical for guests of all ages.",
+    problem: "Representing the couple’s story visually and in copy, without letting the site feel cluttered or overly sentimental.",
+    userDescription: "Friends and family of the couple (all ages) who need an easy place to read the love story, get event details, RSVP, and watch the live stream on any device.",
     challenges: [
-      "Clearly communicate what GMC is and why agricultural investments can be attractive, directly from the homepage hero.",
-      "Design a simple account‑creation and login flow with options for social sign‑in and wallet connection.",
-      "Make it easy to compare investment models and create a personalized plan with clear minimums, benefits, and risks.",
-      "Provide an investor dashboard that presents core metrics (capital, monthly ROI, yearly ROI, total profit, withdrawal date) in a scannable layout.",
-      "Highlight community projects and impact stories so users see where their money goes beyond the numbers."
+      "Create a romantic yet modern visual identity built around deep purple tones, floral ornaments, and elegant typography.",
+      "Design a single‑page layout where guests can smoothly scroll from story to details to RSVP without getting lost.",
+      "Make the live stream section and RSVP form highly visible so remote guests can easily join and respond.",
+      "Provide clear gift and bank details in a respectful, non‑pushy way."
+      
     ],
     processSteps: [
       {
         title: "User Research",
-        description: "I started by mapping two primary user types: Return‑focused investors interested in yield, duration, and supported crypto assets and Impact‑driven supporters who care about sustainability, farmer livelihoods, and community projects.",
+        description: "To understand what guests needed from the wedding website, I spoke with a small group of friends and family across different age ranges and tech comfort levels. I also reviewed common best practices for wedding websites and RSVP tools to see what information guests expect online—such as clear event details, RSVP forms, and gift information in one place.",
         images: [
           "https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
           "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
@@ -246,7 +246,7 @@ export const projects = [
       },
       {
         title: "Final Design",
-        description: "I developed high fidelity designs focused on scannable data visualization and clear calls to action. The interface uses a dark theme with accent colors to highlight important trends and CTAs while maintaining visual balance. Interactive prototypes helped validate flows like switching time ranges, drilling into metrics, and initiating key financial actions.",
+        description: "The final wedding website is a single, long‑scroll experience that guides guests from emotion to action in a clear, linear flow. A warm purple palette, floral ornaments, and intimate photography create a romantic atmosphere while maintaining strong contrast and readability.",
         images: [
           "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
           "https://images.unsplash.com/photo-1559136555-9303baea8ebd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
@@ -256,9 +256,9 @@ export const projects = [
     results: {
      
       learnings: [
-        "Breaking complex propositions into separate pages (Investment Details vs. Community Impact) helps users digest information step by step.",
-        "Combining photography with a restrained, consistent design system creates a strong sense of legitimacy.",
-        "Clear investment models plus a customizable plan gives both beginners and advanced users the control they expect from a financial platform."
+        "A single, well‑structured scroll page can handle complex wedding content if sections are clearly labeled and visually separated.",
+        "Small details like a countdown timer, inline love notes, and a quick “copy account” button—add emotional impact and convenience at the same time.",
+        "Designing mobile and desktop side by side early helps ensure that no section becomes unusable on small screens."
         
       ]
     }
