@@ -75,7 +75,7 @@ export const projects = [
   },
     {
     id: 2,
-    title: "FIMA",
+    title: "Fima",
     category: "UI UX / Product Design",
     year: "2025-2026",
     images: [
@@ -141,33 +141,33 @@ export const projects = [
   },
   {
     id: 3,
-    title: "FIMA",
+    title: "GMC: Web3 Agricultural NFT & Reward Platform",
     category: "UI UX / Product Design",
-    year: "2025-2026",
+    year: "2025",
     images: [
       "https://images.unsplash.com/photo-1703355685639-d558d1b0f63e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB3b3Jrc3BhY2UlMjBkZXNpZ258ZW58MXx8fHwxNzY2NzAwMzAxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "https://images.unsplash.com/photo-1764123108291-0f48d2c7e563?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b3Jrc3BhY2UlMjBjb2xsYWJvcmF0aW9uJTIwdG9vbHN8ZW58MXx8fHwxNzY2ODUwMjEyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "https://images.unsplash.com/photo-1580983558189-84200466afb8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWFtJTIwd29ya3NwYWNlJTIwZGVzaWdufGVufDF8fHx8MTc2Njg1MDIwOXww&ixlib=rb-4.1.0&q=80&w=1080",
     ],
-    description: "Designed a user-friendly utility app that enables users to buy data, airtime, electricity, and cable subscriptions seamlessly",
-    client: "Fima",
-    role: "Lead UI/UX & Product Designer",
-    date: "Feb - Aug 2025",
+    description: "GMC is a responsive web platform that helps people invest in agriculture using crypto assets, track returns, and support community‑based farm projects. ",
+    client: "Freelance",
+    role: "UI/UX & Product Designer",
+    date: "May 2024",
     tools: ["Figma",  "Notion"],
-    goal: "Streamline Daily and Recurring Payments to provide users with a fast, simple, and reliable way to buy data, airtime, electricity, and cable subscriptions in one place.",
-    problem: "Existing apps were dense and overwhelming, cluttered, ad‑heavy, or confusing, causing errors and failed transactions",
+    goal: "GMC bridges this gap by packaging farm projects into clear investment plans, allowing users to fund them with supported crypto assets and monitor performance in real time.",
+    problem: "Users needed to understand quickly that GMC combines agriculture, high‑yield plans, and crypto funding—without being overwhelmed by jargon.",
     userDescription: "Busy smartphone users who need a fast, reliable way to handle all their utility payments in one place.",
     challenges: [
-      "Create a user-friendly interface for managing personal finances.",
-      "Offer secure and convenient methods for making transaction and payment.",
-      "Streamline Daily and Recurring Payments to provide users with a fast, simple, and reliable way to buy data, airtime, electricity, and cable subscriptions in one place.",
-      "onboarding uusers to a new financial app while building trust and confidence in the security of thier transactions.",
-      "Ensure Transaction Security to integrate secure payment gateways and data protection measures that build user trust and safeguard personal information."
+      "Clearly communicate what GMC is and why agricultural investments can be attractive, directly from the homepage hero.",
+      "Design a simple account‑creation and login flow with options for social sign‑in and wallet connection.",
+      "Make it easy to compare investment models and create a personalized plan with clear minimums, benefits, and risks.",
+      "Provide an investor dashboard that presents core metrics (capital, monthly ROI, yearly ROI, total profit, withdrawal date) in a scannable layout.",
+      "Highlight community projects and impact stories so users see where their money goes beyond the numbers."
     ],
     processSteps: [
       {
         title: "User Research",
-        description: "I started by interviewing and surveying users who regularly buy airtime, data, and tokens for themselves, family, and customers. I asked them to walk me through their current process and to share where things usually go wrong. I also analyzed app store reviews of existing utility payment apps to identify common pain points and feature requests.",
+        description: "I started by mapping two primary user types: Return‑focused investors interested in yield, duration, and supported crypto assets and Impact‑driven supporters who care about sustainability, farmer livelihoods, and community projects.",
         images: [
           "https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
           "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
@@ -175,7 +175,7 @@ export const projects = [
       },
       {
         title: "Wireframes and Concept Testing",
-        description: "Created detailed journey maps for different user personas and prioritized features based on impact vs effort.",
+        description: "The visual direction is grounded, modern, and investment‑ready: warm neutrals with green accents, clean typography, and a balance of data and imagery. I created wireframes and prototypes to test the information hierarchy and flow of key tasks like comparing investment plans, creating a personalized plan, and monitoring the investor dashboard.",
         images: [
           "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
           "https://images.unsplash.com/photo-1531403009284-440f080d1e12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
@@ -192,16 +192,12 @@ export const projects = [
       }
     ],
     results: {
-      metrics: [
-        "Faster completion time for repeat payments compared to their previous apps",
-        "Fewer user errors during electricity and TV flows due to better validation and confirmation steps.",
-        "Higher perceived trust thanks to clear summaries, visible history, and transparent status messages."
-      ],
+     
       learnings: [
-        "Progressive disclosure is crucial when handling complex details on small screens; showing everything at once overwhelms users.",
-        "Small animations and micro‑interactions can make a huge difference in perceived speed and reliability, especially around payment actions.",
-        "Regular user testing throughout the design process catches confusing steps early and avoids costly redesigns later.",
-        "Visual feedback for every action built confidence in first-time users"
+        "Breaking complex propositions into separate pages (Investment Details vs. Community Impact) helps users digest information step by step.",
+        "Combining photography with a restrained, consistent design system creates a strong sense of legitimacy.",
+        "Clear investment models plus a customizable plan gives both beginners and advanced users the control they expect from a financial platform."
+        
       ]
     }
   },
