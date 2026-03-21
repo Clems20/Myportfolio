@@ -258,8 +258,8 @@ export const projects = [
         title: "Final Design",
         description: "The final wedding website is a single, long‑scroll experience that guides guests from emotion to action in a clear, linear flow. A warm purple palette, floral ornaments, and intimate photography create a romantic atmosphere while maintaining strong contrast and readability.",
         images: [
-         "/bjt/mobile.webp",
-         "/bjt/web.webp"
+          "/bjt/web.webp",
+          "/bjt/mobile.webp"
         ]
       }
     ],
