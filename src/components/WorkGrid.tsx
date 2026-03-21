@@ -84,22 +84,24 @@ export const projects = [
       "https://images.unsplash.com/photo-1580983558189-84200466afb8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWFtJTIwd29ya3NwYWNlJTIwZGVzaWdufGVufDF8fHx8MTc2Njg1MDIwOXww&ixlib=rb-4.1.0&q=80&w=1080",
     ],
     description: "Designed a user-friendly utility app that enables users to buy data, airtime, electricity, and cable subscriptions seamlessly",
-    client: "FIMA",
-    role: "UX Strategist & Product Designer",
+    client: "Fima",
+    role: "UI/UX & Product Designer",
     date: "Feb - Aug 2025",
     tools: ["Figma", "Miro", "Notion"],
-    goal: "Design a collaboration platform that reduces tool fragmentation and improves team productivity",
-    problem: "Teams were using 5+ disconnected tools, leading to context switching and lost information",
-    userDescription: "Remote and hybrid teams of 10-50 people across creative and tech industries",
+    goal: "Streamline Daily and Recurring Payments to provide users with a fast, simple, and reliable way to buy data, airtime, electricity, and cable subscriptions in one place.",
+    problem: "Existing apps were dense and overwhelming, cluttered, ad‑heavy, or confusing, causing errors and failed transactions",
+    userDescription: "Busy smartphone users who need a fast, reliable way to handle all their utility payments in one place.",
     challenges: [
-      "Integrating multiple tool functionalities without creating a cluttered experience",
-      "Designing for both synchronous and asynchronous collaboration patterns",
-      "Ensuring the platform remained fast and responsive despite rich features"
+      "Create a user-friendly interface for managing personal finances.",
+      "Offer secure and convenient methods for making transaction and payment.",
+      "Streamline Daily and Recurring Payments to provide users with a fast, simple, and reliable way to buy data, airtime, electricity, and cable subscriptions in one place.",
+      "onboarding uusers to a new financial app while building trust and confidence in the security of thier transactions.",
+      "Ensure Transaction Security to integrate secure payment gateways and data protection measures that build user trust and safeguard personal information."
     ],
     processSteps: [
       {
         title: "User Research",
-        description: "Analyzed 12 collaboration tools and interviewed 25 team leads to understand workflow patterns and pain points.",
+        description: "I started by interviewing and surveying users who regularly buy airtime, data, and tokens for themselves, family, and customers. I asked them to walk me through their current process and to share where things usually go wrong. I also analyzed app store reviews of existing utility payment apps to identify common pain points and feature requests.",
         images: [
           "https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
           "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
@@ -116,7 +118,7 @@ export const projects = [
       },
       {
         title: "Final Design",
-        description: "Built a comprehensive design system focused on consistency and flexibility. Designed modular components for different workspace views.",
+        description: "I developed high fidelity designs focused on scannable data visualization and clear calls to action. The interface uses a dark theme with accent colors to highlight important trends and CTAs while maintaining visual balance. Interactive prototypes helped validate flows like switching time ranges, drilling into metrics, and initiating key financial actions.",
         images: [
           "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
           "https://images.unsplash.com/photo-1559136555-9303baea8ebd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
@@ -125,14 +127,14 @@ export const projects = [
     ],
     results: {
       metrics: [
-        "Teams reduced tool usage from average 5.3 to 2.1 tools",
-        "73% of users reported improved team communication",
-        "90-day retention rate of 82% after launch"
+        "Faster completion time for repeat payments compared to their previous apps",
+        "Fewer user errors during electricity and TV flows due to better validation and confirmation steps.",
+        "Higher perceived trust thanks to clear summaries, visible history, and transparent status messages."
       ],
       learnings: [
-        "Successful adoption requires gradual migration, not abrupt tool replacement",
-        "Customizable workspaces are essential for different team cultures",
-        "Real-time collaboration features need careful performance optimization"
+        "Progressive disclosure is crucial when handling complex details on small screens; showing everything at once overwhelms users.",
+        "Small animations and micro‑interactions can make a huge difference in perceived speed and reliability, especially around payment actions.",
+        "Regular user testing throughout the design process catches confusing steps early and avoids costly redesigns later."
       ]
     }
   },
