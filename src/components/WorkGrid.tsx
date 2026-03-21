@@ -140,7 +140,7 @@ export const projects = [
     }
   },
   {
-    id: 2,
+    id: 3,
     title: "FIMA",
     category: "UI UX / Product Design",
     year: "2025-2026",
@@ -206,7 +206,7 @@ export const projects = [
     }
   },
   {
-    id: 3,
+    id: 4,
     title: "Mobile Banking for Gen Z",
     category: "Mobile Design",
     year: "2023",
