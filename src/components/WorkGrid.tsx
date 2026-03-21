@@ -10,11 +10,18 @@ export const projects = [
     title: "Delorand E-commerce Website ",
     category: "Product Design",
     year: "2022-2026",
-    images: [
-      "https://images.unsplash.com/photo-1766503206606-27de0861e8a4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsJTIwcHJvZHVjdCUyMGRlc2lnbiUyMGludGVyZmFjZXxlbnwxfHx8fDE3NjY3OTc4MTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "https://images.unsplash.com/photo-1748609339084-ea43ec1b8fbb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaW5hbmNlJTIwZGFzaGJvYXJkJTIwYW5hbHl0aWNzfGVufDF8fHx8MTc2Njg1MDIwOHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "https://images.unsplash.com/photo-1762279389020-eeeb69c25813?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaW5hbmNpYWwlMjBjaGFydHMlMjBncmFwaHN8ZW58MXx8fHwxNzY2ODUwMjA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    ],
+   images: [
+  "/fimacasestudy/Home Screen.png",
+  "/fimacasestudy/Login and Sign up screens.png",
+  "/fimacasestudy/more service.png",
+  "/fimacasestudy/Others Screena.png",
+  "/fimacasestudy/Others Screena-1.png",
+  "/fimacasestudy/Project overview.png",
+  "/fimacasestudy/Project Title.png",
+  "/fimacasestudy/Style Guide.png",
+  "/fimacasestudy/Transfer Money.png",
+  "/fimacasestudy/web.png"
+],
     description: "Designing the e-commerce experience to seamlessly blend premium fashion shopping with engaging social features.",
     client: "Delorand",
     role: "Lead Product Designer",
