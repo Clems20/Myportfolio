@@ -158,6 +158,7 @@ export const projects = [
     client: "Freelance",
     role: "UI/UX & Product Designer",
     date: "May 2024",
+    productLink: "https://www.figma.com/design/7K6NCVY2wTThf5QdPCJ0O5/WEB-3-Agric?node-id=0-1&t=Ie95aLVYxJ4GsQyY-1",
     tools: ["Figma",  "Notion"],
     goal: "GMC bridges this gap by packaging farm projects into clear investment plans, allowing users to fund them with supported crypto assets and monitor performance in real time.",
     problem: "Users needed to understand quickly that GMC combines agriculture, high‑yield plans, and crypto funding—without being overwhelmed by jargon.",
