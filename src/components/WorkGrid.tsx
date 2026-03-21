@@ -88,7 +88,7 @@ export const projects = [
     client: "Fima",
     role: "Lead UI/UX & Product Designer",
     date: "Feb - Aug 2025",
-    productLink: "https://delorand.com",
+    productLink: "https://fima.delorand.com/",
     tools: ["Figma",  "Notion"],
     goal: "Streamline Daily and Recurring Payments to provide users with a fast, simple, and reliable way to buy data, airtime, electricity, and cable subscriptions in one place.",
     problem: "Existing apps were dense and overwhelming, cluttered, ad‑heavy, or confusing, causing errors and failed transactions",
