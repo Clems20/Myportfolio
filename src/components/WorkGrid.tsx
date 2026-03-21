@@ -108,10 +108,10 @@ export const projects = [
         ]
       },
       {
-        title: "Wireframes and Concept Testing",
-        description: "Created detailed journey maps for different user personas and prioritized features based on impact vs effort.",
+        title: "Case Study",
+        description: "Fima is a mobile utility app for quickly buying airtime, data, electricity, and TV subscriptions. I designed a fast, trustworthy experience with simple flows, one‑tap repeats, and clear payment feedback.",
         images: [
-          "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "./fimacasestudy/home_screen.jpg",
           "https://images.unsplash.com/photo-1531403009284-440f080d1e12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
           "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
         ]
