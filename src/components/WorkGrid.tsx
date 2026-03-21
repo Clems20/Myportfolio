@@ -1,17 +1,3 @@
-import React from 'react';
-
-// 1. ALL IMPORTS GO AT THE VERY TOP OF YOUR FILE
-import homeScreen from './fimacasestudy/Home Screen.png';
-import loginScreens from './fimacasestudy/Login and Sign up screens.png';
-import moreService from './fimacasestudy/more service.png';
-import othersScreena from './fimacasestudy/Others Screena.png';
-import othersScreena1 from './fimacasestudy/Others Screena-1.png';
-import projectOverview from './fimacasestudy/Project overview.png';
-import projectTitle from './fimacasestudy/Project Title.png';
-import styleGuide from './fimacasestudy/Style Guide.png';
-import transferMoney from './fimacasestudy/Transfer Money.png';
-import webView from './fimacasestudy/web.png';
-
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -124,18 +110,11 @@ export const projects = [
       },
       {
         title: "Case Study",
-        description: "Fima is a mobile utility app for quickly buying airtime, data, electricity, and TV subscriptions. I designed a fast, trustworthy experience with simple flows, one tap repeats, and clear payment feedback.",
+        description: "Fima is a mobile utility app for quickly buying airtime, data, electricity, and TV subscriptions. I designed a fast, trustworthy experience with simple flows, one‑tap repeats, and clear payment feedback.",
         images: [
-          homeScreen,
-          loginScreens,
-          moreService,
-          othersScreena,
-          othersScreena1,
-          projectOverview,
-          projectTitle,
-          styleGuide,
-          transferMoney,
-          webView
+          "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1531403009284-440f080d1e12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
         ]
       },
       {
