@@ -11,9 +11,7 @@ export const projects = [
     category: "Product Design",
     year: "2022-2026",
     images: [
-      "https://images.unsplash.com/photo-1766503206606-27de0861e8a4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsJTIwcHJvZHVjdCUyMGRlc2lnbiUyMGludGVyZmFjZXxlbnwxfHx8fDE3NjY3OTc4MTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "https://images.unsplash.com/photo-1748609339084-ea43ec1b8fbb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaW5hbmNlJTIwZGFzaGJvYXJkJTIwYW5hbHl0aWNzfGVufDF8fHx8MTc2Njg1MDIwOHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "https://images.unsplash.com/photo-1762279389020-eeeb69c25813?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaW5hbmNpYWwlMjBjaGFydHMlMjBncmFwaHN8ZW58MXx8fHwxNzY2ODUwMjA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "/delorand/cover.webp",
     ],
     description: "Designing the e-commerce experience to seamlessly blend premium fashion shopping with engaging social features.",
     client: "Delorand",
@@ -44,17 +42,24 @@ export const projects = [
         title: "Wireframes and Concept Testing",
         description: "Mapped out user flows and created low-fidelity wireframes to test different layouts and information hierarchies.",
         images: [
-          "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+          "/delorand/styleguide.webp"
         ]
       },
       {
         title: "Final Design",
         description: "Developed high-fidelity dark mode designs with a focus on highlighting vibrant fashion imagery and clear, intuitive social interactions (like,follow). Created interactive prototypes for testing.",
         images: [
-          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+    "/delorand/landingpages.webp",
+    "/delorand/storepage.webp",
+    "/delorand/productpage.webp",
+    "/delorand/dropdown.webp",
+    "/delorand/cart.webp",
+    "/delorand/cartplus.webp",
+    "/delorand/cartplus2.webp",
+    "/delorand/accountanddetails.webp",
+    "/delorand/helpandcontact.webp",
+    
+
         ]
       }
     ],
@@ -274,8 +279,69 @@ export const projects = [
       ]
     }
   },
-  {
+    {
     id: 5,
+    title: "BJT Wedding Website",
+    category: "UI UX / Product Design",
+    year: "2025",
+    images: [
+      "/bjt/cover.webp"
+    ],
+    description: "This project is a custom wedding website created for a couple who wanted a single, beautiful space to tell their story, host a live stream, and manage RSVPs and gifts online. ",
+    client: "Freelance",
+    role: "UI/UX & Product Designer",
+    date: "May 2024",
+    productLink: "https://bjtofficial.com/",
+    tools: ["Figma",  "Notion", "Google Meet"],
+    goal: "The couple wanted something more intimate than a generic template: a site that felt like an extension of their personalities, with a romantic, purple‑themed visual language, while still being practical for guests of all ages.",
+    problem: "Representing the couple’s story visually and in copy, without letting the site feel cluttered or overly sentimental.",
+    userDescription: "Friends and family of the couple (all ages) who need an easy place to read the love story, get event details, RSVP, and watch the live stream on any device.",
+    challenges: [
+      "Create a romantic yet modern visual identity built around deep purple tones, floral ornaments, and elegant typography.",
+      "Design a single‑page layout where guests can smoothly scroll from story to details to RSVP without getting lost.",
+      "Make the live stream section and RSVP form highly visible so remote guests can easily join and respond.",
+      "Provide clear gift and bank details in a respectful, non‑pushy way."
+      
+    ],
+    processSteps: [
+      {
+        title: "User Research",
+        description: "To understand what guests needed from the wedding website, I spoke with a small group of friends and family across different age ranges and tech comfort levels. I also reviewed common best practices for wedding websites and RSVP tools to see what information guests expect online—such as clear event details, RSVP forms, and gift information in one place.",
+        images: [
+          "https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        ]
+      },
+      {
+        title: "Wireframes and Concept Testing",
+        description: "The visual direction is grounded, modern, and investment‑ready: warm neutrals with green accents, clean typography, and a balance of data and imagery. I created wireframes and prototypes to test the information hierarchy and flow of key tasks like comparing investment plans, creating a personalized plan, and monitoring the investor dashboard.",
+        images: [
+          "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1531403009284-440f080d1e12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        ]
+      },
+      {
+        title: "Final Design",
+        description: "The final wedding website is a single, long‑scroll experience that guides guests from emotion to action in a clear, linear flow. A warm purple palette, floral ornaments, and intimate photography create a romantic atmosphere while maintaining strong contrast and readability.",
+        images: [
+          "/bjt/web.webp",
+          "/bjt/mobile.webp"
+        ]
+      }
+    ],
+    results: {
+     
+      learnings: [
+        "A single, well‑structured scroll page can handle complex wedding content if sections are clearly labeled and visually separated.",
+        "Small details like a countdown timer, inline love notes, and a quick “copy account” button—add emotional impact and convenience at the same time.",
+        "Designing mobile and desktop side by side early helps ensure that no section becomes unusable on small screens."
+        
+      ]
+    }
+  },
+  {
+    id: 6,
     title: "Mobile Banking for Gen Z",
     category: "Mobile Design",
     year: "2023",
