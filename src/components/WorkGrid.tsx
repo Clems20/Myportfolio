@@ -1,6 +1,6 @@
 import React from 'react';
 
-// Bringing your gorgeous case study screens into the file
+// 1. ALL IMPORTS GO AT THE VERY TOP OF YOUR FILE
 import homeScreen from './fimacasestudy/Home Screen.png';
 import loginScreens from './fimacasestudy/Login and Sign up screens.png';
 import moreService from './fimacasestudy/more service.png';
@@ -124,27 +124,26 @@ export const projects = [
       },
       {
         title: "Case Study",
-        description: "Fima is a mobile utility app for quickly buying airtime, data, electricity, and TV subscriptions. I designed a fast, trustworthy experience with simple flows, one‑tap repeats, and clear payment feedback.",
+        description: "Fima is a mobile utility app for quickly buying airtime, data, electricity, and TV subscriptions. I designed a fast, trustworthy experience with simple flows, one tap repeats, and clear payment feedback.",
         images: [
-          "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "https://images.unsplash.com/photo-1531403009284-440f080d1e12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+          homeScreen,
+          loginScreens,
+          moreService,
+          othersScreena,
+          othersScreena1,
+          projectOverview,
+          projectTitle,
+          styleGuide,
+          transferMoney,
+          webView
         ]
       },
       {
         title: "Final Design",
         description: "I developed high fidelity designs focused on scannable data visualization and clear calls to action. The interface uses a dark theme with accent colors to highlight important trends and CTAs while maintaining visual balance. Interactive prototypes helped validate flows like switching time ranges, drilling into metrics, and initiating key financial actions.",
         images: [
-homeScreen,
-  loginScreens,
-  moreService,
-  othersScreena,
-  othersScreena1,
-  projectOverview,
-  projectTitle,
-  styleGuide,
-  transferMoney,
-  webView,
+          "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1559136555-9303baea8ebd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
         ]
       }
     ],
