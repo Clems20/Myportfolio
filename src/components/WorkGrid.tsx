@@ -122,8 +122,13 @@ export const projects = [
         title: "Final Design",
         description: "I developed high fidelity designs focused on scannable data visualization and clear calls to action. The interface uses a dark theme with accent colors to highlight important trends and CTAs while maintaining visual balance. Interactive prototypes helped validate flows like switching time ranges, drilling into metrics, and initiating key financial actions.",
         images: [
-          "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "https://images.unsplash.com/photo-1559136555-9303baea8ebd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+    "/fimacasestudy/Home Screen.webp",
+    "/fimacasestudy/Login and Sign up screens.webp",
+    "/fimacasestudy/Transfer Money.webp",
+    "/fimacasestudy/more service.webp",
+    "/fimacasestudy/Others Screena.webp",
+    "/fimacasestudy/Others Screena-1.webp",
+    "/fimacasestudy/web.webp"
         ]
       }
     ],
