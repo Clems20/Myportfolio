@@ -104,7 +104,10 @@ export const projects = [
       {
         title: "User Research",
         description: "I started by interviewing and surveying users who regularly buy airtime, data, and tokens for themselves, family, and customers. I asked them to walk me through their current process and to share where things usually go wrong. I also analyzed app store reviews of existing utility payment apps to identify common pain points and feature requests.",
-        
+        images: [
+          "https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        ]
       },
       {
         title: "Case Study",
