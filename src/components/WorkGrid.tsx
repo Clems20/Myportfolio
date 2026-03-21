@@ -176,11 +176,7 @@ export const projects = [
       {
         title: "Wireframes and Concept Testing",
         description: "The visual direction is grounded, modern, and investment‑ready: warm neutrals with green accents, clean typography, and a balance of data and imagery. I created wireframes and prototypes to test the information hierarchy and flow of key tasks like comparing investment plans, creating a personalized plan, and monitoring the investor dashboard.",
-        images: [
-          "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "https://images.unsplash.com/photo-1531403009284-440f080d1e12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-        ]
+        
       },
       {
         title: "Final Design",
