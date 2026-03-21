@@ -10,18 +10,11 @@ export const projects = [
     title: "Delorand E-commerce Website ",
     category: "Product Design",
     year: "2022-2026",
-   images: [
-  "/fimacasestudy/Home Screen.png",
-  "/fimacasestudy/Login and Sign up screens.png",
-  "/fimacasestudy/more service.png",
-  "/fimacasestudy/Others Screena.png",
-  "/fimacasestudy/Others Screena-1.png",
-  "/fimacasestudy/Project overview.png",
-  "/fimacasestudy/Project Title.png",
-  "/fimacasestudy/Style Guide.png",
-  "/fimacasestudy/Transfer Money.png",
-  "/fimacasestudy/web.png"
-],
+    images: [
+      "https://images.unsplash.com/photo-1766503206606-27de0861e8a4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsJTIwcHJvZHVjdCUyMGRlc2lnbiUyMGludGVyZmFjZXxlbnwxfHx8fDE3NjY3OTc4MTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "https://images.unsplash.com/photo-1748609339084-ea43ec1b8fbb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaW5hbmNlJTIwZGFzaGJvYXJkJTIwYW5hbHl0aWNzfGVufDF8fHx8MTc2Njg1MDIwOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "https://images.unsplash.com/photo-1762279389020-eeeb69c25813?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaW5hbmNpYWwlMjBjaGFydHMlMjBncmFwaHN8ZW58MXx8fHwxNzY2ODUwMjA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    ],
     description: "Designing the e-commerce experience to seamlessly blend premium fashion shopping with engaging social features.",
     client: "Delorand",
     role: "Lead Product Designer",
@@ -119,10 +112,17 @@ export const projects = [
         title: "Case Study",
         description: "Fima is a mobile utility app for quickly buying airtime, data, electricity, and TV subscriptions. I designed a fast, trustworthy experience with simple flows, one‑tap repeats, and clear payment feedback.",
         images: [
-          "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "https://images.unsplash.com/photo-1531403009284-440f080d1e12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-        ]
+  "/fimacasestudy/Home Screen.png",
+  "/fimacasestudy/Login and Sign up screens.png",
+  "/fimacasestudy/more service.png",
+  "/fimacasestudy/Others Screena.png",
+  "/fimacasestudy/Others Screena-1.png",
+  "/fimacasestudy/Project overview.png",
+  "/fimacasestudy/Project Title.png",
+  "/fimacasestudy/Style Guide.png",
+  "/fimacasestudy/Transfer Money.png",
+  "/fimacasestudy/web.png"
+],
       },
       {
         title: "Final Design",
