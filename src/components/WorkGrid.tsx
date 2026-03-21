@@ -73,7 +73,7 @@ export const projects = [
       ]
     }
   },
-  {
+    {
     id: 2,
     title: "FIMA",
     category: "UI UX / Product Design",
@@ -85,9 +85,9 @@ export const projects = [
     ],
     description: "Designed a user-friendly utility app that enables users to buy data, airtime, electricity, and cable subscriptions seamlessly",
     client: "Fima",
-    role: "UI/UX & Product Designer",
+    role: "Lead UI/UX & Product Designer",
     date: "Feb - Aug 2025",
-    tools: ["Figma", "Miro", "Notion"],
+    tools: ["Figma",  "Notion"],
     goal: "Streamline Daily and Recurring Payments to provide users with a fast, simple, and reliable way to buy data, airtime, electricity, and cable subscriptions in one place.",
     problem: "Existing apps were dense and overwhelming, cluttered, ad‑heavy, or confusing, causing errors and failed transactions",
     userDescription: "Busy smartphone users who need a fast, reliable way to handle all their utility payments in one place.",
@@ -134,7 +134,74 @@ export const projects = [
       learnings: [
         "Progressive disclosure is crucial when handling complex details on small screens; showing everything at once overwhelms users.",
         "Small animations and micro‑interactions can make a huge difference in perceived speed and reliability, especially around payment actions.",
-        "Regular user testing throughout the design process catches confusing steps early and avoids costly redesigns later."
+        "Regular user testing throughout the design process catches confusing steps early and avoids costly redesigns later.",
+        "Visual feedback for every action built confidence in first-time users"
+      ]
+    }
+  },
+  {
+    id: 2,
+    title: "FIMA",
+    category: "UI UX / Product Design",
+    year: "2025-2026",
+    images: [
+      "https://images.unsplash.com/photo-1703355685639-d558d1b0f63e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB3b3Jrc3BhY2UlMjBkZXNpZ258ZW58MXx8fHwxNzY2NzAwMzAxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "https://images.unsplash.com/photo-1764123108291-0f48d2c7e563?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b3Jrc3BhY2UlMjBjb2xsYWJvcmF0aW9uJTIwdG9vbHN8ZW58MXx8fHwxNzY2ODUwMjEyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "https://images.unsplash.com/photo-1580983558189-84200466afb8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWFtJTIwd29ya3NwYWNlJTIwZGVzaWdufGVufDF8fHx8MTc2Njg1MDIwOXww&ixlib=rb-4.1.0&q=80&w=1080",
+    ],
+    description: "Designed a user-friendly utility app that enables users to buy data, airtime, electricity, and cable subscriptions seamlessly",
+    client: "Fima",
+    role: "Lead UI/UX & Product Designer",
+    date: "Feb - Aug 2025",
+    tools: ["Figma",  "Notion"],
+    goal: "Streamline Daily and Recurring Payments to provide users with a fast, simple, and reliable way to buy data, airtime, electricity, and cable subscriptions in one place.",
+    problem: "Existing apps were dense and overwhelming, cluttered, ad‑heavy, or confusing, causing errors and failed transactions",
+    userDescription: "Busy smartphone users who need a fast, reliable way to handle all their utility payments in one place.",
+    challenges: [
+      "Create a user-friendly interface for managing personal finances.",
+      "Offer secure and convenient methods for making transaction and payment.",
+      "Streamline Daily and Recurring Payments to provide users with a fast, simple, and reliable way to buy data, airtime, electricity, and cable subscriptions in one place.",
+      "onboarding uusers to a new financial app while building trust and confidence in the security of thier transactions.",
+      "Ensure Transaction Security to integrate secure payment gateways and data protection measures that build user trust and safeguard personal information."
+    ],
+    processSteps: [
+      {
+        title: "User Research",
+        description: "I started by interviewing and surveying users who regularly buy airtime, data, and tokens for themselves, family, and customers. I asked them to walk me through their current process and to share where things usually go wrong. I also analyzed app store reviews of existing utility payment apps to identify common pain points and feature requests.",
+        images: [
+          "https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        ]
+      },
+      {
+        title: "Wireframes and Concept Testing",
+        description: "Created detailed journey maps for different user personas and prioritized features based on impact vs effort.",
+        images: [
+          "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1531403009284-440f080d1e12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        ]
+      },
+      {
+        title: "Final Design",
+        description: "I developed high fidelity designs focused on scannable data visualization and clear calls to action. The interface uses a dark theme with accent colors to highlight important trends and CTAs while maintaining visual balance. Interactive prototypes helped validate flows like switching time ranges, drilling into metrics, and initiating key financial actions.",
+        images: [
+          "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1559136555-9303baea8ebd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        ]
+      }
+    ],
+    results: {
+      metrics: [
+        "Faster completion time for repeat payments compared to their previous apps",
+        "Fewer user errors during electricity and TV flows due to better validation and confirmation steps.",
+        "Higher perceived trust thanks to clear summaries, visible history, and transparent status messages."
+      ],
+      learnings: [
+        "Progressive disclosure is crucial when handling complex details on small screens; showing everything at once overwhelms users.",
+        "Small animations and micro‑interactions can make a huge difference in perceived speed and reliability, especially around payment actions.",
+        "Regular user testing throughout the design process catches confusing steps early and avoids costly redesigns later.",
+        "Visual feedback for every action built confidence in first-time users"
       ]
     }
   },
