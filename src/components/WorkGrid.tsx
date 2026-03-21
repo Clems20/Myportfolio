@@ -203,6 +203,68 @@ export const projects = [
   },
   {
     id: 4,
+    title: "GMC: Web3 Agricultural NFT & Reward Platform",
+    category: "UI UX / Product Design",
+    year: "2025",
+    images: [
+      "https://images.unsplash.com/photo-1703355685639-d558d1b0f63e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB3b3Jrc3BhY2UlMjBkZXNpZ258ZW58MXx8fHwxNzY2NzAwMzAxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "https://images.unsplash.com/photo-1764123108291-0f48d2c7e563?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b3Jrc3BhY2UlMjBjb2xsYWJvcmF0aW9uJTIwdG9vbHN8ZW58MXx8fHwxNzY2ODUwMjEyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "https://images.unsplash.com/photo-1580983558189-84200466afb8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWFtJTIwd29ya3NwYWNlJTIwZGVzaWdufGVufDF8fHx8MTc2Njg1MDIwOXww&ixlib=rb-4.1.0&q=80&w=1080",
+    ],
+    description: "GMC is a responsive web platform that helps people invest in agriculture using crypto assets, track returns, and support community‑based farm projects. ",
+    client: "Freelance",
+    role: "UI/UX & Product Designer",
+    date: "May 2024",
+    tools: ["Figma",  "Notion"],
+    goal: "GMC bridges this gap by packaging farm projects into clear investment plans, allowing users to fund them with supported crypto assets and monitor performance in real time.",
+    problem: "Users needed to understand quickly that GMC combines agriculture, high‑yield plans, and crypto funding—without being overwhelmed by jargon.",
+    userDescription: "Busy smartphone users who need a fast, reliable way to handle all their utility payments in one place.",
+    challenges: [
+      "Clearly communicate what GMC is and why agricultural investments can be attractive, directly from the homepage hero.",
+      "Design a simple account‑creation and login flow with options for social sign‑in and wallet connection.",
+      "Make it easy to compare investment models and create a personalized plan with clear minimums, benefits, and risks.",
+      "Provide an investor dashboard that presents core metrics (capital, monthly ROI, yearly ROI, total profit, withdrawal date) in a scannable layout.",
+      "Highlight community projects and impact stories so users see where their money goes beyond the numbers."
+    ],
+    processSteps: [
+      {
+        title: "User Research",
+        description: "I started by mapping two primary user types: Return‑focused investors interested in yield, duration, and supported crypto assets and Impact‑driven supporters who care about sustainability, farmer livelihoods, and community projects.",
+        images: [
+          "https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        ]
+      },
+      {
+        title: "Wireframes and Concept Testing",
+        description: "The visual direction is grounded, modern, and investment‑ready: warm neutrals with green accents, clean typography, and a balance of data and imagery. I created wireframes and prototypes to test the information hierarchy and flow of key tasks like comparing investment plans, creating a personalized plan, and monitoring the investor dashboard.",
+        images: [
+          "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1531403009284-440f080d1e12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        ]
+      },
+      {
+        title: "Final Design",
+        description: "I developed high fidelity designs focused on scannable data visualization and clear calls to action. The interface uses a dark theme with accent colors to highlight important trends and CTAs while maintaining visual balance. Interactive prototypes helped validate flows like switching time ranges, drilling into metrics, and initiating key financial actions.",
+        images: [
+          "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1559136555-9303baea8ebd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        ]
+      }
+    ],
+    results: {
+     
+      learnings: [
+        "Breaking complex propositions into separate pages (Investment Details vs. Community Impact) helps users digest information step by step.",
+        "Combining photography with a restrained, consistent design system creates a strong sense of legitimacy.",
+        "Clear investment models plus a customizable plan gives both beginners and advanced users the control they expect from a financial platform."
+        
+      ]
+    }
+  },
+  {
+    id: 5,
     title: "Mobile Banking for Gen Z",
     category: "Mobile Design",
     year: "2023",
