@@ -81,7 +81,7 @@ export const projects = [
     year: "2025-2026",
     images: [
       "/fimacasestudy/cover.webp",
-      "/fimacasestudy/cover2.webp",
+      "/fimacasestudy/coverr.webp"
       
     ],
     description: "Designed a user-friendly utility app that enables users to buy data, airtime, electricity, and cable subscriptions seamlessly",
