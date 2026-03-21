@@ -112,16 +112,16 @@ export const projects = [
         title: "Case Study",
         description: "Fima is a mobile utility app for quickly buying airtime, data, electricity, and TV subscriptions. I designed a fast, trustworthy experience with simple flows, one‑tap repeats, and clear payment feedback.",
         images: [
-  "/fimacasestudy/Home Screen.png",
-  "/fimacasestudy/Login and Sign up screens.png",
-  "/fimacasestudy/more service.png",
-  "/fimacasestudy/Others Screena.png",
-  "/fimacasestudy/Others Screena-1.png",
-  "/fimacasestudy/Project overview.png",
-  "/fimacasestudy/Project Title.png",
-  "/fimacasestudy/Style Guide.png",
-  "/fimacasestudy/Transfer Money.png",
-  "/fimacasestudy/web.png"
+    "/fimacasestudy/Home Screen.webp",
+    "/fimacasestudy/Login and Sign up screens.webp",
+    "/fimacasestudy/more service.webp",
+    "/fimacasestudy/Others Screena.webp",
+    "/fimacasestudy/Others Screena-1.webp",
+    "/fimacasestudy/Project overview.webp",
+    "/fimacasestudy/Project Title.webp",
+    "/fimacasestudy/Style Guide.webp",
+    "/fimacasestudy/Transfer Money.webp",
+    "/fimacasestudy/web.webp"
 ],
       },
       {
