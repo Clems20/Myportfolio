@@ -295,7 +295,7 @@ export const projects = [
     tools: ["Figma",  "Notion", "Google Meet"],
     goal: "To brilliantly merge traditional agriculture with Web3 innovation by building a seamlessly rewarding NFT ecosystem.",
     problem: "Agricultural platforms often feel incredibly traditional and disconnected, so we built a vibrant blockchain space where farming milestones directly translate to gorgeous digital rewards.",
-    userDescription: "Friends and family of the couple (all ages) and Web3 enthusiasts.",
+    userDescription: "Young People (all ages) and Web3 enthusiasts.",
     challenges: [
       "Balancing dense crypto data with striking visual clarity without losing any important transaction details.",
       "Designing an irresistible onboarding flow for both Web3 novices and experienced NFT collectors with completely different needs.",
@@ -341,8 +341,70 @@ export const projects = [
       ]
     }
   },
-  {
+      {
     id: 6,
+    title: "Food Delivery App",
+    category: "UI UX / Product Design",
+    year: "2025",
+    images: [
+      "/food/cover.webp"
+    ],
+    description: "Serving up a visually stunning, completely effortless mobile food delivery experience that puts your deepest cravings front and center. ",
+    client: "Personal Project",
+    role: "UI/UX & Product Designer",
+    date: "August 2025",
+    productLink: "https://www.figma.com/design/FrmZnmQyMie4c8SkxBZBVB/FOOD?node-id=0-1&t=gE4I1uT4c3XRtpGs-1",
+    tools: ["Figma",],
+    goal: "To beautifully disrupt the standard food delivery flow by building an app that is just as visually appetizing as the meals it delivers.",
+    problem: "Ordering food online can often feel cluttered and highly transactional. I needed to design a fresh, vibrant space where finding and customizing your favorite meal feels completely effortless and genuinely exciting.",
+    userDescription: "People of all ages who enjoy mobile food delivery.",
+    challenges: [
+      "Creating a highly scannable search and discovery architecture, effortlessly guiding users from daily discount banners straight to popular local spots",
+      "Balancing massive, gorgeous food photography with a beautifully clean, minimalist white interface and rich red accents to instantly drive appetite.",
+      "Creating a beautiful, highly scalable design system that bridges the gap between digital assets and real world agriculture.",
+      "Designing an incredibly intuitive plate customization flow, letting users effortlessly add sides like extra yam or fries with absolute zero friction."
+      
+    ],
+    processSteps: [
+      {
+        title: "User Research",
+        description: "I dove deep into the exact friction points people face when ordering food, especially within the fast paced Lagos food scene. I analyzed how users interact with digital menus and realized they heavily rely on visual confirmation and need immediate, easygoing customer service. I mapped out the exact psychological triggers that make hitting that checkout button feel totally irresistible.",
+        images: [
+          "https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        ]
+      },
+      {
+        title: "Wireframes and Concept Testing",
+        description: "Mapped out remarkably smooth user flows and created low fidelity wireframes to test entirely new layouts",
+        images: [
+          "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1531403009284-440f080d1e12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        ]
+      },
+      {
+        title: "Final Design",
+        description: "Developed gorgeous high fidelity designs with a massive focus on mouth watering visual hierarchy",
+        images: [
+          "/food/shot1.webp",
+    "/food/shot2.webp",
+    "/food/shot3.webp",
+        ]
+      }
+    ],
+    results: {
+     
+      learnings: [
+        "Constant user testing throughout the entire design process prevented major layout pivots later down the road.",
+        "Playful animations and smooth micro interactions significantly improve the perceived speed of network transactions.",
+        "Progressive disclosure is absolutely crucial for managing blockchain complexity without completely overwhelming casual users."
+        
+      ]
+    }
+  },
+  {
+    id: 7,
     title: "Mobile Banking for Gen Z",
     category: "Mobile Design",
     year: "2023",
