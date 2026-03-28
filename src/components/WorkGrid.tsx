@@ -396,9 +396,9 @@ export const projects = [
     results: {
      
       learnings: [
-        "Constant user testing throughout the entire design process prevented major layout pivots later down the road.",
-        "Playful animations and smooth micro interactions significantly improve the perceived speed of network transactions.",
-        "Progressive disclosure is absolutely crucial for managing blockchain complexity without completely overwhelming casual users."
+        "Massive, high quality imagery does all the heavy lifting when it comes to driving engagement in food tech.",
+        "Customizing a plate of food digitally needs to feel exactly as easy and relaxed as casually ordering from a waiter at your favorite restaurant.",
+        "Letting users simply drop a picture in the support chat instantly relieves post order anxiety and makes the brand feel way more human."
         
       ]
     }
