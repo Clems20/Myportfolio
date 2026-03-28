@@ -522,7 +522,7 @@ export const projects = [
         title: "Wireframes and Concept Testing",
         description: "Chop Lotto is a lottery gaming platform aiming to engage users through fast, fun, and potentially rewarding gameplay. But their website was cluttered, visually outdated, and lacked a clear hierarchy. From the start, I knew this redesign had to do more than just look better. It had to feel like winning—simple, intuitive, exciting",
         images: [
-          "/choplotto/wireframes.webp",
+          "/choplotto/wireframe.webp",
         ]
       },
       {
