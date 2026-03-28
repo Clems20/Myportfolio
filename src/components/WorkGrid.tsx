@@ -488,6 +488,63 @@ export const projects = [
   },
   {
     id: 8,
+    title: "Chop Lotto Redesign",
+    category: "UI UX / Product Design",
+    year: "2023",
+    images: [
+      "/choplotto/cover.webp"
+    ],
+    description: "Improve user engagement, visual appeal, and clarity of Home Page on the Chop Lotto website.",
+    client: "Freelance",
+    role: "UI/UX & Product Designer",
+    date: "May 2023",
+    productLink: "https://www.figma.com/design/8RuEt9dkkIpBxZ6xcmq01Q/Chop-Lotto-Redesign?node-id=220-804&t=cGreWmxGwynFkHF3-1",
+    tools: ["Figma",],
+    goal: "Simplify navigation and user flow, Highlight CTAs and key interactions",
+    problem: "The layout feels cramped and outdated. The information hierarchy is unclear, making it difficult for users to find what they need. The visual design lacks cohesion and fails to create an engaging experience.",
+    userDescription: "Adults over 18 who are interested in online lottery games and want a fun, easy-to-use platform to play and check results.",
+    challenges: [
+      "The layout feels cramped and outdated.",
+      "Create a cohesive visual language that reflects the fun and excitement of playing the lottery.",
+      "The color palette lacks hierarchy and doesn't guide the users.",
+      "Mobile responsiveness could be optimized further to ensure a seamless experience across devices."
+      
+    ],
+    processSteps: [
+      {
+        title: "User Research",
+        description: "To understand what guests needed from the wedding website, I spoke with a small group of friends and family across different age ranges and tech comfort levels. I also reviewed common best practices for lotto websites to see what information customers expect",
+        images: [
+"/choplotto/styleguide.webp",
+        ]
+      },
+      {
+        title: "Wireframes and Concept Testing",
+        description: "Chop Lotto is a lottery gaming platform aiming to engage users through fast, fun, and potentially rewarding gameplay. But their website was cluttered, visually outdated, and lacked a clear hierarchy. From the start, I knew this redesign had to do more than just look better. It had to feel like winning—simple, intuitive, exciting",
+        images: [
+          "/choplotto/wireframes.webp",
+        ]
+      },
+      {
+        title: "Final Design",
+        description: "The final design is a vibrant, modern take on the lottery experience. A bold color palette creating an energetic atmosphere, while clean typography and generous spacing improve readability. ",
+        images: [
+          "/choplotto/design.webp"
+        ]
+      }
+    ],
+    results: {
+     
+      learnings: [
+        "In gaming, any visual clutter is a barrier to entry. Stripping away the excess instantly makes the platform feel more inviting.",
+        "A deep dark mode paired with vibrant, almost neon accents naturally creates a feeling of excitement and premium entertainment.",
+        "A perfectly organized interface, especially when dealing with financial transactions and lottery tickets, makes users feel completely secure and confident in the platform."
+        
+      ]
+    }
+  },
+  {
+    id: 9,
     title: "Mobile Banking for Gen Z",
     category: "Mobile Design",
     year: "2023",
