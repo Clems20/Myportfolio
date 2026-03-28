@@ -411,7 +411,7 @@ export const projects = [
     images: [
       "/charis/cover.webp",
     ],
-    description: "Merging the deeply grounded world of agriculture with the limitless potential of Web3 and digital collectibles. ",
+    description: "Reimagining group lending and microfinance management into a beautifully seamless, completely stress free digital ecosystem",
     client: "Freelance",
     role: "UI/UX & Product Designer",
     date: "August 202",
