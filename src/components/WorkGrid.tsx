@@ -334,9 +334,9 @@ export const projects = [
     results: {
      
       learnings: [
-        "A single, well‑structured scroll page can handle complex wedding content if sections are clearly labeled and visually separated.",
-        "Small details like a countdown timer, inline love notes, and a quick “copy account” button—add emotional impact and convenience at the same time.",
-        "Designing mobile and desktop side by side early helps ensure that no section becomes unusable on small screens."
+        "Constant user testing throughout the entire design process prevented major layout pivots later down the road.",
+        "Playful animations and smooth micro interactions significantly improve the perceived speed of network transactions.",
+        "Progressive disclosure is absolutely crucial for managing blockchain complexity without completely overwhelming casual users."
         
       ]
     }
