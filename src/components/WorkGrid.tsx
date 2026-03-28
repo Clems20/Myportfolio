@@ -405,6 +405,89 @@ export const projects = [
   },
   {
     id: 7,
+    title: "Charis Microfinance Portal",
+    category: "UI UX / Product Design",
+    year: "2025",
+    images: [
+      "/charis/cover.webp",
+    ],
+    description: "Merging the deeply grounded world of agriculture with the limitless potential of Web3 and digital collectibles. ",
+    client: "Freelance",
+    role: "UI/UX & Product Designer",
+    date: "August 202",
+    productLink: "https://www.figma.com/design/Iwk7aeSz4bOoRCWd2QNzcw/Charis-Portal?node-id=740-1067&t=Rl0ICi1cqKN29OFk-1",
+    tools: ["Figma",  "Notion", "Google Meet"],
+    goal: "Shaping the future of finance one innovation at a time",
+    problem: "Traditional banks often struggle to keep up with fintech innovations, which can impact their competitiveness and customer appeal",
+    userDescription: "People (all ages) looking for a modern, user-friendly banking experience",
+    challenges: [
+      "Balancing dense financial data, like repayment schedules and active loan limits, with striking visual clarity so administrators can monitor operations at a single glance.",
+      "Crafting a responsive, sleek mobile experience that lets users track their repayment progress and check pending applications while on the go.",
+      "Creating a highly scalable admin ecosystem that effortlessly handles bulk uploads, staff assignments, and system preferences in one beautiful, relaxed space.",
+      "Designing a ridiculously smooth, multi step loan application flow that gently guides users through KYC and group registration without ever feeling overwhelming."
+      
+    ],
+    processSteps: [
+      {
+        title: "User Research",
+        description: "I dove deep into the exact friction points faced by microfinance groups and loan officers. I analyzed how administrators interact with massive data sets and mapped out the psychological triggers that make financial tracking feel less like a heavy chore and more like a satisfying, easygoing habit.",
+        images: [
+          "https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        ]
+      },
+      {
+        title: "Wireframes and Concept Testing",
+        description: "MMapped out remarkably smooth user flows and created low fidelity wireframes to test entirely new layouts for the admin dashboard. The absolute main focus was making sure the journey from group registration to final loan disbursement felt perfectly natural, totally secure, and completely outside the box.",
+        images: [
+          "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1531403009284-440f080d1e12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        ]
+      },
+      {
+        title: "Final Design",
+        description: "Developed gorgeous high fidelity designs using a vibrant purple and mint green palette to keep the financial interface feeling incredibly fresh and relaxed.",
+        images: [
+    "/charis/mobile.webp",
+    "/charis/admindashboard.webp",
+    "/charis/adminsettings.webp",
+    "/charis/adminsettings2.webp",
+    "/charis/adminsettings3.webp",
+    "/charis/adminsettings4.webp",
+    "/charis/basicinfo.webp",
+    "/charis/Dashboard.webp",
+    "/charis/groupleaderdashboard.webp",
+    "/charis/groupmemberreg.webp",
+    "/charis/groupmembers.webp",
+    "/charis/groupmanagement.webp",
+    "/charis/Group Registration.webp",
+    "/charis/groupdetails.webp",
+    "/charis/loanapp1.webp",
+    "/charis/loanappform.webp",
+    "/charis/loandetails.webp",
+    "/charis/loanhistory.webp",
+    "/charis/meetingrecords.webp",
+    "/charis/personaldetails.webp",
+    "/charis/reqgroup.webp",
+    "/charis/repaymenttracking.webp",
+    "/charis/repaymenttracking2.webp"
+        ]
+      }
+    ],
+    results: {
+     
+      learnings: [
+        "Constant user testing throughout the entire design process prevented major layout pivots later down the road.",
+        "Breaking down the loan application into bite sized steps keeps users relaxed when entering sensitive KYC and group details.",
+        "Using clear, intuitive color coding for payment statuses, like 'Due Soon' and 'Completed', makes tracking overdue payments incredibly stress free for admins.",
+        "A perfectly organized information architecture turns a massive, intimidating financial system into a completely effortless daily tool."
+        
+      ]
+    }
+  },
+  {
+    id: 8,
     title: "Mobile Banking for Gen Z",
     category: "Mobile Design",
     year: "2023",
