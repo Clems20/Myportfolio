@@ -281,32 +281,32 @@ export const projects = [
   },
     {
     id: 5,
-    title: "BJT Wedding Website",
+    title: "Web3 Agricultural NFT & Reward Platform",
     category: "UI UX / Product Design",
     year: "2025",
     images: [
-      "/bjt/cover.webp"
+      "/agrinft/cover.webp"
     ],
-    description: "This project is a custom wedding website created for a couple who wanted a single, beautiful space to tell their story, host a live stream, and manage RSVPs and gifts online. ",
+    description: "Merging the deeply grounded world of agriculture with the limitless potential of Web3 and digital collectibles. ",
     client: "Freelance",
     role: "UI/UX & Product Designer",
-    date: "May 2024",
-    productLink: "https://bjtofficial.com/",
+    date: "August 2024",
+    productLink: "https://www.figma.com/design/sgrkgja383VfsViWF6YlCq/NFT-MINT-WEBSITE?node-id=0-1&t=25yQQAEMXAnPI6rK-1",
     tools: ["Figma",  "Notion", "Google Meet"],
-    goal: "The couple wanted something more intimate than a generic template: a site that felt like an extension of their personalities, with a romantic, purple‑themed visual language, while still being practical for guests of all ages.",
-    problem: "Representing the couple’s story visually and in copy, without letting the site feel cluttered or overly sentimental.",
-    userDescription: "Friends and family of the couple (all ages) who need an easy place to read the love story, get event details, RSVP, and watch the live stream on any device.",
+    goal: "To brilliantly merge traditional agriculture with Web3 innovation by building a seamlessly rewarding NFT ecosystem.",
+    problem: "Agricultural platforms often feel incredibly traditional and disconnected, so we built a vibrant blockchain space where farming milestones directly translate to gorgeous digital rewards.",
+    userDescription: "Friends and family of the couple (all ages) and Web3 enthusiasts.",
     challenges: [
-      "Create a romantic yet modern visual identity built around deep purple tones, floral ornaments, and elegant typography.",
-      "Design a single‑page layout where guests can smoothly scroll from story to details to RSVP without getting lost.",
-      "Make the live stream section and RSVP form highly visible so remote guests can easily join and respond.",
-      "Provide clear gift and bank details in a respectful, non‑pushy way."
+      "Balancing dense crypto data with striking visual clarity without losing any important transaction details.",
+      "Designing an irresistible onboarding flow for both Web3 novices and experienced NFT collectors with completely different needs.",
+      "Creating a beautiful, highly scalable design system that bridges the gap between digital assets and real world agriculture.",
+      "Crafting an immersive dashboard that effortlessly turns farming investments into instantly rewarding digital collectibles."
       
     ],
     processSteps: [
       {
         title: "User Research",
-        description: "To understand what guests needed from the wedding website, I spoke with a small group of friends and family across different age ranges and tech comfort levels. I also reviewed common best practices for wedding websites and RSVP tools to see what information guests expect online—such as clear event details, RSVP forms, and gift information in one place.",
+        description: "Conducted deep user interviews with 15 users and analyzed existing Web3 platforms to completely understand the exact friction points in crypto onboarding. We perfectly mapped the psychological triggers that make digital rewards feel incredibly satisfying and totally secure.",
         images: [
           "https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
           "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
@@ -314,7 +314,7 @@ export const projects = [
       },
       {
         title: "Wireframes and Concept Testing",
-        description: "The visual direction is grounded, modern, and investment‑ready: warm neutrals with green accents, clean typography, and a balance of data and imagery. I created wireframes and prototypes to test the information hierarchy and flow of key tasks like comparing investment plans, creating a personalized plan, and monitoring the investor dashboard.",
+        description: "Mapped out remarkably smooth user flows and created low fidelity wireframes to playfully test entirely new layouts. The main focus was making sure the usually clunky wallet connection process felt perfectly natural and completely effortless.",
         images: [
           "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
           "https://images.unsplash.com/photo-1531403009284-440f080d1e12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
@@ -323,10 +323,11 @@ export const projects = [
       },
       {
         title: "Final Design",
-        description: "The final wedding website is a single, long‑scroll experience that guides guests from emotion to action in a clear, linear flow. A warm purple palette, floral ornaments, and intimate photography create a romantic atmosphere while maintaining strong contrast and readability.",
+        description: "Developed gorgeous high fidelity designs with a deep focus on scannable data visualization and irresistible interactive elements.",
         images: [
-          "/bjt/web.webp",
-          "/bjt/mobile.webp"
+          "/agrinft/getstarted.webp",
+    "/agrinft/homepage.webp",
+    "/agrinft/mintnft.webp",
         ]
       }
     ],
