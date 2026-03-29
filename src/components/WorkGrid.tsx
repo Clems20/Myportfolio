@@ -543,69 +543,6 @@ export const projects = [
       ]
     }
   },
-  {
-    id: 9,
-    title: "Mobile Banking for Gen Z",
-    category: "Mobile Design",
-    year: "2023",
-    images: [
-      "https://images.unsplash.com/photo-1641862039942-5815d8f74938?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbiUyMG1vYmlsZSUyMGFwcCUyMGludGVyZmFjZXxlbnwxfHx8fDE3NjY3OTc4MjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "https://images.unsplash.com/photo-1681826291722-70bd7e9e6fc3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBiYW5raW5nJTIwYXBwfGVufDF8fHx8MTc2Njc0ODg4NHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "https://images.unsplash.com/photo-1765226410758-9ae3d34cd791?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYW5raW5nJTIwbW9iaWxlJTIwaW50ZXJmYWNlfGVufDF8fHx8MTc2Njg0NTA4Nnww&ixlib=rb-4.1.0&q=80&w=1080",
-    ],
-    description: "Making banking feel less like a chore and more like a helpful companion",
-    client: "NextGen Bank",
-    role: "Senior Mobile Designer",
-    date: "Sep - Dec 2023",
-    tools: ["Figma", "Principle", "Maze"],
-    goal: "Create a mobile banking experience that resonates with Gen Z users and builds healthy financial habits",
-    problem: "Traditional banking apps felt intimidating and disconnected from how young users think about money",
-    userDescription: "Gen Z users (18-25) looking for their first independent banking experience",
-    challenges: [
-      "Building trust and security perception without feeling corporate or stuffy",
-      "Gamifying financial literacy without trivializing serious money matters",
-      "Designing for accessibility while maintaining a fresh, youthful aesthetic"
-    ],
-    processSteps: [
-      {
-        title: "User Research",
-        description: "Conducted contextual inquiries and diary studies with 20 Gen Z users to understand their relationship with money and existing banking frustrations.",
-        images: [
-          "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "https://images.unsplash.com/photo-1556761175-4b46a572b786?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-        ]
-      },
-      {
-        title: "Wireframes and Concept Testing",
-        description: "Created multiple design concepts focusing on personality, clarity, and delight. Tested with users to find the right balance.",
-        images: [
-          "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "https://images.unsplash.com/photo-1551650975-87deedd944c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-        ]
-      },
-      {
-        title: "Final Design",
-        description: "Developed polished UI with thoughtful micro-interactions and a friendly tone of voice. Created detailed motion specs for development.",
-        images: [
-          "https://images.unsplash.com/photo-1563986768609-322da13575f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-        ]
-      }
-    ],
-    results: {
-      metrics: [
-        "15K+ downloads in first two weeks of launch",
-        "4.7 star rating on App Store",
-        "Users check app 3.2x more than competitor apps"
-      ],
-      learnings: [
-        "Conversational UI and friendly copy dramatically improved user comfort",
-        "Visual feedback for every action built confidence in first-time users",
-        "Educational content works best when integrated naturally into the experience"
-      ]
-    }
-  }
 ];
 
 export function WorkGrid({ onProjectClick }: { onProjectClick?: (projectId: number) => void }) {
