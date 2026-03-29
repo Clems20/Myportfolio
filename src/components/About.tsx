@@ -47,7 +47,7 @@ export function About() {
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
                 <p>
-                  I'm a UI/UX Designer with 3 years of experience crafting inclusive and impactful
+                  I'm a UI/UX Designer with 4 years of experience crafting inclusive and impactful
                   user experiences. I specialize in product design, UX research, branding, and
                   interaction design, with a strong track record in fintech, SaaS, healthcare,
                   and e-commerce.

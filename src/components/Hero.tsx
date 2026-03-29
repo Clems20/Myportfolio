@@ -216,7 +216,7 @@ export function Hero() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.9 }}
           >
-            With 3 years of crafting inclusive and impactful experiences across fintech,
+            With 4 years of crafting inclusive and impactful experiences across fintech,
             SaaS, healthcare, e-commerce, and Web 3.
           </motion.p>
         </motion.div>
