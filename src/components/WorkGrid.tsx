@@ -495,7 +495,7 @@ export const projects = [
     processSteps: [
       {
         title: "User Research",
-        description: "To understand what guests needed from the wedding website, I spoke with a small group of friends and family across different age ranges and tech comfort levels. I also reviewed common best practices for lotto websites to see what information customers expect",
+        description: "To understand what guests needed from the lotto websites, I spoke with a small group of friends and family across different age ranges and tech comfort levels. I also reviewed common best practices for lotto websites to see what information customers expect",
         images: [
 "/choplotto/styleguide.webp",
         ]
@@ -521,6 +521,66 @@ export const projects = [
         "In gaming, any visual clutter is a barrier to entry. Stripping away the excess instantly makes the platform feel more inviting.",
         "A deep dark mode paired with vibrant, almost neon accents naturally creates a feeling of excitement and premium entertainment.",
         "A perfectly organized interface, especially when dealing with financial transactions and lottery tickets, makes users feel completely secure and confident in the platform."
+        
+      ]
+    }
+  },
+    {
+    id: 9,
+    title: "Wallpaper App",
+    category: "UI UX / Product Design",
+    year: "2026",
+    images: [
+      "/wallpaper/cover.webp",
+    ],
+    description: "Crafting a beautifully minimal, visually immersive wallpaper discovery experience that puts stunning high-definition art right at your fingertips.",
+    client: "Personal Project",
+    role: "UI/UX & Product Designer",
+    date: "February 2026",
+    productLink: "https://www.figma.com/design/CqDTr8TTYkoEjPGH3d2kWv/Wallpaper-App?node-id=0-1&t=kT4OR6mZSpw9R3hW-1",
+    tools: ["Figma",],
+    goal: "To design a perfectly clean, distraction-free mobile platform where finding and applying the perfect wallpaper feels entirely effortless.",
+    problem: "Many customization apps are overloaded with ads, cluttered menus, and chaotic layouts that completely distract from the actual artwork. I needed to build a fresh, minimal space where the imagery itself is the only focus.",
+    userDescription: "All Ages who enjoy personalizing their devices with high-quality wallpapers.",
+    challenges: [
+      "Designing a strikingly clean, high-contrast interface that acts as an invisible frame, allowing the vibrant, full bleed wallpaper images to completely steal the show.",
+      "Building a flawlessly smooth onboarding flow that gets users from the initial download straight into discovering beautiful art in just a few taps.",
+      "Crafting an incredibly intuitive categorization and search architecture, making it effortless to bounce between 'Anime' aesthetics and 'Abstract' vibes.",
+      "Developing a satisfying, frictionless application process, letting users test and set images to their home or lock screens instantly."
+      
+    ],
+    processSteps: [
+      {
+        title: "User Research",
+        description: "I looked closely at how people customize their phones. The primary frustration is always the noise—too many buttons, too much text, and constant interruptions. The strategy for WallPal was absolute minimalism. Every single design choice was made to strip away the interface and push the artwork forward, mapping out the exact user journey from visual discovery to instant application.",
+        images: [
+          "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+        ]
+      },
+      {
+        title: "Wireframes and Concept Testing",
+        description: "The core challenge was organizing massive amounts of imagery without making the feed feel heavy.",
+        images: [
+          "https://images.unsplash.com/photo-1531403009284-440f080d1e12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+        ]
+      },
+      {
+        title: "Final Design",
+        description: "The final high fidelity design is an exercise in visual restraint.",
+        images: [
+    "/wallpaper/page1.webp",
+    "/wallpaper/page2.webp",
+    "/wallpaper/page3.webp",
+    "/wallpaper/page4.webp",
+        ]
+      }
+    ],
+    results: {
+     
+      learnings: [
+        "When the product is highly visual art, the best UI design gets completely out of the way.",
+        "Generous use of white space around the image grids prevents visual fatigue when users are scrolling through hundreds of vibrant colors.",
+        "Making the actual application process (setting the wallpaper) a seamless, one tap action is the ultimate key to user satisfaction in customization apps."
         
       ]
     }
