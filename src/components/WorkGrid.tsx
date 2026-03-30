@@ -34,8 +34,6 @@ export const projects = [
         description: "Conducted user interviews with 15 users and analyzed existing usage patterns to understand pain points during online shopping and apped the exact psychological triggers that drive social shopping.",
         images: [
           "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "https://images.unsplash.com/photo-1531482615713-2afd69097998?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
         ]
       },
       {
@@ -110,8 +108,7 @@ export const projects = [
         title: "User Research",
         description: "I started by interviewing and surveying users who regularly buy airtime, data, and tokens for themselves, family, and customers. I asked them to walk me through their current process and to share where things usually go wrong. I also analyzed app store reviews of existing utility payment apps to identify common pain points and feature requests.",
         images: [
-          "https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
         ]
       },
       {
@@ -180,17 +177,14 @@ export const projects = [
         title: "User Research",
         description: "I started by mapping two primary user types: Return‑focused investors interested in yield, duration, and supported crypto assets and Impact‑driven supporters who care about sustainability, farmer livelihoods, and community projects.",
         images: [
-          "https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+           "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
         ]
       },
       {
         title: "Wireframes and Concept Testing",
         description: "The visual direction is grounded, modern, and investment‑ready: warm neutrals with green accents, clean typography, and a balance of data and imagery. I created wireframes and prototypes to test the information hierarchy and flow of key tasks like comparing investment plans, creating a personalized plan, and monitoring the investor dashboard.",
         images: [
-          "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
           "https://images.unsplash.com/photo-1531403009284-440f080d1e12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
         ]
       },
       {
@@ -247,17 +241,14 @@ export const projects = [
         title: "User Research",
         description: "To understand what guests needed from the wedding website, I spoke with a small group of friends and family across different age ranges and tech comfort levels. I also reviewed common best practices for wedding websites and RSVP tools to see what information guests expect online—such as clear event details, RSVP forms, and gift information in one place.",
         images: [
-          "https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+           "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
         ]
       },
       {
         title: "Wireframes and Concept Testing",
         description: "The visual direction is grounded, modern, and investment‑ready: warm neutrals with green accents, clean typography, and a balance of data and imagery. I created wireframes and prototypes to test the information hierarchy and flow of key tasks like comparing investment plans, creating a personalized plan, and monitoring the investor dashboard.",
         images: [
-          "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
           "https://images.unsplash.com/photo-1531403009284-440f080d1e12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
         ]
       },
       {
@@ -308,17 +299,14 @@ export const projects = [
         title: "User Research",
         description: "Conducted deep user interviews with 15 users and analyzed existing Web3 platforms to completely understand the exact friction points in crypto onboarding. We perfectly mapped the psychological triggers that make digital rewards feel incredibly satisfying and totally secure.",
         images: [
-          "https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+          "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
         ]
       },
       {
         title: "Wireframes and Concept Testing",
         description: "Mapped out remarkably smooth user flows and created low fidelity wireframes to playfully test entirely new layouts. The main focus was making sure the usually clunky wallet connection process felt perfectly natural and completely effortless.",
         images: [
-          "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
           "https://images.unsplash.com/photo-1531403009284-440f080d1e12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
         ]
       },
       {
@@ -370,17 +358,14 @@ export const projects = [
         title: "User Research",
         description: "I dove deep into the exact friction points people face when ordering food, especially within the fast paced Lagos food scene. I analyzed how users interact with digital menus and realized they heavily rely on visual confirmation and need immediate, easygoing customer service. I mapped out the exact psychological triggers that make hitting that checkout button feel totally irresistible.",
         images: [
-          "https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+          "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
         ]
       },
       {
         title: "Wireframes and Concept Testing",
         description: "Mapped out remarkably smooth user flows and created low fidelity wireframes to test entirely new layouts",
         images: [
-          "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
           "https://images.unsplash.com/photo-1531403009284-440f080d1e12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
         ]
       },
       {
@@ -432,17 +417,14 @@ export const projects = [
         title: "User Research",
         description: "I dove deep into the exact friction points faced by microfinance groups and loan officers. I analyzed how administrators interact with massive data sets and mapped out the psychological triggers that make financial tracking feel less like a heavy chore and more like a satisfying, easygoing habit.",
         images: [
-          "https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+          "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
         ]
       },
       {
         title: "Wireframes and Concept Testing",
         description: "MMapped out remarkably smooth user flows and created low fidelity wireframes to test entirely new layouts for the admin dashboard. The absolute main focus was making sure the journey from group registration to final loan disbursement felt perfectly natural, totally secure, and completely outside the box.",
         images: [
-          "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
           "https://images.unsplash.com/photo-1531403009284-440f080d1e12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
         ]
       },
       {
