@@ -8,9 +8,9 @@ export function About() {
 
   const handleDownload = () => {
     // Replace with actual resume URL
-    const resumeUrl = "https://drive.google.com/file/d/1rJE98giicK83EJ24HOqLES3X7kgV2dcG/view?usp=drive_link";
+    const resumeUrl = "https://drive.google.com/file/d/1nSbvEqlYRZgtEUBqBLqFLJGJE_dR5pWh/view?usp=drive_link";
     const link = document.createElement("a");
-    link.href = "https://drive.google.com/file/d/1rJE98giicK83EJ24HOqLES3X7kgV2dcG/view?usp=drive_link";
+    link.href = "https://drive.google.com/file/d/1nSbvEqlYRZgtEUBqBLqFLJGJE_dR5pWh/view?usp=drive_link";
     link.download = "Obinna_Anyanwu_Resume.pdf";
     link.click();
     
