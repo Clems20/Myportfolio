@@ -191,7 +191,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              I design things people
+              Welcome to my portfolio exhibition.
             </motion.span>
             <br />
             <motion.span
@@ -200,7 +200,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.7 }}
             >
-              actually enjoy using
+              In here, you'll find
               <motion.span
                 className="absolute -bottom-2 left-0 right-0 h-3 bg-accent/20 -z-10"
                 initial={{ scaleX: 0 }}
@@ -216,8 +216,8 @@ export function Hero() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.9 }}
           >
-            With 4 years of crafting inclusive and impactful experiences across fintech,
-            SaaS, healthcare, e-commerce, and Web 3.
+            a showcase of my process (how I solve real-world problems using design), past work, 
+            and the results behind each design decision.
           </motion.p>
         </motion.div>
 
