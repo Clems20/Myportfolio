@@ -89,7 +89,7 @@ export function Header() {
           <button
             onClick={() => {
               const link = document.createElement("a");
-              link.href = "https://drive.google.com/file/d/1nSbvEqlYRZgtEUBqBLqFLJGJE_dR5pWh/view?usp=drive_link";
+              link.href = "https://drive.google.com/file/d/1uMqy_Bzsaettr63MBkB2mQqQuLe4IW9S/view?usp=drive_link";
               link.setAttribute("download", "Obinna_Anyanwu_Resume.pdf");
               link.click();
             }}
@@ -154,7 +154,7 @@ export function Header() {
               onClick={() => {
                 (() => {
                   const link = document.createElement("a");
-                  link.href = "https://drive.google.com/file/d/1nSbvEqlYRZgtEUBqBLqFLJGJE_dR5pWh/view?usp=drive_link";
+                  link.href = "https://drive.google.com/file/d/1uMqy_Bzsaettr63MBkB2mQqQuLe4IW9S/view?usp=drive_link";
                   link.setAttribute("download", "Obinna_Anyanwu_Resume.pdf");
                   link.click();
 

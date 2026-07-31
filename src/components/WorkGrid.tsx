@@ -5,8 +5,79 @@ import { DecorativeBackground } from "./DecorativeBackground";
 
 
 export const projects = [
-  {
+    {
     id: 1,
+    title: "Fima",
+    category: "UI UX / Product Design",
+    year: "2025-2026",
+    images: [
+      "/fimacasestudy/cover.webp",
+      "/fimacasestudy/cover2.webp"
+      
+    ],
+    description: "Designed a user-friendly utility app that enables users to buy data, airtime, electricity, and cable subscriptions seamlessly",
+    client: "Fima",
+    role: "Lead UI/UX & Product Designer",
+    date: "Feb - Aug 2025",
+    productLink: "https://play.google.com/store/apps/details?id=com.delorand.fima",
+    tools: ["Figma",  "Notion"],
+    goal: "Streamline Daily and Recurring Payments to provide users with a fast, simple, and reliable way to buy data, airtime, electricity, and cable subscriptions in one place.",
+    problem: "Existing apps were dense and overwhelming, cluttered, ad‑heavy, or confusing, causing errors and failed transactions",
+    userDescription: "Busy smartphone users who need a fast, reliable way to handle all their utility payments in one place.",
+    challenges: [
+      "Create a user-friendly interface for managing personal finances.",
+      "Offer secure and convenient methods for making transaction and payment.",
+      "Streamline Daily and Recurring Payments to provide users with a fast, simple, and reliable way to buy data, airtime, electricity, and cable subscriptions in one place.",
+      "onboarding uusers to a new financial app while building trust and confidence in the security of thier transactions.",
+      "Ensure Transaction Security to integrate secure payment gateways and data protection measures that build user trust and safeguard personal information."
+    ],
+    processSteps: [
+      {
+        title: "User Research",
+        description: "I started by interviewing and surveying users who regularly buy airtime, data, and tokens for themselves, family, and customers. I asked them to walk me through their current process and to share where things usually go wrong. I also analyzed app store reviews of existing utility payment apps to identify common pain points and feature requests.",
+        images: [
+        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+        ]
+      },
+      {
+        title: "Case Study",
+        description: "",
+        images: [
+    "/fimacasestudy/Project Title.webp",
+    "/fimacasestudy/Project overview.webp",
+    "/fimacasestudy/Style Guide.webp"
+],
+      },
+      {
+        title: "Final Design",
+        description: "I developed high fidelity designs focused on scannable data visualization and clear calls to action. The interface uses a dark theme with accent colors to highlight important trends and CTAs while maintaining visual balance. Interactive prototypes helped validate flows like switching time ranges, drilling into metrics, and initiating key financial actions.",
+        images: [
+    "/fimacasestudy/Home Screen.webp",
+    "/fimacasestudy/Login and Sign up screens.webp",
+    "/fimacasestudy/Transfer Money.webp",
+    "/fimacasestudy/more service.webp",
+    "/fimacasestudy/Others Screena.webp",
+    "/fimacasestudy/Others Screena-1.webp",
+    "/fimacasestudy/web.webp"
+        ]
+      }
+    ],
+    results: {
+      metrics: [
+        "Faster completion time for repeat payments compared to their previous apps",
+        "Fewer user errors during electricity and TV flows due to better validation and confirmation steps.",
+        "Higher perceived trust thanks to clear summaries, visible history, and transparent status messages."
+      ],
+      learnings: [
+        "Progressive disclosure is crucial when handling complex details on small screens; showing everything at once overwhelms users.",
+        "Small animations and micro‑interactions can make a huge difference in perceived speed and reliability, especially around payment actions.",
+        "Regular user testing throughout the design process catches confusing steps early and avoids costly redesigns later.",
+        "Visual feedback for every action built confidence in first-time users"
+      ]
+    }
+  },
+    {
+    id: 2,
     title: "Delorand E-commerce Website ",
     category: "Product Design",
     year: "2022-2026",
@@ -77,79 +148,67 @@ export const projects = [
       ]
     }
   },
-    {
-    id: 2,
-    title: "Fima",
+  {
+    id: 3,
+    title: "Vera Budgeting App",
     category: "UI UX / Product Design",
-    year: "2025-2026",
+    year: "2026",
     images: [
-      "/fimacasestudy/cover.webp",
-      "/fimacasestudy/cover2.webp"
-      
+      "/vera/cover.webp",
     ],
-    description: "Designed a user-friendly utility app that enables users to buy data, airtime, electricity, and cable subscriptions seamlessly",
-    client: "Fima",
-    role: "Lead UI/UX & Product Designer",
-    date: "Feb - Aug 2025",
-    productLink: "https://fima.delorand.com/",
-    tools: ["Figma",  "Notion"],
-    goal: "Streamline Daily and Recurring Payments to provide users with a fast, simple, and reliable way to buy data, airtime, electricity, and cable subscriptions in one place.",
-    problem: "Existing apps were dense and overwhelming, cluttered, ad‑heavy, or confusing, causing errors and failed transactions",
-    userDescription: "Busy smartphone users who need a fast, reliable way to handle all their utility payments in one place.",
+    description: "Vera is a mobile app designed to help users manage their personal finances, set budgets, and track spending with ease.",
+    client: "Freelance",
+    role: "UI/UX & Product Designer",
+    date: "May 2026",
+    productLink: "https://play.google.com/store/apps/details?id=com.delorand.vera",
+    tools: ["Figma",  "Notion", "Context"],
+    goal: "To bridge the gap between complex financial data and actionable, simple insights, allowing users to automate expense tracking and gain total control over their money.",
+    problem: "Personal finance landscape is saturated with apps, yet many users still find manual expense logging tedious and financial data overwhelming..",
+    userDescription: "Young professionals and students who want a simple, intuitive way to manage their finances, set budgets, and track spending without feeling overwhelmed by complex financial data.",
     challenges: [
-      "Create a user-friendly interface for managing personal finances.",
-      "Offer secure and convenient methods for making transaction and payment.",
-      "Streamline Daily and Recurring Payments to provide users with a fast, simple, and reliable way to buy data, airtime, electricity, and cable subscriptions in one place.",
-      "onboarding uusers to a new financial app while building trust and confidence in the security of thier transactions.",
-      "Ensure Transaction Security to integrate secure payment gateways and data protection measures that build user trust and safeguard personal information."
+      "Make manual expense logging incredibly fast and seamless, reducing friction to less than three seconds.",
+      "Integrate multiple methods for adding expenses beyond typing, including receipt scanning and voice transcription.",
+      "Provide Actionable Insights that help users understand their spending habits and make informed financial decisions.",
+      "Create a 'Planner' that allows users to forecast balances based on automated, pre-committed subscriptions",
     ],
     processSteps: [
       {
         title: "User Research",
-        description: "I started by interviewing and surveying users who regularly buy airtime, data, and tokens for themselves, family, and customers. I asked them to walk me through their current process and to share where things usually go wrong. I also analyzed app store reviews of existing utility payment apps to identify common pain points and feature requests.",
+        description: "I started by interviewing and surveying users who regularly track their expenses and budgets. I asked them to walk me through their current process and to share where things usually go wrong. I also analyzed app store reviews of existing budgeting apps to identify common pain points and feature requests.",
         images: [
-        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+           "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
         ]
       },
       {
-        title: "Case Study",
-        description: "",
+        title: "Wireframes and Concept Testing",
+        description: "The design concept was established early: a sophisticated (Deep Emerald) gradient and pitch-black theme, signifying growth, stability, and premium utility.",
         images: [
-    "/fimacasestudy/Project Title.webp",
-    "/fimacasestudy/Project overview.webp",
-    "/fimacasestudy/Style Guide.webp"
-],
+          "https://images.unsplash.com/photo-1531403009284-440f080d1e12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+        ]
       },
       {
         title: "Final Design",
-        description: "I developed high fidelity designs focused on scannable data visualization and clear calls to action. The interface uses a dark theme with accent colors to highlight important trends and CTAs while maintaining visual balance. Interactive prototypes helped validate flows like switching time ranges, drilling into metrics, and initiating key financial actions.",
+        description: "The high-fidelity UI is optimized for scannable data and visual simplicity",
         images: [
-    "/fimacasestudy/Home Screen.webp",
-    "/fimacasestudy/Login and Sign up screens.webp",
-    "/fimacasestudy/Transfer Money.webp",
-    "/fimacasestudy/more service.webp",
-    "/fimacasestudy/Others Screena.webp",
-    "/fimacasestudy/Others Screena-1.webp",
-    "/fimacasestudy/web.webp"
+    "/vera/Home.webp",
+    "/vera/Planner.webp",
+    "/vera/Settings.webp",
+    "/vera/Signup.webp"
         ]
       }
     ],
     results: {
-      metrics: [
-        "Faster completion time for repeat payments compared to their previous apps",
-        "Fewer user errors during electricity and TV flows due to better validation and confirmation steps.",
-        "Higher perceived trust thanks to clear summaries, visible history, and transparent status messages."
-      ],
+     
       learnings: [
-        "Progressive disclosure is crucial when handling complex details on small screens; showing everything at once overwhelms users.",
-        "Small animations and micro‑interactions can make a huge difference in perceived speed and reliability, especially around payment actions.",
-        "Regular user testing throughout the design process catches confusing steps early and avoids costly redesigns later.",
-        "Visual feedback for every action built confidence in first-time users"
+        "Reducing the time-to-log an expense (via scanning and quick categories) is more important than offering hyper-granular categorization.",
+        "Automation Drives Engagement: Pre-committed subscriptions and recurring expenses should be automatically tracked to reduce user effort.",
+        "Users respond enthusiastically to a 'Planner' model (predicting the future) rather than just a 'Tracker' (reviewing the past). Showing projected month-end balance empowers proactive financial decisions."
+        
       ]
     }
   },
   {
-    id: 3,
+    id: 4,
     title: "GMC: Web3 Agricultural NFT & Reward Platform",
     category: "UI UX / Product Design",
     year: "2025",
@@ -213,7 +272,7 @@ export const projects = [
     }
   },
   {
-    id: 4,
+    id: 5,
     title: "BJT Wedding Website",
     category: "UI UX / Product Design",
     year: "2025",
@@ -271,7 +330,7 @@ export const projects = [
     }
   },
     {
-    id: 5,
+    id: 6,
     title: "Web3 Agricultural NFT & Reward Platform",
     category: "UI UX / Product Design",
     year: "2025",
@@ -330,7 +389,7 @@ export const projects = [
     }
   },
       {
-    id: 6,
+    id: 7,
     title: "Food Delivery App",
     category: "UI UX / Product Design",
     year: "2025",
@@ -389,7 +448,7 @@ export const projects = [
     }
   },
   {
-    id: 7,
+    id: 8,
     title: "Charis Microfinance Portal",
     category: "UI UX / Product Design",
     year: "2025",
@@ -469,7 +528,7 @@ export const projects = [
     }
   },
   {
-    id: 8,
+    id: 9,
     title: "Chop Lotto Redesign",
     category: "UI UX / Product Design",
     year: "2023",
@@ -526,7 +585,7 @@ export const projects = [
     }
   },
     {
-    id: 9,
+    id: 10,
     title: "Wallpaper App",
     category: "UI UX / Product Design",
     year: "2026",
