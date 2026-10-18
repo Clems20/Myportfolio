@@ -241,7 +241,8 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
             }}
           >
             {/* Table header */}
-            <div className="grid grid-cols-[32px_1fr_100px_auto] gap-4 items-center px-5 py-3 border-b border-border bg-muted/30">
+            <div className="grid items-center px-5 py-3 border-b border-border bg-muted/30"
+              style={{ gridTemplateColumns: "32px minmax(0,1fr) 100px auto", gap: "1rem" }}>
               <span />
               <span className="text-[11px] text-muted-foreground uppercase tracking-wider font-medium">Project</span>
               <span className="text-[11px] text-muted-foreground uppercase tracking-wider font-medium text-center">Status</span>
@@ -264,30 +265,33 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
                   onDragOver={(e) => e.preventDefault()}
                   onDrop={() => handleDrop(index)}
                   className={[
-                    "grid grid-cols-[32px_1fr_100px_auto] gap-4 items-center px-5 py-4 transition-all cursor-grab active:cursor-grabbing",
+                    "grid items-center px-5 py-4 transition-all cursor-grab active:cursor-grabbing",
                     index < projects.length - 1 ? "border-b border-border/60" : "",
                     dragOver === index
                       ? "bg-accent/6 border-l-2 border-l-accent"
                       : "hover:bg-muted/25",
                   ].join(" ")}
+                  style={{ gridTemplateColumns: "32px minmax(0,1fr) 100px auto", gap: "1rem" }}
                 >
                   {/* Drag handle */}
                   <GripVertical className="w-4 h-4 text-muted-foreground/30 hover:text-muted-foreground/70 transition flex-shrink-0" />
 
                   {/* PROJECT column — thumbnail + title + category */}
-                  <div className="flex items-center gap-3 min-w-0">
-                    <div className="w-16 h-12 rounded-md overflow-hidden flex-shrink-0 border border-border bg-muted">
+                  <div className="flex items-center gap-3 min-w-0 overflow-hidden">
+                    {/* Fixed-size thumbnail wrapper — image can never grow beyond this */}
+                    <div
+                      className="flex-shrink-0 rounded-lg border border-border bg-muted overflow-hidden"
+                      style={{ width: 64, height: 48, minWidth: 64, minHeight: 48, maxWidth: 64, maxHeight: 48 }}
+                    >
                       {project.images?.[0] ? (
                         <img
                           src={project.images[0]}
                           alt=""
-                          className="w-full h-full object-cover"
+                          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                         />
-                      ) : (
-                        <div className="w-full h-full bg-muted" />
-                      )}
+                      ) : null}
                     </div>
-                    <div className="min-w-0">
+                    <div className="min-w-0 flex-1">
                       <p className="text-sm font-medium leading-tight truncate">{project.title}</p>
                       <p className="text-xs text-muted-foreground truncate mt-0.5">{project.category}</p>
                       <p className="text-[11px] text-muted-foreground/60 mt-0.5 tabular-nums">{project.year}</p>
