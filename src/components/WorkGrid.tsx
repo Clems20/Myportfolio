@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import { DecorativeBackground } from "./DecorativeBackground";
 
 
-export const projects = [
+// Named export kept for backward-compatibility (App.tsx uses it as the static fallback).
+export const staticProjects = [
     {
     id: 1,
     title: "Fima",
@@ -646,10 +647,19 @@ export const projects = [
   },
 ];
 
-export function WorkGrid({ onProjectClick }: { onProjectClick?: (projectId: number) => void }) {
+import type { Project } from "../types/project";
+
+export function WorkGrid({ projects: projectsProp, onProjectClick }: { projects?: Project[]; onProjectClick?: (projectId: number) => void }) {
+  // Use prop if provided (live API data), otherwise fall back to the static array
+  const projects: Project[] = (projectsProp && projectsProp.length > 0 ? projectsProp : staticProjects) as unknown as Project[];
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
   const [currentImageIndexes, setCurrentImageIndexes] = useState<{ [key: number]: number }>({});
-  const [isMobile, setIsMobile] = useState(false);
+  // Initialize synchronously so the correct value is available on first render,
+  // avoiding a flash where mobile overlays start hidden (opacity: 0) before
+  // the useEffect fires and sets isMobile = true.
+  const [isMobile, setIsMobile] = useState<boolean>(
+    () => typeof window !== 'undefined' ? window.innerWidth < 1024 : false
+  );
 
   // Detect mobile viewport
   useEffect(() => {

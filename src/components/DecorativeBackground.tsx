@@ -85,7 +85,7 @@ export function DecorativeBackground({ variant = "default" }: DecorativeBackgrou
         }}
       />
       <motion.div
-        className="absolute top-1/2 left-1/3 w-28 h-28 bg-accent/5"
+        className="absolute top-1/2 left-1/3 w-28 h-28 bg-accent/5 rounded-full"
         style={{ borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%" }}
         animate={{
           rotate: [0, 360],

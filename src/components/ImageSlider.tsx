@@ -9,15 +9,16 @@ interface ImageSliderProps {
 }
 
 export function ImageSlider({ images, alt, aspectRatio = "aspect-[16/9]" }: ImageSliderProps) {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [[imageIndex, direction], setImageIndex] = useState([0, 0]);
+  // Single source of truth: [index, direction].
+  // Previously there were two separate states (currentImageIndex and [imageIndex, direction])
+  // that could drift apart on rapid clicks, causing the wrong image or wrong slide direction.
+  const [[currentImageIndex, direction], setImage] = useState([0, 0]);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   const handleImageChange = (newDirection: number) => {
     const newIndex = currentImageIndex + newDirection;
     if (newIndex >= 0 && newIndex < images.length) {
-      setCurrentImageIndex(newIndex);
-      setImageIndex([newIndex, newDirection]);
+      setImage([newIndex, newDirection]);
     }
   };
 
@@ -57,7 +58,7 @@ export function ImageSlider({ images, alt, aspectRatio = "aspect-[16/9]" }: Imag
         {/* Image Container with Slide Animation */}
         <div className="relative w-full h-full overflow-hidden">
           <motion.img
-            key={imageIndex}
+            key={currentImageIndex}
             variants={slideVariants}
             initial="enter"
             animate="center"
@@ -79,15 +80,16 @@ export function ImageSlider({ images, alt, aspectRatio = "aspect-[16/9]" }: Imag
           />
         </div>
 
-        {/* Navigation Buttons */}
+        {/* Navigation Buttons — always visible on touch, hover-revealed on desktop */}
         {images.length > 1 && (
           <>
             <motion.button
               onClick={() => handleImageChange(-1)}
               disabled={currentImageIndex === 0}
-              className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-background/80 hover:bg-background text-foreground transition-all opacity-0 group-hover:opacity-100 disabled:opacity-0 disabled:cursor-not-allowed backdrop-blur-sm shadow-lg z-20"
+              className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-background/80 hover:bg-background text-foreground transition-all lg:opacity-0 lg:group-hover:opacity-100 disabled:opacity-0 disabled:cursor-not-allowed backdrop-blur-sm shadow-lg z-20"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
+              aria-label="Previous image"
             >
               <ChevronLeft className="w-6 h-6" />
             </motion.button>
@@ -95,9 +97,10 @@ export function ImageSlider({ images, alt, aspectRatio = "aspect-[16/9]" }: Imag
             <motion.button
               onClick={() => handleImageChange(1)}
               disabled={currentImageIndex === images.length - 1}
-              className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-background/80 hover:bg-background text-foreground transition-all opacity-0 group-hover:opacity-100 disabled:opacity-0 disabled:cursor-not-allowed backdrop-blur-sm shadow-lg z-20"
+              className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-background/80 hover:bg-background text-foreground transition-all lg:opacity-0 lg:group-hover:opacity-100 disabled:opacity-0 disabled:cursor-not-allowed backdrop-blur-sm shadow-lg z-20"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
+              aria-label="Next image"
             >
               <ChevronRight className="w-6 h-6" />
             </motion.button>
@@ -110,10 +113,7 @@ export function ImageSlider({ images, alt, aspectRatio = "aspect-[16/9]" }: Imag
             {images.map((_, index) => (
               <button
                 key={index}
-                onClick={() => {
-                  setCurrentImageIndex(index);
-                  setImageIndex([index, index > currentImageIndex ? 1 : -1]);
-                }}
+                onClick={() => setImage([index, index > currentImageIndex ? 1 : -1])}
                 className="group/dot relative"
                 aria-label={`Go to image ${index + 1}`}
               >
@@ -203,7 +203,7 @@ export function ImageSlider({ images, alt, aspectRatio = "aspect-[16/9]" }: Imag
               onClick={(e) => e.stopPropagation()}
             >
               <motion.img
-                key={`fullscreen-${imageIndex}`}
+                key={`fullscreen-${currentImageIndex}`}
                 variants={slideVariants}
                 initial="enter"
                 animate="center"
@@ -253,10 +253,7 @@ export function ImageSlider({ images, alt, aspectRatio = "aspect-[16/9]" }: Imag
                   {images.map((_, index) => (
                     <button
                       key={index}
-                      onClick={() => {
-                        setCurrentImageIndex(index);
-                        setImageIndex([index, index > currentImageIndex ? 1 : -1]);
-                      }}
+                      onClick={() => setImage([index, index > currentImageIndex ? 1 : -1])}
                       className="group/dot relative"
                       aria-label={`Go to image ${index + 1}`}
                     >

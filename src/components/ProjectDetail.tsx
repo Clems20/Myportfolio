@@ -26,7 +26,7 @@ interface ProjectDetailProps {
       images: string[];
     }[];
     results: {
-      metrics: string[];
+      metrics?: string[]; // optional — most projects don't have metrics
       learnings: string[];
     };
   };
@@ -93,7 +93,7 @@ export function ProjectDetail({ project, onClose, onNavigate, hasPrev, hasNext }
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
+          transition={{ duration: 0.5, delay: 0.05 }}
           className="mb-12 md:mb-20"
         >
           <div className="flex items-center gap-3 mb-4 md:mb-6">
@@ -113,7 +113,7 @@ export function ProjectDetail({ project, onClose, onNavigate, hasPrev, hasNext }
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
           >
             <ImageSlider images={project.images} alt={project.title} aspectRatio="aspect-[16/9]" />
           </motion.div>
@@ -123,7 +123,7 @@ export function ProjectDetail({ project, onClose, onNavigate, hasPrev, hasNext }
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
           className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 mb-12 md:mb-24 p-4 md:p-8 rounded-2xl bg-sand/30"
         >
           {project.client && (
@@ -160,7 +160,7 @@ export function ProjectDetail({ project, onClose, onNavigate, hasPrev, hasNext }
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
           className="mb-12 md:mb-24"
         >
           <h2 className="text-2xl md:text-3xl lg:text-4xl mb-8 md:mb-12">Overview</h2>
@@ -185,7 +185,7 @@ export function ProjectDetail({ project, onClose, onNavigate, hasPrev, hasNext }
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
           className="mb-12 md:mb-24"
         >
           <h2 className="text-2xl md:text-3xl lg:text-4xl mb-8 md:mb-12">Project Objectives</h2>
@@ -196,7 +196,7 @@ export function ProjectDetail({ project, onClose, onNavigate, hasPrev, hasNext }
                 key={index}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.7 + index * 0.1 }}
+                transition={{ duration: 0.4, delay: 0.35 + index * 0.06 }}
                 className="flex gap-3 md:gap-4"
               >
                 <div className="flex-shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-full bg-accent/10 flex items-center justify-center">
@@ -217,7 +217,7 @@ export function ProjectDetail({ project, onClose, onNavigate, hasPrev, hasNext }
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 + index * 0.1 }}
+              transition={{ duration: 0.5, delay: 0.1 + index * 0.08 }}
               className="mb-12 md:mb-24"
             >
               <h2 className="text-2xl md:text-3xl lg:text-4xl mb-4 md:mb-6">{step.title}</h2>
@@ -228,7 +228,7 @@ export function ProjectDetail({ project, onClose, onNavigate, hasPrev, hasNext }
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.9 + index * 0.1 }}
+                transition={{ duration: 0.5, delay: 0.15 + index * 0.08 }}
               >
                 {isFinalDesign ? (
                   <div className="space-y-4 md:space-y-6">
@@ -237,7 +237,7 @@ export function ProjectDetail({ project, onClose, onNavigate, hasPrev, hasNext }
                         key={imgIndex}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.9 + index * 0.1 + imgIndex * 0.1 }}
+                        transition={{ duration: 0.4, delay: 0.15 + index * 0.08 + imgIndex * 0.06 }}
                         className="group relative w-full rounded-lg md:rounded-xl overflow-hidden bg-sand/30"
                       >
                         <img
@@ -275,7 +275,7 @@ export function ProjectDetail({ project, onClose, onNavigate, hasPrev, hasNext }
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
           className="mb-12 md:mb-24"
         >
           <h2 className="text-2xl md:text-3xl lg:text-4xl mb-8 md:mb-12">Lessons Learned</h2>
@@ -287,7 +287,7 @@ export function ProjectDetail({ project, onClose, onNavigate, hasPrev, hasNext }
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 1.3 + index * 0.1 }}
+                  transition={{ duration: 0.4, delay: 0.25 + index * 0.06 }}
                   className="flex gap-3 md:gap-4"
                 >
                   <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-accent mt-2"></div>
@@ -302,7 +302,7 @@ export function ProjectDetail({ project, onClose, onNavigate, hasPrev, hasNext }
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.3 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
           className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-0 pt-12 border-t border-border"
         >
           <button

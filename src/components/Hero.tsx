@@ -1,13 +1,16 @@
-import { motion } from "motion/react";
+import { motion, useInView } from "motion/react";
 import { ArrowRight, Download } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 export function Hero() {
   const [isViewWorkHovered, setIsViewWorkHovered] = useState(false);
   const [isContactHovered, setIsContactHovered] = useState(false);
+  // Pause all blob animations when the hero is fully scrolled past — saves GPU on mobile
+  const heroRef = useRef<HTMLElement>(null);
+  const isInView = useInView(heroRef, { margin: "0px 0px -100% 0px" });
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-6 pt-24 relative overflow-hidden">
+    <section ref={heroRef} id="home" className="min-h-screen flex items-center justify-center px-6 pt-24 relative overflow-hidden">
       {/* Animated Background Blobs - Theme Aware */}
       
       {/* Blob 1 - Top Left - Accent Glow */}
@@ -19,11 +22,11 @@ export function Hero() {
           top: '-5%',
           left: '-8%',
         }}
-        animate={{
+        animate={isInView ? {
           x: [0, 50, 0],
           y: [0, 80, 0],
           scale: [1, 1.1, 1],
-        }}
+        } : {}}
         transition={{
           duration: 20,
           repeat: Infinity,
@@ -41,11 +44,11 @@ export function Hero() {
           top: '8%',
           right: '-10%',
         }}
-        animate={{
+        animate={isInView ? {
           x: [0, -60, 0],
           y: [0, 50, 0],
           scale: [1, 1.15, 1],
-        }}
+        } : {}}
         transition={{
           duration: 18,
           repeat: Infinity,
@@ -65,7 +68,7 @@ export function Hero() {
           top: '35%',
           left: '2%',
         }}
-        animate={{
+        animate={isInView ? {
           x: [0, 40, 0],
           y: [0, -60, 0],
           rotate: [0, 90, 0],
@@ -74,7 +77,7 @@ export function Hero() {
             '40% 60% 70% 30% / 40% 70% 30% 60%',
             '60% 40% 30% 70% / 60% 30% 70% 40%',
           ],
-        }}
+        } : {}}
         transition={{
           duration: 25,
           repeat: Infinity,
@@ -94,7 +97,7 @@ export function Hero() {
           bottom: '-10%',
           right: '5%',
         }}
-        animate={{
+        animate={isInView ? {
           x: [0, -70, 0],
           y: [0, -50, 0],
           scale: [1, 1.2, 1],
@@ -103,7 +106,7 @@ export function Hero() {
             '70% 30% 30% 70% / 70% 70% 30% 30%',
             '30% 70% 70% 30% / 30% 30% 70% 70%',
           ],
-        }}
+        } : {}}
         transition={{
           duration: 22,
           repeat: Infinity,
@@ -122,7 +125,7 @@ export function Hero() {
           top: '45%',
           right: '15%',
         }}
-        animate={{
+        animate={isInView ? {
           x: [0, 30, -30, 0],
           y: [0, -40, 40, 0],
           rotate: [0, 180, 360],
@@ -132,7 +135,7 @@ export function Hero() {
             '50% 50% 40% 60% / 50% 50% 60% 40%',
             '40% 60% 50% 50% / 60% 40% 60% 40%',
           ],
-        }}
+        } : {}}
         transition={{
           duration: 30,
           repeat: Infinity,
@@ -152,7 +155,7 @@ export function Hero() {
           bottom: '18%',
           left: '8%',
         }}
-        animate={{
+        animate={isInView ? {
           x: [0, 50, 0],
           y: [0, -30, 0],
           scale: [1, 1.08, 1],
@@ -161,7 +164,7 @@ export function Hero() {
             '30% 70% 30% 70% / 70% 30% 70% 30%',
             '70% 30% 50% 50% / 30% 70% 30% 70%',
           ],
-        }}
+        } : {}}
         transition={{
           duration: 17,
           repeat: Infinity,
