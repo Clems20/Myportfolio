@@ -1,9 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import {
-  Plus, LogOut, GripVertical, Pencil, Trash2,
-  Eye, EyeOff, Loader2, ExternalLink, LayoutGrid,
-} from "lucide-react";
+import { Plus, LogOut, GripVertical, Loader2, ExternalLink, LayoutGrid } from "lucide-react";
 import { fetchAllProjects, createProject, deleteProject, updateProject, reorderProjects, logout } from "../../lib/api";
 import { ProjectForm } from "./ProjectForm";
 import type { Project } from "../../types/project";
@@ -97,13 +94,15 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
     load();
   };
 
-  const BackButton = ({ label, onClick }: { label: string; onClick: () => void }) => (
+  // ── Shared back button ───────────────────────────────────────────────────────
+
+  const BackButton = ({ onClick }: { onClick: () => void }) => (
     <button
       onClick={onClick}
       className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-7 group"
     >
-      <span className="group-hover:-translate-x-0.5 transition-transform">←</span>
-      {label}
+      <span className="group-hover:-translate-x-0.5 transition-transform inline-block">←</span>
+      Back to projects
     </button>
   );
 
@@ -113,12 +112,9 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
     return (
       <div className="min-h-screen bg-background px-4 py-8 md:px-8">
         <div className="max-w-3xl mx-auto">
-          <BackButton label="Back to projects" onClick={() => setView("list")} />
+          <BackButton onClick={() => setView("list")} />
           <div className="mb-8">
-            <h1
-              className="text-2xl tracking-tight"
-              style={{ fontFamily: "'Space Grotesk', 'DM Sans', sans-serif" }}
-            >
+            <h1 className="text-2xl tracking-tight" style={{ fontFamily: "'Space Grotesk', 'DM Sans', sans-serif" }}>
               Add Project
             </h1>
             <p className="text-sm text-muted-foreground mt-1">Fill in the details below to add a new case study.</p>
@@ -133,15 +129,9 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
     return (
       <div className="min-h-screen bg-background px-4 py-8 md:px-8">
         <div className="max-w-3xl mx-auto">
-          <BackButton
-            label="Back to projects"
-            onClick={() => { setView("list"); setEditing(null); }}
-          />
+          <BackButton onClick={() => { setView("list"); setEditing(null); }} />
           <div className="mb-8">
-            <h1
-              className="text-2xl tracking-tight"
-              style={{ fontFamily: "'Space Grotesk', 'DM Sans', sans-serif" }}
-            >
+            <h1 className="text-2xl tracking-tight" style={{ fontFamily: "'Space Grotesk', 'DM Sans', sans-serif" }}>
               Edit Project
             </h1>
             <p className="text-sm text-muted-foreground mt-1 truncate">{editing.title}</p>
@@ -163,28 +153,25 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
 
   return (
     <div className="min-h-screen bg-background px-4 py-8 md:px-8">
-      {/* Subtle background accent */}
+      {/* Background accent glow */}
       <div
         className="pointer-events-none fixed top-0 right-0 w-[600px] h-[400px] opacity-30"
         style={{
-          background:
-            "radial-gradient(ellipse at top right, hsl(24 95% 53% / 0.08) 0%, transparent 60%)",
+          background: "radial-gradient(ellipse at top right, hsl(24 95% 53% / 0.08) 0%, transparent 60%)",
           filter: "blur(40px)",
         }}
       />
 
       <div className="max-w-5xl mx-auto relative z-10">
-        {/* ── Header ── */}
-        <div className="flex items-start justify-between mb-10">
+
+        {/* ── Page header ── */}
+        <div className="flex items-center justify-between mb-10">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center flex-shrink-0">
               <LayoutGrid className="w-4 h-4 text-accent" />
             </div>
             <div>
-              <h1
-                className="text-xl tracking-tight"
-                style={{ fontFamily: "'Space Grotesk', 'DM Sans', sans-serif" }}
-              >
+              <h1 className="text-xl tracking-tight" style={{ fontFamily: "'Space Grotesk', 'DM Sans', sans-serif" }}>
                 Admin Dashboard
               </h1>
               <p className="text-xs text-muted-foreground mt-0.5">
@@ -211,18 +198,18 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
           </div>
         </div>
 
-        {/* ── Error ── */}
+        {/* ── Error banner ── */}
         {error && (
           <motion.div
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-6 px-4 py-3 rounded-xl border border-red-500/20 bg-red-500/8 text-sm text-red-500"
+            className="mb-6 px-4 py-3 rounded-xl border border-red-500/20 bg-red-500/5 text-sm text-red-500"
           >
             {error}
           </motion.div>
         )}
 
-        {/* ── Add button ── */}
+        {/* ── Add project button ── */}
         <div className="flex justify-end mb-5">
           <button
             onClick={() => setView("create")}
@@ -232,7 +219,7 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
           </button>
         </div>
 
-        {/* ── Project list ── */}
+        {/* ── Table ── */}
         {loading ? (
           <div className="flex justify-center items-center py-24">
             <Loader2 className="w-5 h-5 text-accent animate-spin" />
@@ -240,102 +227,116 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
         ) : projects.length === 0 ? (
           <div className="text-center py-24 text-muted-foreground">
             <p className="text-sm mb-3">No projects yet.</p>
-            <button
-              onClick={() => setView("create")}
-              className="text-sm text-accent hover:text-accent/80 transition"
-            >
+            <button onClick={() => setView("create")} className="text-sm text-accent hover:text-accent/80 transition">
               Add your first project →
             </button>
           </div>
         ) : (
-          <div className="space-y-1.5">
-            {/* Column headers */}
-            <div className="grid grid-cols-[auto_1fr_auto_auto_auto] gap-4 px-4 pb-1 text-[11px] text-muted-foreground uppercase tracking-wider">
+          <div
+            className="rounded-2xl border border-border overflow-hidden"
+            style={{
+              background: "color-mix(in srgb, var(--card) 70%, transparent)",
+              backdropFilter: "blur(8px)",
+              WebkitBackdropFilter: "blur(8px)",
+            }}
+          >
+            {/* Table header */}
+            <div className="grid grid-cols-[32px_1fr_100px_auto] gap-4 items-center px-5 py-3 border-b border-border bg-muted/30">
               <span />
-              <span>Project</span>
-              <span>Status</span>
-              <span className="hidden sm:block">Year</span>
-              <span>Actions</span>
+              <span className="text-[11px] text-muted-foreground uppercase tracking-wider font-medium">Project</span>
+              <span className="text-[11px] text-muted-foreground uppercase tracking-wider font-medium text-center">Status</span>
+              <span className="text-[11px] text-muted-foreground uppercase tracking-wider font-medium text-right">Actions</span>
             </div>
 
+            {/* Rows */}
             <AnimatePresence>
               {projects.map((project, index) => (
                 <motion.div
                   key={project._id ?? project.id}
                   layout
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.98 }}
-                  transition={{ duration: 0.18 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: dragging === index ? 0.45 : 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.15 }}
                   draggable
                   onDragStart={() => handleDragStart(index)}
                   onDragEnter={() => handleDragEnter(index)}
                   onDragOver={(e) => e.preventDefault()}
                   onDrop={() => handleDrop(index)}
                   className={[
-                    "grid grid-cols-[auto_1fr_auto_auto_auto] gap-4 items-center px-4 py-3.5 rounded-xl border transition-all cursor-grab active:cursor-grabbing",
+                    "grid grid-cols-[32px_1fr_100px_auto] gap-4 items-center px-5 py-4 transition-all cursor-grab active:cursor-grabbing",
+                    index < projects.length - 1 ? "border-b border-border/60" : "",
                     dragOver === index
-                      ? "border-accent/50 bg-accent/5 shadow-sm shadow-accent/10"
-                      : "border-border bg-card hover:border-accent/25 hover:bg-card",
-                    dragging === index ? "opacity-50" : "",
+                      ? "bg-accent/6 border-l-2 border-l-accent"
+                      : "hover:bg-muted/25",
                   ].join(" ")}
                 >
-                  <GripVertical className="w-4 h-4 text-muted-foreground/40 hover:text-muted-foreground transition flex-shrink-0" />
+                  {/* Drag handle */}
+                  <GripVertical className="w-4 h-4 text-muted-foreground/30 hover:text-muted-foreground/70 transition flex-shrink-0" />
 
-                  <div className="min-w-0 flex items-center gap-3">
-                    {project.images?.[0] ? (
-                      <img
-                        src={project.images[0]}
-                        alt=""
-                        className="w-9 h-9 rounded-lg object-cover flex-shrink-0 border border-border"
-                      />
-                    ) : (
-                      <div className="w-9 h-9 rounded-lg bg-muted flex-shrink-0 border border-border" />
-                    )}
+                  {/* PROJECT column — thumbnail + title + category */}
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="w-16 h-12 rounded-md overflow-hidden flex-shrink-0 border border-border bg-muted">
+                      {project.images?.[0] ? (
+                        <img
+                          src={project.images[0]}
+                          alt=""
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-muted" />
+                      )}
+                    </div>
                     <div className="min-w-0">
-                      <p className="text-sm font-medium truncate">{project.title}</p>
-                      <p className="text-xs text-muted-foreground truncate">{project.category}</p>
+                      <p className="text-sm font-medium leading-tight truncate">{project.title}</p>
+                      <p className="text-xs text-muted-foreground truncate mt-0.5">{project.category}</p>
+                      <p className="text-[11px] text-muted-foreground/60 mt-0.5 tabular-nums">{project.year}</p>
                     </div>
                   </div>
 
-                  <span
-                    className={[
-                      "text-xs px-2.5 py-1 rounded-full font-medium",
-                      project.published
-                        ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
-                        : "bg-muted text-muted-foreground",
-                    ].join(" ")}
-                  >
-                    {project.published ? "Live" : "Draft"}
-                  </span>
+                  {/* STATUS column */}
+                  <div className="flex justify-center">
+                    <span
+                      className={[
+                        "inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium leading-none",
+                        project.published
+                          ? "bg-emerald-500/12 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20"
+                          : "bg-muted text-muted-foreground border border-border",
+                      ].join(" ")}
+                    >
+                      {project.published ? "● Live" : "○ Draft"}
+                    </span>
+                  </div>
 
-                  <span className="hidden sm:block text-xs text-muted-foreground tabular-nums">
-                    {project.year}
-                  </span>
-
-                  <div className="flex items-center gap-0.5">
+                  {/* ACTIONS column */}
+                  <div className="flex items-center gap-2 justify-end flex-shrink-0">
+                    {/* Publish / Unpublish */}
                     <button
                       onClick={() => handleTogglePublish(project)}
-                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/70 transition-all"
-                      title={project.published ? "Unpublish" : "Publish"}
+                      className={[
+                        "px-3 py-1.5 rounded-lg text-xs font-medium transition-all active:scale-[0.97]",
+                        project.published
+                          ? "border border-border text-muted-foreground hover:border-foreground/25 hover:text-foreground"
+                          : "border border-emerald-500/30 bg-emerald-500/8 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/15",
+                      ].join(" ")}
                     >
-                      {project.published
-                        ? <Eye className="w-3.5 h-3.5" />
-                        : <EyeOff className="w-3.5 h-3.5" />}
+                      {project.published ? "Unpublish" : "Publish"}
                     </button>
+
+                    {/* Edit */}
                     <button
                       onClick={() => { setEditing(project); setView("edit"); }}
-                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/70 transition-all"
-                      title="Edit"
+                      className="px-3 py-1.5 rounded-lg text-xs font-medium border border-border text-muted-foreground hover:text-foreground hover:border-foreground/25 transition-all active:scale-[0.97]"
                     >
-                      <Pencil className="w-3.5 h-3.5" />
+                      Edit
                     </button>
+
+                    {/* Delete */}
                     <button
                       onClick={() => handleDelete(project)}
-                      className="p-2 rounded-lg text-muted-foreground hover:text-red-500 hover:bg-red-500/8 transition-all"
-                      title="Delete"
+                      className="px-3 py-1.5 rounded-lg text-xs font-medium border border-red-500/20 text-red-500/70 hover:text-red-500 hover:bg-red-500/8 hover:border-red-500/35 transition-all active:scale-[0.97]"
                     >
-                      <Trash2 className="w-3.5 h-3.5" />
+                      Delete
                     </button>
                   </div>
                 </motion.div>
@@ -344,7 +345,7 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
           </div>
         )}
 
-        <p className="text-[11px] text-muted-foreground/60 text-center mt-8">
+        <p className="text-[11px] text-muted-foreground/50 text-center mt-6">
           Drag rows to reorder · Changes save automatically
         </p>
       </div>
