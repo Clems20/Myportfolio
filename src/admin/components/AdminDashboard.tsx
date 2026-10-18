@@ -1,6 +1,9 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Plus, LogOut, GripVertical, Pencil, Trash2, Eye, EyeOff, Loader2, ExternalLink } from "lucide-react";
+import {
+  Plus, LogOut, GripVertical, Pencil, Trash2,
+  Eye, EyeOff, Loader2, ExternalLink, LayoutGrid,
+} from "lucide-react";
 import { fetchAllProjects, createProject, deleteProject, updateProject, reorderProjects, logout } from "../../lib/api";
 import { ProjectForm } from "./ProjectForm";
 import type { Project } from "../../types/project";
@@ -12,13 +15,13 @@ interface AdminDashboardProps {
 type View = "list" | "create" | "edit";
 
 export function AdminDashboard({ onLogout }: AdminDashboardProps) {
-  const [projects, setProjects]   = useState<Project[]>([]);
-  const [loading, setLoading]     = useState(true);
-  const [error, setError]         = useState<string | null>(null);
-  const [view, setView]           = useState<View>("list");
-  const [editing, setEditing]     = useState<Project | null>(null);
-  const [dragOver, setDragOver]   = useState<number | null>(null);
-  const [dragging, setDragging]   = useState<number | null>(null);
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading]   = useState(true);
+  const [error, setError]       = useState<string | null>(null);
+  const [view, setView]         = useState<View>("list");
+  const [editing, setEditing]   = useState<Project | null>(null);
+  const [dragOver, setDragOver] = useState<number | null>(null);
+  const [dragging, setDragging] = useState<number | null>(null);
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -35,10 +38,7 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
 
   useEffect(() => { load(); }, [load]);
 
-  const handleLogout = () => {
-    logout();
-    onLogout();
-  };
+  const handleLogout = () => { logout(); onLogout(); };
 
   const handleDelete = async (project: Project) => {
     if (!project._id) return;
@@ -59,11 +59,9 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
       await updateProject(project._id, { published: updated.published });
     } catch (err) {
       setError(err instanceof Error ? err.message : "Update failed");
-      setProjects((prev) => prev.map((p) => p._id === project._id ? project : p)); // revert
+      setProjects((prev) => prev.map((p) => p._id === project._id ? project : p));
     }
   };
-
-  // ── Drag-to-reorder ──────────────────────────────────────────────────────────
 
   const handleDragStart = (index: number) => setDragging(index);
   const handleDragEnter = (index: number) => setDragOver(index);
@@ -81,11 +79,9 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
       await reorderProjects(reordered.map((p) => ({ _id: p._id!, order: p.order! })));
     } catch (err) {
       setError(err instanceof Error ? err.message : "Reorder failed");
-      load(); // reload on failure
+      load();
     }
   };
-
-  // ── Form submit ──────────────────────────────────────────────────────────────
 
   const handleCreate = async (data: Partial<Project>) => {
     await createProject(data);
@@ -101,16 +97,32 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
     load();
   };
 
-  // ── Render ───────────────────────────────────────────────────────────────────
+  const BackButton = ({ label, onClick }: { label: string; onClick: () => void }) => (
+    <button
+      onClick={onClick}
+      className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-7 group"
+    >
+      <span className="group-hover:-translate-x-0.5 transition-transform">←</span>
+      {label}
+    </button>
+  );
+
+  // ── Form views ───────────────────────────────────────────────────────────────
 
   if (view === "create") {
     return (
       <div className="min-h-screen bg-background px-4 py-8 md:px-8">
         <div className="max-w-3xl mx-auto">
-          <button onClick={() => setView("list")} className="text-sm text-muted-foreground hover:text-foreground mb-6 inline-flex items-center gap-1 transition">
-            ← Back to projects
-          </button>
-          <h1 className="text-2xl tracking-tight mb-8">Add Project</h1>
+          <BackButton label="Back to projects" onClick={() => setView("list")} />
+          <div className="mb-8">
+            <h1
+              className="text-2xl tracking-tight"
+              style={{ fontFamily: "'Space Grotesk', 'DM Sans', sans-serif" }}
+            >
+              Add Project
+            </h1>
+            <p className="text-sm text-muted-foreground mt-1">Fill in the details below to add a new case study.</p>
+          </div>
           <ProjectForm onSubmit={handleCreate} onCancel={() => setView("list")} />
         </div>
       </div>
@@ -121,68 +133,125 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
     return (
       <div className="min-h-screen bg-background px-4 py-8 md:px-8">
         <div className="max-w-3xl mx-auto">
-          <button onClick={() => { setView("list"); setEditing(null); }} className="text-sm text-muted-foreground hover:text-foreground mb-6 inline-flex items-center gap-1 transition">
-            ← Back to projects
-          </button>
-          <h1 className="text-2xl tracking-tight mb-8">Edit — {editing.title}</h1>
-          <ProjectForm initial={editing} onSubmit={handleUpdate} onCancel={() => { setView("list"); setEditing(null); }} />
+          <BackButton
+            label="Back to projects"
+            onClick={() => { setView("list"); setEditing(null); }}
+          />
+          <div className="mb-8">
+            <h1
+              className="text-2xl tracking-tight"
+              style={{ fontFamily: "'Space Grotesk', 'DM Sans', sans-serif" }}
+            >
+              Edit Project
+            </h1>
+            <p className="text-sm text-muted-foreground mt-1 truncate">{editing.title}</p>
+          </div>
+          <ProjectForm
+            initial={editing}
+            onSubmit={handleUpdate}
+            onCancel={() => { setView("list"); setEditing(null); }}
+          />
         </div>
       </div>
     );
   }
 
+  // ── List view ────────────────────────────────────────────────────────────────
+
+  const liveCount  = projects.filter((p) => p.published).length;
+  const draftCount = projects.filter((p) => !p.published).length;
+
   return (
     <div className="min-h-screen bg-background px-4 py-8 md:px-8">
-      <div className="max-w-5xl mx-auto">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-10">
-          <div>
-            <h1 className="text-2xl tracking-tight">Admin Dashboard</h1>
-            <p className="text-sm text-muted-foreground mt-1">Manage your portfolio projects</p>
-          </div>
+      {/* Subtle background accent */}
+      <div
+        className="pointer-events-none fixed top-0 right-0 w-[600px] h-[400px] opacity-30"
+        style={{
+          background:
+            "radial-gradient(ellipse at top right, hsl(24 95% 53% / 0.08) 0%, transparent 60%)",
+          filter: "blur(40px)",
+        }}
+      />
+
+      <div className="max-w-5xl mx-auto relative z-10">
+        {/* ── Header ── */}
+        <div className="flex items-start justify-between mb-10">
           <div className="flex items-center gap-3">
-            <a href="/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition">
-              <ExternalLink className="w-4 h-4" /> View site
+            <div className="w-10 h-10 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center flex-shrink-0">
+              <LayoutGrid className="w-4 h-4 text-accent" />
+            </div>
+            <div>
+              <h1
+                className="text-xl tracking-tight"
+                style={{ fontFamily: "'Space Grotesk', 'DM Sans', sans-serif" }}
+              >
+                Admin Dashboard
+              </h1>
+              <p className="text-xs text-muted-foreground mt-0.5">
+                {liveCount} live · {draftCount} draft
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-1">
+            <a
+              href="/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-all"
+            >
+              <ExternalLink className="w-3.5 h-3.5" /> View site
             </a>
-            <button onClick={handleLogout} className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition">
-              <LogOut className="w-4 h-4" /> Log out
+            <button
+              onClick={handleLogout}
+              className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-all"
+            >
+              <LogOut className="w-3.5 h-3.5" /> Log out
             </button>
           </div>
         </div>
 
-        {/* Error */}
+        {/* ── Error ── */}
         {error && (
-          <div className="mb-6 px-4 py-3 rounded-xl bg-red-500/10 border border-red-500/20 text-sm text-red-500">
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-6 px-4 py-3 rounded-xl border border-red-500/20 bg-red-500/8 text-sm text-red-500"
+          >
             {error}
-          </div>
+          </motion.div>
         )}
 
-        {/* Add button */}
-        <div className="flex justify-end mb-6">
+        {/* ── Add button ── */}
+        <div className="flex justify-end mb-5">
           <button
             onClick={() => setView("create")}
-            className="flex items-center gap-2 px-5 py-2.5 bg-accent text-accent-foreground rounded-xl hover:bg-accent/90 transition text-sm font-medium"
+            className="flex items-center gap-2 px-4 py-2.5 bg-accent text-accent-foreground rounded-xl hover:bg-accent/90 active:scale-[0.98] transition-all text-sm font-medium shadow-sm shadow-accent/20"
           >
             <Plus className="w-4 h-4" /> Add project
           </button>
         </div>
 
-        {/* Project list */}
+        {/* ── Project list ── */}
         {loading ? (
-          <div className="flex justify-center py-20">
-            <Loader2 className="w-6 h-6 text-accent animate-spin" />
+          <div className="flex justify-center items-center py-24">
+            <Loader2 className="w-5 h-5 text-accent animate-spin" />
           </div>
         ) : projects.length === 0 ? (
-          <div className="text-center py-20 text-muted-foreground">
-            <p className="mb-4">No projects yet.</p>
-            <button onClick={() => setView("create")} className="text-accent hover:text-accent/80 transition">
+          <div className="text-center py-24 text-muted-foreground">
+            <p className="text-sm mb-3">No projects yet.</p>
+            <button
+              onClick={() => setView("create")}
+              className="text-sm text-accent hover:text-accent/80 transition"
+            >
               Add your first project →
             </button>
           </div>
         ) : (
-          <div className="space-y-2">
-            <div className="grid grid-cols-[auto_1fr_auto_auto_auto] gap-4 px-4 pb-2 text-xs text-muted-foreground uppercase tracking-wider">
-              <span></span>
+          <div className="space-y-1.5">
+            {/* Column headers */}
+            <div className="grid grid-cols-[auto_1fr_auto_auto_auto] gap-4 px-4 pb-1 text-[11px] text-muted-foreground uppercase tracking-wider">
+              <span />
               <span>Project</span>
               <span>Status</span>
               <span className="hidden sm:block">Year</span>
@@ -194,24 +263,34 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
                 <motion.div
                   key={project._id ?? project.id}
                   layout
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.2 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.18 }}
                   draggable
                   onDragStart={() => handleDragStart(index)}
                   onDragEnter={() => handleDragEnter(index)}
                   onDragOver={(e) => e.preventDefault()}
                   onDrop={() => handleDrop(index)}
-                  className={`grid grid-cols-[auto_1fr_auto_auto_auto] gap-4 items-center p-4 rounded-xl border transition cursor-grab active:cursor-grabbing ${
-                    dragOver === index ? "border-accent bg-accent/5" : "border-border bg-card hover:border-accent/30"
-                  }`}
+                  className={[
+                    "grid grid-cols-[auto_1fr_auto_auto_auto] gap-4 items-center px-4 py-3.5 rounded-xl border transition-all cursor-grab active:cursor-grabbing",
+                    dragOver === index
+                      ? "border-accent/50 bg-accent/5 shadow-sm shadow-accent/10"
+                      : "border-border bg-card hover:border-accent/25 hover:bg-card",
+                    dragging === index ? "opacity-50" : "",
+                  ].join(" ")}
                 >
-                  <GripVertical className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                  <GripVertical className="w-4 h-4 text-muted-foreground/40 hover:text-muted-foreground transition flex-shrink-0" />
 
                   <div className="min-w-0 flex items-center gap-3">
-                    {project.images[0] && (
-                      <img src={project.images[0]} alt="" className="w-10 h-10 rounded-lg object-cover flex-shrink-0" />
+                    {project.images?.[0] ? (
+                      <img
+                        src={project.images[0]}
+                        alt=""
+                        className="w-9 h-9 rounded-lg object-cover flex-shrink-0 border border-border"
+                      />
+                    ) : (
+                      <div className="w-9 h-9 rounded-lg bg-muted flex-shrink-0 border border-border" />
                     )}
                     <div className="min-w-0">
                       <p className="text-sm font-medium truncate">{project.title}</p>
@@ -219,35 +298,44 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
                     </div>
                   </div>
 
-                  <span className={`text-xs px-2 py-1 rounded-full ${
-                    project.published ? "bg-green-500/10 text-green-600 dark:text-green-400" : "bg-muted text-muted-foreground"
-                  }`}>
+                  <span
+                    className={[
+                      "text-xs px-2.5 py-1 rounded-full font-medium",
+                      project.published
+                        ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
+                        : "bg-muted text-muted-foreground",
+                    ].join(" ")}
+                  >
                     {project.published ? "Live" : "Draft"}
                   </span>
 
-                  <span className="hidden sm:block text-xs text-muted-foreground">{project.year}</span>
+                  <span className="hidden sm:block text-xs text-muted-foreground tabular-nums">
+                    {project.year}
+                  </span>
 
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-0.5">
                     <button
                       onClick={() => handleTogglePublish(project)}
-                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition"
+                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/70 transition-all"
                       title={project.published ? "Unpublish" : "Publish"}
                     >
-                      {project.published ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
+                      {project.published
+                        ? <Eye className="w-3.5 h-3.5" />
+                        : <EyeOff className="w-3.5 h-3.5" />}
                     </button>
                     <button
                       onClick={() => { setEditing(project); setView("edit"); }}
-                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition"
+                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/70 transition-all"
                       title="Edit"
                     >
-                      <Pencil className="w-4 h-4" />
+                      <Pencil className="w-3.5 h-3.5" />
                     </button>
                     <button
                       onClick={() => handleDelete(project)}
-                      className="p-2 rounded-lg text-muted-foreground hover:text-red-500 hover:bg-red-500/10 transition"
+                      className="p-2 rounded-lg text-muted-foreground hover:text-red-500 hover:bg-red-500/8 transition-all"
                       title="Delete"
                     >
-                      <Trash2 className="w-4 h-4" />
+                      <Trash2 className="w-3.5 h-3.5" />
                     </button>
                   </div>
                 </motion.div>
@@ -256,8 +344,8 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
           </div>
         )}
 
-        <p className="text-xs text-muted-foreground text-center mt-8">
-          Drag rows to reorder. Changes save automatically.
+        <p className="text-[11px] text-muted-foreground/60 text-center mt-8">
+          Drag rows to reorder · Changes save automatically
         </p>
       </div>
     </div>
