@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { getPresignedPutUrl, PUBLIC_URL } from "./_r2";
-import { verifyToken, getTokenFromRequest } from "./_auth";
+import { getPresignedPutUrl, PUBLIC_URL } from "./_r2.js";
+import { verifyToken, getTokenFromRequest } from "./_auth.js";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   res.setHeader("Access-Control-Allow-Origin", "*");

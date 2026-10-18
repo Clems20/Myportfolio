@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { findAll } from "../_mongo";
-import { verifyToken, getTokenFromRequest } from "../_auth";
+import { findAll } from "../_mongo.js";
+import { verifyToken, getTokenFromRequest } from "../_auth.js";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   res.setHeader("Access-Control-Allow-Origin", "*");

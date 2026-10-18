@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { findOne, updateOne, deleteOne, objectIdFilter } from "../_mongo";
-import { verifyToken, getTokenFromRequest } from "../_auth";
-import type { Project } from "../../src/types/project";
+import { findOne, updateOne, deleteOne, objectIdFilter } from "../_mongo.js";
+import { verifyToken, getTokenFromRequest } from "../_auth.js";
+import type { Project } from "../../src/types/project.js";
 
 function authHeaders(req: VercelRequest) {
   return {

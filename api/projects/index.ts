@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { findAll, insertOne } from "../_mongo";
-import { verifyToken, getTokenFromRequest } from "../_auth";
-import type { Project } from "../../src/types/project";
+import { findAll, insertOne } from "../_mongo.js";
+import { verifyToken, getTokenFromRequest } from "../_auth.js";
+import type { Project } from "../../src/types/project.js";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   // CORS for local dev
