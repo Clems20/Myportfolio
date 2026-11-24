@@ -1,15 +1,15 @@
 // Lightweight JWT helper using the Web Crypto API (available in Node 18+).
 // Signs and verifies HS256 tokens — no external dependencies needed.
 
-function b64url(input: ArrayBuffer): string {
-  return Buffer.from(input).toString("base64url");
+function b64url(input: ArrayBuffer | Uint8Array): string {
+  return Buffer.from(input as ArrayBuffer).toString("base64url");
 }
 
 function b64urlDecode(input: string): Buffer {
   return Buffer.from(input, "base64url");
 }
 
-async function getKey(secret: string): Promise<CryptoKey> {
+async function getKey(secret: string) {
   return crypto.subtle.importKey(
     "raw",
     new TextEncoder().encode(secret),

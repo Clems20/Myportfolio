@@ -6,7 +6,7 @@ export interface ProcessStep {
 
 export interface ProjectResults {
   metrics?: string[];
-  learnings: string[];
+  learnings?: string[];
 }
 
 export interface Project {
@@ -22,12 +22,12 @@ export interface Project {
   date: string;
   productLink?: string;
   tools: string[];
-  goal: string;
-  problem: string;
-  userDescription: string;
-  challenges: string[];
-  processSteps: ProcessStep[];
-  results: ProjectResults;
+  goal?: string;
+  problem?: string;
+  userDescription?: string;
+  challenges?: string[];
+  processSteps?: ProcessStep[];
+  results?: ProjectResults;
   order?: number; // for manual reordering
   published?: boolean; // draft/publish toggle
 }

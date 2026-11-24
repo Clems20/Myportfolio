@@ -1,10 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AdminLogin } from "./components/AdminLogin";
 import { AdminDashboard } from "./components/AdminDashboard";
 import { isLoggedIn } from "../lib/api";
 
 export function AdminPage() {
   const [authed, setAuthed] = useState<boolean>(isLoggedIn);
+
+  useEffect(() => {
+    const handleUnauthorized = () => setAuthed(false);
+    const handleLogout = () => setAuthed(false);
+    const handleLogin = () => setAuthed(true);
+
+    window.addEventListener("admin_unauthorized", handleUnauthorized);
+    window.addEventListener("admin_logout", handleLogout);
+    window.addEventListener("admin_login", handleLogin);
+
+    return () => {
+      window.removeEventListener("admin_unauthorized", handleUnauthorized);
+      window.removeEventListener("admin_logout", handleLogout);
+      window.removeEventListener("admin_login", handleLogin);
+    };
+  }, []);
 
   if (!authed) {
     return <AdminLogin onLogin={() => setAuthed(true)} />;

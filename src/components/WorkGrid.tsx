@@ -677,7 +677,7 @@ export function WorkGrid({ projects: projectsProp, onProjectClick }: { projects?
     if (isMobile) {
       // On mobile, cycle all project images
       const intervals = projects.map(project => {
-        if (project.images.length <= 1) return null;
+        if (!project.images || project.images.length <= 1) return null;
         
         return setInterval(() => {
           setCurrentImageIndexes(prev => ({
@@ -699,7 +699,7 @@ export function WorkGrid({ projects: projectsProp, onProjectClick }: { projects?
       }
 
       const project = projects.find(p => p.id === selectedProject);
-      if (!project || project.images.length <= 1) {
+      if (!project || !project.images || project.images.length <= 1) {
         return;
       }
 
@@ -756,7 +756,7 @@ export function WorkGrid({ projects: projectsProp, onProjectClick }: { projects?
                   transition={{ duration: 0.3 }}
                 >
                   <motion.img
-                    src={project.images[currentImageIndexes[project.id] || 0]}
+                    src={project.images?.[currentImageIndexes[project.id] || 0] || project.images?.[0] || ""}
                     alt={project.title}
                     className="w-full h-full object-cover"
                     animate={{
@@ -782,7 +782,7 @@ export function WorkGrid({ projects: projectsProp, onProjectClick }: { projects?
                   />
                   
                   {/* Image Progress Indicators */}
-                  {selectedProject === project.id && project.images.length > 1 && (
+                  {selectedProject === project.id && (project.images?.length ?? 0) > 1 && (
                     <motion.div
                       className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-20"
                       initial={{ opacity: 0, y: 10 }}

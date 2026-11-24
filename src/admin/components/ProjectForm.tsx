@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Loader2, Plus, X, ChevronDown, ToggleLeft, ToggleRight } from "lucide-react";
+import { Loader2, Plus, X, ChevronDown, Check, ToggleLeft, ToggleRight, Sparkles } from "lucide-react";
 import { ImageUploader } from "./ImageUploader";
 import type { Project, ProcessStep } from "../../types/project";
 
@@ -12,15 +12,14 @@ interface ProjectFormProps {
 
 const EMPTY_STEP: ProcessStep = { title: "", description: "", images: [] };
 
-// Which optional sections exist and their display labels
 type OptionalSection = "overview" | "objectives" | "processSteps" | "metrics" | "learnings";
 
 const SECTION_META: Record<OptionalSection, { label: string; description: string }> = {
   overview:     { label: "Overview",           description: "Goal, problem statement, and target users" },
-  objectives:   { label: "Project Objectives", description: "Key challenges and success criteria" },
-  processSteps: { label: "Process Steps",      description: "Your design process, step by step" },
-  metrics:      { label: "Results & Metrics",  description: "Quantitative outcomes and impact data" },
-  learnings:    { label: "Lessons Learned",    description: "Key takeaways and reflections" },
+  objectives:   { label: "Project Objectives", description: "Key design challenges and success criteria" },
+  processSteps: { label: "Process Steps",      description: "Step-by-step case study narrative and design artifact images" },
+  metrics:      { label: "Results & Metrics",  description: "Quantitative impact, KPIs, and user metrics" },
+  learnings:    { label: "Lessons Learned",    description: "Key takeaways, reflections, and post-launch insights" },
 };
 
 function deriveInitialSections(initial?: Partial<Project>): Record<OptionalSection, boolean> {
@@ -44,57 +43,68 @@ function deriveInitialSections(initial?: Partial<Project>): Record<OptionalSecti
 export function ProjectForm({ initial, onSubmit, onCancel }: ProjectFormProps) {
   const [form, setForm] = useState<Partial<Project>>(
     initial ?? {
-      title: "", category: "", year: String(new Date().getFullYear()),
-      images: [], description: "", role: "", date: "", tools: [],
-      goal: "", problem: "", userDescription: "", challenges: [],
+      title: "",
+      category: "",
+      year: String(new Date().getFullYear()),
+      images: [],
+      description: "",
+      role: "",
+      date: "",
+      client: "",
+      productLink: "",
+      tools: [],
+      goal: "",
+      problem: "",
+      userDescription: "",
+      challenges: [],
       processSteps: [{ ...EMPTY_STEP }],
-      results: { learnings: [] },
+      results: { metrics: [], learnings: [] },
       published: false,
     }
   );
+
   const [sections, setSections] = useState<Record<OptionalSection, boolean>>(
     () => deriveInitialSections(initial)
   );
-  const [loading, setLoading]   = useState(false);
-  const [error, setError]       = useState<string | null>(null);
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   // ── Section toggle ───────────────────────────────────────────────────────────
 
   function toggleSection(key: OptionalSection, enabled: boolean) {
     setSections((prev) => ({ ...prev, [key]: enabled }));
-    // When disabling, clear the associated fields so they're omitted from the payload
     if (!enabled) {
       if (key === "overview") {
-        setForm((prev) => ({ ...prev, goal: undefined, problem: undefined, userDescription: undefined }));
+        setForm((prev) => ({ ...prev, goal: "", problem: "", userDescription: "" }));
       }
       if (key === "objectives") {
-        setForm((prev) => ({ ...prev, challenges: undefined }));
+        setForm((prev) => ({ ...prev, challenges: [] }));
       }
       if (key === "processSteps") {
-        setForm((prev) => ({ ...prev, processSteps: undefined }));
+        setForm((prev) => ({ ...prev, processSteps: [] }));
       }
       if (key === "metrics") {
-        setForm((prev) => ({ ...prev, results: { ...prev.results, metrics: undefined } }));
+        setForm((prev) => ({ ...prev, results: { ...prev.results, metrics: [] } }));
       }
       if (key === "learnings") {
         setForm((prev) => ({ ...prev, results: { ...prev.results, learnings: [] } }));
       }
     } else {
-      // Re-initialise with empty values when re-enabling
       if (key === "overview") {
-        setForm((prev) => ({ ...prev, goal: prev.goal ?? "", problem: prev.problem ?? "", userDescription: prev.userDescription ?? "" }));
+        setForm((prev) => ({ ...prev, goal: prev.goal || "", problem: prev.problem || "", userDescription: prev.userDescription || "" }));
       }
       if (key === "objectives") {
-        setForm((prev) => ({ ...prev, challenges: prev.challenges ?? [] }));
+        setForm((prev) => ({ ...prev, challenges: prev.challenges?.length ? prev.challenges : [""] }));
       }
       if (key === "processSteps") {
-        setForm((prev) => ({ ...prev, processSteps: prev.processSteps ?? [{ ...EMPTY_STEP }] }));
+        setForm((prev) => ({ ...prev, processSteps: prev.processSteps?.length ? prev.processSteps : [{ ...EMPTY_STEP }] }));
       }
       if (key === "metrics") {
-        setForm((prev) => ({ ...prev, results: { ...prev.results, metrics: prev.results?.metrics ?? [] } }));
+        setForm((prev) => ({ ...prev, results: { ...prev.results, metrics: prev.results?.metrics?.length ? prev.results.metrics : [""] } }));
       }
       if (key === "learnings") {
-        setForm((prev) => ({ ...prev, results: { ...prev.results, learnings: prev.results?.learnings ?? [] } }));
+        setForm((prev) => ({ ...prev, results: { ...prev.results, learnings: prev.results?.learnings?.length ? prev.results.learnings : [""] } }));
       }
     }
   }
@@ -107,19 +117,64 @@ export function ProjectForm({ initial, onSubmit, onCancel }: ProjectFormProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!form.title?.trim()) {
+      setError("Project title is required.");
+      return;
+    }
+    if (!form.category?.trim()) {
+      setError("Category is required.");
+      return;
+    }
+    if (!form.role?.trim()) {
+      setError("Role is required.");
+      return;
+    }
+    if (!form.description?.trim()) {
+      setError("Short description is required.");
+      return;
+    }
+
     setError(null);
     setLoading(true);
+
     try {
-      // Strip disabled sections from the payload
       const payload: Partial<Project> = { ...form };
-      if (!sections.overview)     { delete payload.goal; delete payload.problem; delete payload.userDescription; }
-      if (!sections.objectives)   { delete payload.challenges; }
-      if (!sections.processSteps) { delete payload.processSteps; }
-      if (!sections.metrics)      payload.results = { ...payload.results, metrics: undefined };
-      if (!sections.learnings)    payload.results = { ...payload.results, learnings: [] };
+
+      // Ensure disabled sections cleanly clear in database
+      if (!sections.overview) {
+        payload.goal = "";
+        payload.problem = "";
+        payload.userDescription = "";
+      }
+      if (!sections.objectives) {
+        payload.challenges = [];
+      } else {
+        payload.challenges = (payload.challenges ?? []).filter((c) => c.trim().length > 0);
+      }
+
+      if (!sections.processSteps) {
+        payload.processSteps = [];
+      } else {
+        payload.processSteps = (payload.processSteps ?? []).filter((s) => s.title.trim() || s.description.trim() || s.images.length > 0);
+      }
+
+      const resultsPayload = { ...(payload.results ?? {}) };
+      if (!sections.metrics) {
+        resultsPayload.metrics = [];
+      } else {
+        resultsPayload.metrics = (resultsPayload.metrics ?? []).filter((m) => m.trim().length > 0);
+      }
+
+      if (!sections.learnings) {
+        resultsPayload.learnings = [];
+      } else {
+        resultsPayload.learnings = (resultsPayload.learnings ?? []).filter((l) => l.trim().length > 0);
+      }
+      payload.results = resultsPayload;
+
       await onSubmit(payload);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Save failed");
+      setError(err instanceof Error ? err.message : "Failed to save project.");
     } finally {
       setLoading(false);
     }
@@ -128,117 +183,122 @@ export function ProjectForm({ initial, onSubmit, onCancel }: ProjectFormProps) {
   // ── Array-field helpers ──────────────────────────────────────────────────────
 
   function setChallenge(i: number, v: string) {
-    const next = [...(form.challenges ?? [])]; next[i] = v; set("challenges", next);
+    const next = [...(form.challenges ?? [])];
+    next[i] = v;
+    set("challenges", next);
   }
-  function addChallenge()             { set("challenges", [...(form.challenges ?? []), ""]); }
-  function removeChallenge(i: number) { set("challenges", (form.challenges ?? []).filter((_, j) => j !== i)); }
+  function addChallenge() {
+    set("challenges", [...(form.challenges ?? []), ""]);
+  }
+  function removeChallenge(i: number) {
+    set("challenges", (form.challenges ?? []).filter((_, j) => j !== i));
+  }
 
   function setMetric(i: number, v: string) {
-    const next = [...(form.results?.metrics ?? [])]; next[i] = v;
+    const next = [...(form.results?.metrics ?? [])];
+    next[i] = v;
     set("results", { ...form.results, metrics: next });
   }
-  function addMetric()             { set("results", { ...form.results, metrics: [...(form.results?.metrics ?? []), ""] }); }
-  function removeMetric(i: number) { set("results", { ...form.results, metrics: (form.results?.metrics ?? []).filter((_, j) => j !== i) }); }
+  function addMetric() {
+    set("results", { ...form.results, metrics: [...(form.results?.metrics ?? []), ""] });
+  }
+  function removeMetric(i: number) {
+    set("results", { ...form.results, metrics: (form.results?.metrics ?? []).filter((_, j) => j !== i) });
+  }
 
   function setLearning(i: number, v: string) {
-    const next = [...(form.results?.learnings ?? [])]; next[i] = v;
+    const next = [...(form.results?.learnings ?? [])];
+    next[i] = v;
     set("results", { ...form.results, learnings: next });
   }
-  function addLearning()             { set("results", { ...form.results, learnings: [...(form.results?.learnings ?? []), ""] }); }
-  function removeLearning(i: number) { set("results", { ...form.results, learnings: (form.results?.learnings ?? []).filter((_, j) => j !== i) }); }
+  function addLearning() {
+    set("results", { ...form.results, learnings: [...(form.results?.learnings ?? []), ""] });
+  }
+  function removeLearning(i: number) {
+    set("results", { ...form.results, learnings: (form.results?.learnings ?? []).filter((_, j) => j !== i) });
+  }
 
   function setStep(i: number, patch: Partial<ProcessStep>) {
-    const next = [...(form.processSteps ?? [])]; next[i] = { ...next[i], ...patch }; set("processSteps", next);
+    const next = [...(form.processSteps ?? [])];
+    next[i] = { ...next[i], ...patch };
+    set("processSteps", next);
   }
-  function addStep()             { set("processSteps", [...(form.processSteps ?? []), { ...EMPTY_STEP }]); }
-  function removeStep(i: number) { set("processSteps", (form.processSteps ?? []).filter((_, j) => j !== i)); }
+  function addStep() {
+    set("processSteps", [...(form.processSteps ?? []), { ...EMPTY_STEP }]);
+  }
+  function removeStep(i: number) {
+    set("processSteps", (form.processSteps ?? []).filter((_, j) => j !== i));
+  }
 
-  // ── Style constants ──────────────────────────────────────────────────────────
+  // ── Style constants matching main site ────────────────────────────────────────
 
-  const inputCls = [
-    "w-full px-3.5 py-2.5 rounded-xl border border-border bg-background text-foreground",
-    "placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/40",
-    "focus:border-accent/60 transition-all text-sm",
-  ].join(" ");
+  const inputCls =
+    "w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition-all text-sm";
 
-  const labelCls = "block text-xs text-muted-foreground uppercase tracking-wider mb-2";
+  const labelCls = "block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2";
 
-  // ── Section card wrapper ─────────────────────────────────────────────────────
+  // ── Section Card wrapper ─────────────────────────────────────────────────────
 
   function SectionCard({
     id,
     children,
     optional = false,
   }: {
-    id?: OptionalSection;
+    id: OptionalSection;
     children: React.ReactNode;
     optional?: boolean;
   }) {
-    const enabled = id ? sections[id] : true;
+    const enabled = sections[id];
     return (
       <div
         className={[
-          "rounded-2xl border transition-all",
-          enabled ? "border-border" : "border-border/40 opacity-60",
+          "rounded-2xl border transition-all overflow-hidden",
+          enabled
+            ? "border-border bg-card/70 backdrop-blur-md shadow-sm"
+            : "border-border/50 bg-muted/20 opacity-75",
         ].join(" ")}
-        style={{
-          background: enabled
-            ? "color-mix(in srgb, var(--card) 60%, transparent)"
-            : "color-mix(in srgb, var(--muted) 20%, transparent)",
-          backdropFilter: "blur(8px)",
-          WebkitBackdropFilter: "blur(8px)",
-        }}
       >
-        {optional && id && (
-          <div className="flex items-center justify-between px-5 pt-5 pb-4 border-b border-border/60">
-            <div>
-              <h3
-                className="text-sm font-medium"
-                style={{ fontFamily: "'Space Grotesk', 'DM Sans', sans-serif" }}
-              >
-                {SECTION_META[id].label}
-              </h3>
-              <p className="text-xs text-muted-foreground mt-0.5">{SECTION_META[id].description}</p>
-            </div>
-            <button
-              type="button"
-              onClick={() => toggleSection(id, !enabled)}
-              className={[
-                "flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg border transition-all",
-                enabled
-                  ? "border-accent/30 bg-accent/8 text-accent hover:bg-accent/15"
-                  : "border-border text-muted-foreground hover:border-foreground/20",
-              ].join(" ")}
-            >
-              {enabled
-                ? <><ToggleRight className="w-3.5 h-3.5" /> Enabled</>
-                : <><ToggleLeft className="w-3.5 h-3.5" /> Disabled</>}
-            </button>
-          </div>
-        )}
-        {!optional && id && (
-          <div className="px-5 pt-5 pb-4 border-b border-border/60">
+        <div className="flex items-center justify-between px-6 py-5 border-b border-border/60">
+          <div>
             <h3
-              className="text-sm font-medium"
+              className="text-base font-semibold text-foreground tracking-tight"
               style={{ fontFamily: "'Space Grotesk', 'DM Sans', sans-serif" }}
             >
               {SECTION_META[id].label}
             </h3>
             <p className="text-xs text-muted-foreground mt-0.5">{SECTION_META[id].description}</p>
           </div>
-        )}
+          {optional && (
+            <button
+              type="button"
+              onClick={() => toggleSection(id, !enabled)}
+              className={[
+                "flex items-center gap-2 text-xs font-medium px-3.5 py-1.5 rounded-full border transition-all cursor-pointer",
+                enabled
+                  ? "border-accent/40 bg-accent/10 text-accent hover:bg-accent/20"
+                  : "border-border bg-background text-muted-foreground hover:border-foreground/30 hover:text-foreground",
+              ].join(" ")}
+            >
+              <span
+                className={[
+                  "w-2 h-2 rounded-full transition-colors",
+                  enabled ? "bg-accent" : "bg-muted-foreground/40",
+                ].join(" ")}
+              />
+              {enabled ? "Enabled" : "Disabled"}
+            </button>
+          )}
+        </div>
+
         <AnimatePresence initial={false}>
           {enabled && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-              className="overflow-hidden"
+              transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="px-5 py-5">
-                {children}
-              </div>
+              <div className="p-6">{children}</div>
             </motion.div>
           )}
         </AnimatePresence>
@@ -246,16 +306,17 @@ export function ProjectForm({ initial, onSubmit, onCancel }: ProjectFormProps) {
     );
   }
 
-  // ── Add / remove item button ─────────────────────────────────────────────────
+  // ── Helper buttons ───────────────────────────────────────────────────────────
 
   function AddButton({ onClick, label }: { onClick: () => void; label: string }) {
     return (
       <button
         type="button"
         onClick={onClick}
-        className="flex items-center gap-1.5 text-xs text-accent hover:text-accent/80 transition mt-1"
+        className="inline-flex items-center gap-1.5 text-xs font-medium text-accent hover:text-accent/80 transition-colors pt-2 cursor-pointer"
       >
-        <Plus className="w-3.5 h-3.5" /> {label}
+        <Plus className="w-3.5 h-3.5" />
+        {label}
       </button>
     );
   }
@@ -265,255 +326,347 @@ export function ProjectForm({ initial, onSubmit, onCancel }: ProjectFormProps) {
       <button
         type="button"
         onClick={onClick}
-        className="p-1.5 text-muted-foreground hover:text-red-500 hover:bg-red-500/8 rounded-lg transition-all flex-shrink-0"
-        aria-label="Remove"
+        className="p-2 text-muted-foreground hover:text-red-500 hover:bg-red-500/10 rounded-lg transition-colors flex-shrink-0 cursor-pointer"
+        aria-label="Remove item"
       >
-        <X className="w-3.5 h-3.5" />
+        <X className="w-4 h-4" />
       </button>
     );
   }
 
-  // ── Render ───────────────────────────────────────────────────────────────────
-
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 pb-16">
-
-      {/* ── Basic Info (always shown, no toggle) ── */}
-      <div
-        className="rounded-2xl border border-border p-5"
-        style={{
-          background: "color-mix(in srgb, var(--card) 60%, transparent)",
-          backdropFilter: "blur(8px)",
-          WebkitBackdropFilter: "blur(8px)",
-        }}
-      >
+    <form onSubmit={handleSubmit} className="space-y-6 pb-20">
+      {/* ── 1. Basic Information ── */}
+      <div className="rounded-2xl border border-border bg-card/70 backdrop-blur-md p-6 shadow-sm">
         <h3
-          className="text-sm font-medium mb-5"
+          className="text-base font-semibold text-foreground tracking-tight mb-5"
           style={{ fontFamily: "'Space Grotesk', 'DM Sans', sans-serif" }}
         >
-          Basic Info
+          Basic Information
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className={labelCls}>Title *</label>
-            <input className={inputCls} value={form.title ?? ""} onChange={(e) => set("title", e.target.value)} required placeholder="Project title" />
+            <label className={labelCls}>Project Title *</label>
+            <input
+              className={inputCls}
+              value={form.title ?? ""}
+              onChange={(e) => set("title", e.target.value)}
+              required
+              placeholder="e.g. Delorand — All In One Commerce"
+            />
           </div>
+
           <div>
             <label className={labelCls}>Category *</label>
-            <input className={inputCls} value={form.category ?? ""} onChange={(e) => set("category", e.target.value)} required placeholder="e.g. UI UX / Product Design" />
+            <input
+              className={inputCls}
+              value={form.category ?? ""}
+              onChange={(e) => set("category", e.target.value)}
+              required
+              placeholder="e.g. UI UX / Product Design"
+            />
           </div>
+
           <div>
             <label className={labelCls}>Year *</label>
-            <input className={inputCls} value={form.year ?? ""} onChange={(e) => set("year", e.target.value)} required placeholder="2025" />
+            <input
+              className={inputCls}
+              value={form.year ?? ""}
+              onChange={(e) => set("year", e.target.value)}
+              required
+              placeholder="2026"
+            />
           </div>
-          <div>
-            <label className={labelCls}>Date range</label>
-            <input className={inputCls} value={form.date ?? ""} onChange={(e) => set("date", e.target.value)} placeholder="e.g. Jan – Mar 2025" />
-          </div>
+
           <div>
             <label className={labelCls}>Role *</label>
-            <input className={inputCls} value={form.role ?? ""} onChange={(e) => set("role", e.target.value)} required placeholder="Lead UI/UX Designer" />
+            <input
+              className={inputCls}
+              value={form.role ?? ""}
+              onChange={(e) => set("role", e.target.value)}
+              required
+              placeholder="e.g. Lead Product Designer"
+            />
           </div>
+
           <div>
-            <label className={labelCls}>Client</label>
-            <input className={inputCls} value={form.client ?? ""} onChange={(e) => set("client", e.target.value)} placeholder="Client name (optional)" />
+            <label className={labelCls}>Client / Company</label>
+            <input
+              className={inputCls}
+              value={form.client ?? ""}
+              onChange={(e) => set("client", e.target.value)}
+              placeholder="e.g. Freelance / Delorand Inc."
+            />
           </div>
-          <div className="md:col-span-2">
-            <label className={labelCls}>Product link</label>
-            <input className={inputCls} type="url" value={form.productLink ?? ""} onChange={(e) => set("productLink", e.target.value)} placeholder="https://…" />
+
+          <div>
+            <label className={labelCls}>Date Range</label>
+            <input
+              className={inputCls}
+              value={form.date ?? ""}
+              onChange={(e) => set("date", e.target.value)}
+              placeholder="e.g. May 2026"
+            />
           </div>
+
           <div className="md:col-span-2">
-            <label className={labelCls}>Tools (comma-separated)</label>
-            <input className={inputCls} value={(form.tools ?? []).join(", ")} onChange={(e) => set("tools", e.target.value.split(",").map((t) => t.trim()).filter(Boolean))} placeholder="Figma, Notion, FigJam" />
+            <label className={labelCls}>Live Product / Prototype URL</label>
+            <input
+              className={inputCls}
+              type="url"
+              value={form.productLink ?? ""}
+              onChange={(e) => set("productLink", e.target.value)}
+              placeholder="https://example.com or App Store link"
+            />
           </div>
+
           <div className="md:col-span-2">
-            <label className={labelCls}>Short description *</label>
+            <label className={labelCls}>Tools Used (comma separated)</label>
+            <input
+              className={inputCls}
+              value={(form.tools ?? []).join(", ")}
+              onChange={(e) =>
+                set(
+                  "tools",
+                  e.target.value
+                    .split(",")
+                    .map((t) => t.trim())
+                    .filter(Boolean)
+                )
+              }
+              placeholder="Figma, Notion, FigJam, Principle"
+            />
+          </div>
+
+          <div className="md:col-span-2">
+            <label className={labelCls}>Short Description *</label>
             <textarea
-              className={inputCls + " resize-none h-20"}
+              className={inputCls + " resize-none h-24 leading-relaxed"}
               value={form.description ?? ""}
               onChange={(e) => set("description", e.target.value)}
               required
-              placeholder="One-sentence project summary shown on the grid card"
+              placeholder="Brief 1-2 sentence overview shown on the main portfolio work grid."
             />
           </div>
-          <div className="md:col-span-2">
-            <label className="inline-flex items-center gap-2.5 cursor-pointer select-none">
+
+          {/* Published Toggle */}
+          <div className="md:col-span-2 pt-2">
+            <div className="flex items-center justify-between p-4 rounded-xl border border-border bg-background/60">
+              <div>
+                <p className="text-sm font-semibold text-foreground">Visibility Status</p>
+                <p className="text-xs text-muted-foreground mt-0.5">
+                  {form.published
+                    ? "Live — Project is visible on the public website"
+                    : "Draft — Project is saved but hidden from the public website"}
+                </p>
+              </div>
+
               <button
                 type="button"
                 role="switch"
                 aria-checked={form.published ?? false}
                 onClick={() => set("published", !(form.published ?? false))}
                 className={[
-                  "relative w-10 h-5.5 rounded-full border transition-all flex-shrink-0",
-                  form.published
-                    ? "bg-accent border-accent/60"
-                    : "bg-muted border-border",
+                  "relative w-12 h-6 rounded-full transition-colors cursor-pointer",
+                  form.published ? "bg-accent" : "bg-muted border border-border",
                 ].join(" ")}
               >
                 <span
                   className={[
-                    "absolute top-0.5 left-0.5 w-4 h-4 rounded-full bg-white shadow-sm transition-transform",
-                    form.published ? "translate-x-4.5" : "translate-x-0",
+                    "absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow-md transition-transform",
+                    form.published ? "translate-x-6" : "translate-x-0",
                   ].join(" ")}
                 />
               </button>
-              <span className="text-sm text-muted-foreground">
-                {form.published ? "Published — visible on portfolio" : "Draft — hidden from portfolio"}
-              </span>
-            </label>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* ── Cover Images (always shown) ── */}
-      <div
-        className="rounded-2xl border border-border p-5"
-        style={{
-          background: "color-mix(in srgb, var(--card) 60%, transparent)",
-          backdropFilter: "blur(8px)",
-          WebkitBackdropFilter: "blur(8px)",
-        }}
-      >
+      {/* ── 2. Project Images ── */}
+      <div className="rounded-2xl border border-border bg-card/70 backdrop-blur-md p-6 shadow-sm">
         <h3
-          className="text-sm font-medium mb-1"
+          className="text-base font-semibold text-foreground tracking-tight mb-1"
           style={{ fontFamily: "'Space Grotesk', 'DM Sans', sans-serif" }}
         >
-          Cover Images
+          Project Images & Gallery
         </h3>
-        <p className="text-xs text-muted-foreground mb-4">First image is the card thumbnail. Drag to reorder.</p>
-        <ImageUploader value={form.images ?? []} onChange={(urls) => set("images", urls)} maxImages={5} />
+        <p className="text-xs text-muted-foreground mb-4">
+          The first image serves as the main project card thumbnail on the portfolio grid.
+        </p>
+        <ImageUploader
+          value={form.images ?? []}
+          onChange={(urls) => set("images", urls)}
+          maxImages={8}
+        />
       </div>
 
-      {/* ── Optional sections ── */}
-
+      {/* ── 3. Optional Section: Overview ── */}
       <SectionCard id="overview" optional>
         <div className="space-y-4">
-          {(["goal", "problem", "userDescription"] as const).map((field) => (
-            <div key={field}>
-              <label className={labelCls}>
-                {field === "userDescription" ? "Target users" : field.charAt(0).toUpperCase() + field.slice(1)}
-              </label>
-              <textarea
-                className={inputCls + " resize-none h-20"}
-                value={(form[field] as string) ?? ""}
-                onChange={(e) => set(field, e.target.value)}
-                placeholder={`Describe the ${field === "userDescription" ? "target users" : field}`}
-              />
-            </div>
-          ))}
+          <div>
+            <label className={labelCls}>Project Goal</label>
+            <textarea
+              className={inputCls + " resize-none h-20"}
+              value={form.goal ?? ""}
+              onChange={(e) => set("goal", e.target.value)}
+              placeholder="What was the primary business and product goal?"
+            />
+          </div>
+
+          <div>
+            <label className={labelCls}>Problem Statement</label>
+            <textarea
+              className={inputCls + " resize-none h-20"}
+              value={form.problem ?? ""}
+              onChange={(e) => set("problem", e.target.value)}
+              placeholder="What core user friction or market problem did this solve?"
+            />
+          </div>
+
+          <div>
+            <label className={labelCls}>Target Users & Audience</label>
+            <textarea
+              className={inputCls + " resize-none h-20"}
+              value={form.userDescription ?? ""}
+              onChange={(e) => set("userDescription", e.target.value)}
+              placeholder="Who are the primary target users, personas, or demographics?"
+            />
+          </div>
         </div>
       </SectionCard>
 
+      {/* ── 4. Optional Section: Objectives ── */}
       <SectionCard id="objectives" optional>
-        <div className="space-y-2">
-          {(form.challenges ?? []).map((c, i) => (
+        <div className="space-y-3">
+          {(form.challenges ?? []).map((challenge, i) => (
             <div key={i} className="flex gap-2 items-center">
+              <span className="w-6 h-6 rounded-full bg-accent/10 text-accent text-xs flex items-center justify-center font-medium shrink-0">
+                {i + 1}
+              </span>
               <input
                 className={inputCls + " flex-1"}
-                value={c}
+                value={challenge}
                 onChange={(e) => setChallenge(i, e.target.value)}
-                placeholder={`Objective ${i + 1}`}
+                placeholder={`Objective or challenge ${i + 1}`}
               />
               <RemoveButton onClick={() => removeChallenge(i)} />
             </div>
           ))}
-          <AddButton onClick={addChallenge} label="Add objective" />
+          <AddButton onClick={addChallenge} label="Add Objective" />
         </div>
       </SectionCard>
 
+      {/* ── 5. Optional Section: Process Steps ── */}
       <SectionCard id="processSteps" optional>
-        <div className="space-y-4">
+        <div className="space-y-5">
           {(form.processSteps ?? []).map((step, i) => (
             <div
               key={i}
-              className="rounded-xl border border-border/80 bg-background/60 p-4 space-y-3"
+              className="rounded-xl border border-border bg-background/80 p-5 space-y-4 shadow-xs"
             >
               <div className="flex items-center justify-between">
-                <span className="text-xs text-muted-foreground uppercase tracking-wider">Step {i + 1}</span>
+                <span className="text-xs font-semibold text-accent uppercase tracking-wider">
+                  Step {i + 1}
+                </span>
                 <RemoveButton onClick={() => removeStep(i)} />
               </div>
-              <input
-                className={inputCls}
-                value={step.title}
-                onChange={(e) => setStep(i, { title: e.target.value })}
-                placeholder="Step title (e.g. User Research)"
-              />
-              <textarea
-                className={inputCls + " resize-none h-24"}
-                value={step.description}
-                onChange={(e) => setStep(i, { description: e.target.value })}
-                placeholder="Describe what you did in this step"
-              />
+
               <div>
-                <p className="text-xs text-muted-foreground mb-2">Step images</p>
-                <ImageUploader value={step.images} onChange={(urls) => setStep(i, { images: urls })} maxImages={10} />
+                <label className={labelCls}>Step Title</label>
+                <input
+                  className={inputCls}
+                  value={step.title}
+                  onChange={(e) => setStep(i, { title: e.target.value })}
+                  placeholder="e.g. Discovery & User Research, Wireframing, Final Design"
+                />
+              </div>
+
+              <div>
+                <label className={labelCls}>Step Description</label>
+                <textarea
+                  className={inputCls + " resize-none h-24"}
+                  value={step.description}
+                  onChange={(e) => setStep(i, { description: e.target.value })}
+                  placeholder="Detail the activities, iterations, and decisions made in this stage..."
+                />
+              </div>
+
+              <div>
+                <label className={labelCls}>Step Visuals & Artifacts</label>
+                <ImageUploader
+                  value={step.images ?? []}
+                  onChange={(urls) => setStep(i, { images: urls })}
+                  maxImages={10}
+                />
               </div>
             </div>
           ))}
-          <AddButton onClick={addStep} label="Add step" />
+          <AddButton onClick={addStep} label="Add Process Step" />
         </div>
       </SectionCard>
 
+      {/* ── 6. Optional Section: Results & Metrics ── */}
       <SectionCard id="metrics" optional>
-        <div className="space-y-2">
-          {(form.results?.metrics ?? []).map((m, i) => (
+        <div className="space-y-3">
+          {(form.results?.metrics ?? []).map((metric, i) => (
             <div key={i} className="flex gap-2 items-center">
+              <span className="w-2 h-2 rounded-full bg-accent shrink-0 ml-1 mr-1" />
               <input
                 className={inputCls + " flex-1"}
-                value={m}
+                value={metric}
                 onChange={(e) => setMetric(i, e.target.value)}
-                placeholder={`Metric ${i + 1} (e.g. 40% increase in task completion)`}
+                placeholder="e.g. 40% increase in checkout conversion rate"
               />
               <RemoveButton onClick={() => removeMetric(i)} />
             </div>
           ))}
-          <AddButton onClick={addMetric} label="Add metric" />
+          <AddButton onClick={addMetric} label="Add Impact Metric" />
         </div>
       </SectionCard>
 
+      {/* ── 7. Optional Section: Lessons Learned ── */}
       <SectionCard id="learnings" optional>
-        <div className="space-y-2">
-          {(form.results?.learnings ?? []).map((l, i) => (
+        <div className="space-y-3">
+          {(form.results?.learnings ?? []).map((learning, i) => (
             <div key={i} className="flex gap-2 items-start">
+              <span className="w-2 h-2 rounded-full bg-accent mt-4 shrink-0 ml-1 mr-1" />
               <textarea
-                className={inputCls + " flex-1 resize-none h-16"}
-                value={l}
+                className={inputCls + " flex-1 resize-none h-20"}
+                value={learning}
                 onChange={(e) => setLearning(i, e.target.value)}
-                placeholder={`Lesson ${i + 1}`}
+                placeholder={`Key takeaway or reflection ${i + 1}`}
               />
               <RemoveButton onClick={() => removeLearning(i)} />
             </div>
           ))}
-          <AddButton onClick={addLearning} label="Add lesson" />
+          <AddButton onClick={addLearning} label="Add Lesson Learned" />
         </div>
       </SectionCard>
 
-      {/* ── Error + Actions ── */}
-
+      {/* Error alert */}
       {error && (
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="text-sm text-red-500 px-1"
-        >
+        <div className="p-4 rounded-xl border border-red-500/30 bg-red-500/10 text-red-600 dark:text-red-400 text-sm">
           {error}
-        </motion.p>
+        </div>
       )}
 
-      <div className="flex gap-3 pt-2">
+      {/* Footer Actions */}
+      <div className="flex items-center gap-4 pt-4">
         <button
           type="submit"
           disabled={loading}
-          className="flex items-center gap-2 px-6 py-2.5 bg-accent text-accent-foreground rounded-xl hover:bg-accent/90 active:scale-[0.98] transition-all disabled:opacity-50 text-sm font-medium shadow-sm shadow-accent/20"
+          className="flex items-center gap-2 px-7 py-3 bg-accent text-accent-foreground rounded-xl hover:bg-accent/90 active:scale-[0.98] transition-all font-semibold text-sm shadow-md shadow-accent/25 disabled:opacity-50 cursor-pointer"
         >
           {loading && <Loader2 className="w-4 h-4 animate-spin" />}
-          {loading ? "Saving…" : "Save project"}
+          {loading ? "Saving Project…" : "Save Project"}
         </button>
         <button
           type="button"
           onClick={onCancel}
-          className="px-6 py-2.5 rounded-xl border border-border text-muted-foreground hover:text-foreground hover:border-foreground/25 active:scale-[0.98] transition-all text-sm"
+          disabled={loading}
+          className="px-6 py-3 rounded-xl border border-border bg-card text-muted-foreground hover:text-foreground hover:border-foreground/30 active:scale-[0.98] transition-all text-sm font-medium cursor-pointer"
         >
           Cancel
         </button>

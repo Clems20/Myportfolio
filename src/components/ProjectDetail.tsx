@@ -16,18 +16,18 @@ interface ProjectDetailProps {
     date: string;
     productLink?: string;
     tools: string[];
-    goal: string;
-    problem: string;
-    userDescription: string;
-    challenges: string[];
-    processSteps: {
+    goal?: string;
+    problem?: string;
+    userDescription?: string;
+    challenges?: string[];
+    processSteps?: {
       title: string;
       description: string;
       images: string[];
     }[];
-    results: {
-      metrics?: string[]; // optional — most projects don't have metrics
-      learnings: string[];
+    results?: {
+      metrics?: string[];
+      learnings?: string[];
     };
   };
   onClose: () => void;
@@ -156,61 +156,71 @@ export function ProjectDetail({ project, onClose, onNavigate, hasPrev, hasNext }
           )}
         </motion.div>
 
-        {/* Project Summary */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.25 }}
-          className="mb-12 md:mb-24"
-        >
-          <h2 className="text-2xl md:text-3xl lg:text-4xl mb-8 md:mb-12">Overview</h2>
-          
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-            <div>
-              <h3 className="text-xs md:text-sm text-accent uppercase tracking-wider mb-3">Goal</h3>
-              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{project.goal}</p>
+        {/* Project Summary / Overview */}
+        {(project.goal || project.problem || project.userDescription) && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className="mb-12 md:mb-24"
+          >
+            <h2 className="text-2xl md:text-3xl lg:text-4xl mb-8 md:mb-12">Overview</h2>
+            
+            <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+              {project.goal && (
+                <div>
+                  <h3 className="text-xs md:text-sm text-accent uppercase tracking-wider mb-3">Goal</h3>
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{project.goal}</p>
+                </div>
+              )}
+              {project.problem && (
+                <div>
+                  <h3 className="text-xs md:text-sm text-accent uppercase tracking-wider mb-3">Problem</h3>
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{project.problem}</p>
+                </div>
+              )}
+              {project.userDescription && (
+                <div>
+                  <h3 className="text-xs md:text-sm text-accent uppercase tracking-wider mb-3">Users</h3>
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{project.userDescription}</p>
+                </div>
+              )}
             </div>
-            <div>
-              <h3 className="text-xs md:text-sm text-accent uppercase tracking-wider mb-3">Problem</h3>
-              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{project.problem}</p>
-            </div>
-            <div>
-              <h3 className="text-xs md:text-sm text-accent uppercase tracking-wider mb-3">Users</h3>
-              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{project.userDescription}</p>
-            </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        )}
 
         {/* Challenge Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mb-12 md:mb-24"
-        >
-          <h2 className="text-2xl md:text-3xl lg:text-4xl mb-8 md:mb-12">Project Objectives</h2>
-          
-          <div className="space-y-4 md:space-y-6 max-w-4xl">
-            {project.challenges.map((challenge, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: 0.35 + index * 0.06 }}
-                className="flex gap-3 md:gap-4"
-              >
-                <div className="flex-shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-full bg-accent/10 flex items-center justify-center">
-                  <span className="text-accent text-xs md:text-sm">{index + 1}</span>
-                </div>
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed pt-1">{challenge}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+        {project.challenges && project.challenges.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="mb-12 md:mb-24"
+          >
+            <h2 className="text-2xl md:text-3xl lg:text-4xl mb-8 md:mb-12">Project Objectives</h2>
+            
+            <div className="space-y-4 md:space-y-6 max-w-4xl">
+              {project.challenges.map((challenge, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: 0.35 + index * 0.06 }}
+                  className="flex gap-3 md:gap-4"
+                >
+                  <div className="flex-shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-full bg-accent/10 flex items-center justify-center">
+                    <span className="text-accent text-xs md:text-sm font-medium">{index + 1}</span>
+                  </div>
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed pt-1">{challenge}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        )}
 
         {/* Process Steps */}
-        {project.processSteps.map((step, index) => {
-          const isFinalDesign = step.title.toLowerCase().includes('final design');
+        {project.processSteps && project.processSteps.length > 0 && project.processSteps.map((step, index) => {
+          const isFinalDesign = step.title?.toLowerCase().includes('final design');
           
           return (
             <motion.div
@@ -221,82 +231,115 @@ export function ProjectDetail({ project, onClose, onNavigate, hasPrev, hasNext }
               className="mb-12 md:mb-24"
             >
               <h2 className="text-2xl md:text-3xl lg:text-4xl mb-4 md:mb-6">{step.title}</h2>
-              <p className="text-base md:text-lg text-muted-foreground mb-8 md:mb-12 max-w-3xl">
-                {step.description}
-              </p>
+              {step.description && (
+                <p className="text-base md:text-lg text-muted-foreground mb-8 md:mb-12 max-w-3xl">
+                  {step.description}
+                </p>
+              )}
               
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.15 + index * 0.08 }}
-              >
-                {isFinalDesign ? (
-                  <div className="space-y-4 md:space-y-6">
-                    {step.images.map((image, imgIndex) => (
-                      <motion.div
-                        key={imgIndex}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.4, delay: 0.15 + index * 0.08 + imgIndex * 0.06 }}
-                        className="group relative w-full rounded-lg md:rounded-xl overflow-hidden bg-sand/30"
-                      >
-                        <img
-                          src={image}
-                          alt={`${step.title} ${imgIndex + 1}`}
-                          className="w-full h-auto object-contain cursor-pointer"
-                          onClick={() => setFullscreenImage(image)}
-                        />
-                        
-                        {/* Fullscreen Expand Indicator */}
-                        <motion.button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setFullscreenImage(image);
-                          }}
-                          className="absolute top-4 left-4 p-2.5 rounded-full bg-background/80 hover:bg-background text-foreground transition-all backdrop-blur-sm shadow-lg lg:opacity-0 lg:group-hover:opacity-100"
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.95 }}
-                          aria-label="Expand to fullscreen"
+              {step.images && step.images.length > 0 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.15 + index * 0.08 }}
+                >
+                  {isFinalDesign ? (
+                    <div className="space-y-4 md:space-y-6">
+                      {step.images.map((image, imgIndex) => (
+                        <motion.div
+                          key={imgIndex}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.4, delay: 0.15 + index * 0.08 + imgIndex * 0.06 }}
+                          className="group relative w-full rounded-lg md:rounded-xl overflow-hidden bg-sand/30"
                         >
-                          <Maximize2 className="w-5 h-5" />
-                        </motion.button>
-                      </motion.div>
-                    ))}
-                  </div>
-                ) : (
-                  <ImageSlider images={step.images} alt={step.title} aspectRatio="aspect-[16/10]" />
-                )}
-              </motion.div>
+                          <img
+                            src={image}
+                            alt={`${step.title} ${imgIndex + 1}`}
+                            className="w-full h-auto object-contain cursor-pointer"
+                            onClick={() => setFullscreenImage(image)}
+                          />
+                          
+                          {/* Fullscreen Expand Indicator */}
+                          <motion.button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setFullscreenImage(image);
+                            }}
+                            className="absolute top-4 left-4 p-2.5 rounded-full bg-background/80 hover:bg-background text-foreground transition-all backdrop-blur-sm shadow-lg lg:opacity-0 lg:group-hover:opacity-100"
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.95 }}
+                            aria-label="Expand to fullscreen"
+                          >
+                            <Maximize2 className="w-5 h-5" />
+                          </motion.button>
+                        </motion.div>
+                      ))}
+                    </div>
+                  ) : (
+                    <ImageSlider images={step.images} alt={step.title} aspectRatio="aspect-[16/10]" />
+                  )}
+                </motion.div>
+              )}
             </motion.div>
           );
         })}
 
-        {/* Results & Lessons Learned */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mb-12 md:mb-24"
-        >
-          <h2 className="text-2xl md:text-3xl lg:text-4xl mb-8 md:mb-12">Lessons Learned</h2>
-          
-          <div className="max-w-4xl">
-            <div className="space-y-4 md:space-y-6">
-              {project.results.learnings.map((learning, index) => (
+        {/* Results & Metrics */}
+        {project.results?.metrics && project.results.metrics.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mb-12 md:mb-24"
+          >
+            <h2 className="text-2xl md:text-3xl lg:text-4xl mb-8 md:mb-12">Results & Impact</h2>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-4xl">
+              {project.results.metrics.map((metric, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.25 + index * 0.06 }}
-                  className="flex gap-3 md:gap-4"
+                  className="p-5 rounded-2xl bg-sand/20 border border-border flex items-start gap-3"
                 >
-                  <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-accent mt-2"></div>
-                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{learning}</p>
+                  <div className="w-2 h-2 rounded-full bg-accent mt-2 shrink-0" />
+                  <p className="text-sm md:text-base font-medium text-foreground leading-snug">{metric}</p>
                 </motion.div>
               ))}
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        )}
+
+        {/* Results & Lessons Learned */}
+        {project.results?.learnings && project.results.learnings.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mb-12 md:mb-24"
+          >
+            <h2 className="text-2xl md:text-3xl lg:text-4xl mb-8 md:mb-12">Lessons Learned</h2>
+            
+            <div className="max-w-4xl">
+              <div className="space-y-4 md:space-y-6">
+                {project.results.learnings.map((learning, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: 0.25 + index * 0.06 }}
+                    className="flex gap-3 md:gap-4"
+                  >
+                    <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-accent mt-2"></div>
+                    <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{learning}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        )}
 
         {/* Navigation */}
         <motion.div

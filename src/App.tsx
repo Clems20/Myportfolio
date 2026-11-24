@@ -19,7 +19,7 @@ import { staticProjects } from "./components/WorkGrid";
 
 export default function App() {
   // ── Admin route ──────────────────────────────────────────────────────────────
-  if (window.location.pathname === "/admin") {
+  if (window.location.pathname === "/admin" || window.location.pathname === "/admin/") {
     return <AdminPage />;
   }
 

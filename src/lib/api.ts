@@ -15,6 +15,15 @@ function authHeaders(): HeadersInit {
 }
 
 async function handleResponse<T>(res: Response): Promise<T> {
+  if (res.status === 401) {
+    localStorage.removeItem("admin_token");
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("admin_unauthorized"));
+    }
+    const body = await res.json().catch(() => ({ error: "Session expired" })) as { error?: string };
+    throw new Error(body.error ?? "Session expired. Please sign in again.");
+  }
+
   if (!res.ok) {
     const body = await res.json().catch(() => ({ error: res.statusText })) as { error?: string };
     throw new Error(body.error ?? `HTTP ${res.status}`);
@@ -32,10 +41,16 @@ export async function login(password: string): Promise<void> {
   });
   const data = await handleResponse<{ token: string }>(res);
   localStorage.setItem("admin_token", data.token);
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(new CustomEvent("admin_login"));
+  }
 }
 
 export function logout(): void {
   localStorage.removeItem("admin_token");
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(new CustomEvent("admin_logout"));
+  }
   fetch(`${BASE}/auth/logout`, { method: "POST" }).catch(() => {});
 }
 
@@ -100,6 +115,14 @@ export async function reorderProjects(order: Array<{ _id: string; order: number 
 // ── File upload ───────────────────────────────────────────────────────────────
 
 export async function uploadImage(file: File): Promise<string> {
+  if (!file.type.startsWith("image/")) {
+    throw new Error("Only image files are supported (PNG, JPG, WebP, GIF, SVG).");
+  }
+  const MAX_SIZE = 25 * 1024 * 1024; // 25MB
+  if (file.size > MAX_SIZE) {
+    throw new Error("Image file size exceeds the 25MB limit.");
+  }
+
   // Step 1: get a presigned PUT URL from the API
   const res = await fetch(`${BASE}/upload`, {
     method: "POST",
